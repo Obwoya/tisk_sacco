@@ -7,6 +7,6 @@ describe("<Banner/>", () => {
 	it("Must render the wrapper div ", function() {
 		const BannerComponent = shallow(<ProfileBanner />)
 		expect(shallow(<div />).exists())
-		expect(BannerComponent.find("div").length === 3).toBe(true)
+		expect(BannerComponent.find("div").length === 8).toBe(true)
 	})
 })
