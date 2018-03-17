@@ -55,11 +55,11 @@ var config = {
 		new HtmlWebpackPlugin({
 			filename: DIST_DIR + "/index.html",
 			template: SRC_DIR + "/index.html",
-			title: "React Js Boilerplate",
+			title: "Tisk",
 			inject: true
 		}),
 		new WebpackPwaManifest({
-			name: "react js boilerplate",
+			name: "Tisk",
 			short_name: "rjb",
 			lang: "en-us",
 			start_url: "/",

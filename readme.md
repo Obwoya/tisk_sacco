@@ -38,7 +38,7 @@ The recommended editor for this is VS CODE with these extensions
 After creation, your project should look like this:
 
 ```
-react-js-boilerplate/
+Tisk/
     public/
         build/
             main.js
