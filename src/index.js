@@ -2,6 +2,7 @@ import { render } from "react-dom"
 import React from "react"
 import { Provider } from "react-redux"
 
+import "./app.css"
 
 import App from "./Containers/App"
 import store from "./Store/configureStore"
