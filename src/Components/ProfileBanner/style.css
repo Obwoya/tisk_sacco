@@ -1,0 +1,20 @@
+.bannerGrid{
+    background: #b32017;
+    height: 33vh;
+    color: white;
+    padding: 20px;
+
+    display: block;
+}
+h1{
+    margin: 0px;
+}
+.avatarGrid{
+    width: 25%;
+    float: left;
+}
+.profileNameGrid{
+    width: 75%;
+    float: left;
+    padding-top: 10px;
+}

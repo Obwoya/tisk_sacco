@@ -2,12 +2,12 @@ import React, { Component } from "react"
 
 // import "./style.css"
 
-import Banner from "../../Components/Banner"
+import ProfileBanner from "../../Components/ProfileBanner"
 class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<Banner/>
+				<ProfileBanner/>
 				<h1>Homepage</h1>
 			</div>
 		)
