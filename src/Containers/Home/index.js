@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import styles  from "./style.css"
+import styles from "./style.css"
 
 import ProfileBanner from "../../Components/ProfileBanner"
 import RecentTransactions from "../../Components/RecentTransactions"
@@ -8,9 +8,25 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<ProfileBanner/>
+				<ProfileBanner />
 				<div className={styles.contentGrid}>
-					<RecentTransactions/>
+					<RecentTransactions />
+				</div>
+
+				<div className={styles.quickActions}>
+					<div>
+						<button
+							type="submit"
+							className={styles.quickActionDeposit}
+						>
+							<div className={styles.quickActionIcon} />
+							<div >Deposit Cash</div>
+						</button>
+						<button type="submit" className={styles.quickActionLoan}>
+							<div className={styles.quickActionIcon} />
+							<div >Take Loan</div>
+						</button>
+					</div>
 				</div>
 			</div>
 		)

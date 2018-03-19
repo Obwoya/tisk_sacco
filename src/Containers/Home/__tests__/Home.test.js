@@ -7,7 +7,7 @@ describe("<Home/>", () => {
 	it("Must render the wrapper div ", function() {
 		const Homepage = shallow(<Home/>)
 		expect( shallow(<div/>).exists())
-		expect(Homepage.find("div").length === 2).toBe(true)
+		expect(Homepage.find("div").length === 8).toBe(true)
 		
 	})	
 })

@@ -25,7 +25,7 @@
 }
 
 .activityList li > div.activityAmount {
-  text-align: center;
+  text-align: right;
   font-weight: bold;
 }
 
