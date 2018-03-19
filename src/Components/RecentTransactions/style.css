@@ -1,5 +1,78 @@
-.recentTransactionsGrid{
-    padding: 5px;
-    border: solid #666666;
-    border-width: 0.5px;  
+.recentTransactionsGrid {
+  padding: 5px;
+  border: solid #666666;
+  border-width: 0.5px;
+}
+
+.cardWrapper {
+  position: relative;
+}
+.card {
+  padding: 8px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+}
+
+.card::after {
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(./images/workspace.svg);
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.cardHeading .title {
+  float: left;
+}
+
+.cardHeading .more {
+  float: right;
+}
+
+.activityList {
+  list-style: none;
+  display: table;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-collapse: collapse;
+}
+
+.activityList li {
+  display: table-row;
+  border-bottom: solid 1px #ddd;
+}
+
+.activityList li > div {
+  display: table-cell;
+  padding: 15px 0px;
+  vertical-align: middle;
+}
+
+.activityList .activityType {
+  width: 60%;
+  padding-left: 15px;
+}
+
+.activityList li > div.activityAmount {
+  text-align: center;
+  font-weight: bold;
+}
+
+.activityList .activityDate {
+  text-align: center;
+  font-size: 10px;
+}
+
+.activityDate > div {
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 200;
 }
