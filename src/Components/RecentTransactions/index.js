@@ -1,6 +1,8 @@
 import React from "react"
 import styles from "./style.css"
 
+import ActivityList from "../ActivityList"
+
 const RecentTransactions = () => {
 	return (
 		<div className={styles.cardWrapper}>
@@ -12,40 +14,30 @@ const RecentTransactions = () => {
 					</div>
 				</div>
 				<div>
-					<ul className={styles.activityList}>
-						<li>
-							<div className={styles.activityDate}>
-								<div>Jan</div>
-								<div>12</div>
-							</div>
-							<div className={styles.activityType}>Deposit</div>
-							<div className={styles.activityAmount}>1,000</div>
-						</li>
-						<li>
-							<div className={styles.activityDate}>
-								<div>Jan</div>
-								<div>12</div>
-							</div>
-							<div className={styles.activityType}>Deposit</div>
-							<div className={styles.activityAmount}>1,000</div>
-						</li>
-						<li>
-							<div className={styles.activityDate}>
-								<div>Jan</div>
-								<div>12</div>
-							</div>
-							<div className={styles.activityType}>Deposit</div>
-							<div className={styles.activityAmount}>1,000</div>
-						</li>
-						<li>
-							<div className={styles.activityDate}>
-								<div>Jan</div>
-								<div>12</div>
-							</div>
-							<div className={styles.activityType}>Deposit</div>
-							<div className={styles.activityAmount}>1,000</div>
-						</li>
-					</ul>
+					<ActivityList
+						activities={[
+							{
+								date: new Date("July 20, 69 00:20:18"),
+								type: "Deposit",
+								amount: 3000
+							},
+							{
+								date: new Date("July 20, 69 00:20:18"),
+								type: "Deposit",
+								amount: 3000
+							},
+							{
+								date: new Date("July 20, 69 00:20:18"),
+								type: "Deposit",
+								amount: 3000
+							},
+							{
+								date: new Date("July 20, 69 00:20:18"),
+								type: "Deposit",
+								amount: 3000
+							}
+						]}
+					/>
 				</div>
 			</div>
 		</div>

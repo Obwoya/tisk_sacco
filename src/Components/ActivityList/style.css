@@ -1,0 +1,41 @@
+
+.activityList {
+  list-style: none;
+  display: table;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-collapse: collapse;
+}
+
+.activityList li {
+  display: table-row;
+  border-bottom: solid 1px #ddd;
+}
+
+.activityList li > div {
+  display: table-cell;
+  padding: 15px 0px;
+  vertical-align: middle;
+}
+
+.activityList .activityType {
+  width: 60%;
+  padding-left: 15px;
+}
+
+.activityList li > div.activityAmount {
+  text-align: center;
+  font-weight: bold;
+}
+
+.activityList .activityDate {
+  text-align: center;
+  font-size: 15px;
+}
+
+.activityDate > div {
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 200;
+}

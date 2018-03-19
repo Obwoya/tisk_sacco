@@ -11,6 +11,6 @@ describe("<RecentTransactions/>", () => {
 	it("Must all the right number of grids ", function() {
 		const RecentTransactionsComponent = shallow(<RecentTransactions />)
 		expect(shallow(<div />).exists())
-		expect(RecentTransactionsComponent.find("div").length === 3).toBe(true)
+		expect(RecentTransactionsComponent.find("div").length === 6).toBe(true)
 	})
 })
