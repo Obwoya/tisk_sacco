@@ -17,17 +17,21 @@
   font-style: normal;
 }
 div {
-    font-family: SharpSans;
+  font-family: SharpSans;
   /* background-color: #f1592a; */
 }
 .header {
-    font-family: SharpSans;
-    background-color: #EFEB40;    
+  font-family: SharpSans;
+  background-color: #efeb40;
 }
-img{
+img {
   max-width: 100%;
 }
 
-body{
-  margin:0;
+html,
+body,
+body > div,
+body > div > div {
+  margin: 0;
+  height: 100%;
 }
