@@ -49,6 +49,7 @@
   bottom: 20px;
   min-height: 60px;
   max-width: 35vw;
+  min-width: 120px;
 }
 
 .quickActions .quickActionLoan {
@@ -56,5 +57,6 @@
   top: 0px;
   bottom: 20px;
   min-height: 60px;
+  min-width: 120px;
   max-width: 35vw;
 }
