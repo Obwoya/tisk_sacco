@@ -2,7 +2,7 @@
 import React from "react"
 import { shallow } from "enzyme"
 import SignUp from "../index"
-import styles from "../style.css"
+
 
 describe("<SignUp/>", () => {
 	it("Must render ", function() {
