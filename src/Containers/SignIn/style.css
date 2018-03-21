@@ -1,0 +1,70 @@
+.signInGrid {
+  max-height: 100vh;
+  position: relative;
+}
+.headerGrid {
+  max-height: 25vh;
+  height: 15vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../assets/images/tiskSacco.gif);
+  z-index: -1;
+}
+
+.formGrid {
+  height: auto;
+  min-height: 65vh;
+  background: white;
+  padding: 20px;
+  position: relative;
+}
+.form {
+  border: solid 1px #ddd;
+  border-radius: 2px;
+   margin: auto;
+    /* width: 60%; */
+  max-width: 450px;
+  /* transform: translateY(25%); */
+}
+
+.formGroup {
+  padding: 10px;
+}
+.inputField {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.inputField > input {
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+  border: 0px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: white;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+
+.formSubmitGroup {
+}
+.formSubmitButton {
+  background: #b32017;
+  width: 100%;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.signUpText {
+  margin: 0px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
