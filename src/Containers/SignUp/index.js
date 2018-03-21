@@ -50,7 +50,7 @@ class SignUp extends Component {
 						already have an account? <a href="#"> sign in</a>
 					</p>
 				</div>
-				<div className={styles.footerGrid} />
+				
 			</div>
 		)
 	}
