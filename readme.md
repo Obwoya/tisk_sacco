@@ -1,7 +1,6 @@
-# React Boilerplate
+# TISK SACCO APP
 
-This is a simple, opinionated boilerplate to help quickly setup a react-redux appliaction
-
+TISK sacco member management
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -21,10 +20,25 @@ clone the repo
 git clone https://github.com/muneneevans/react-js-bolierplate.git
 ```
 
-install node modules
+## Install node modules
 
 ```
 npm install
+```
+## Running the tests
+
+run test
+
+```
+npm test
+```
+
+## Buidling the project
+
+run build
+
+```
+npm start
 ```
 
 ## Tools
@@ -57,24 +71,11 @@ Tisk/
         index.js
     package.json
     readme.md
-    webpack.config.js
+    webpack.common.js
+    webpack.dev.js
+    webpack.prod.js
 ```
 
-## Running the tests
-
-run test
-
-```
-npm test
-```
-
-## Buidling the project
-
-run build
-
-```
-npm start
-```
 
 ## Adding Actions/ActionTypes/Reducer/Selectors
 
@@ -145,18 +146,6 @@ The configureStore.js is already configured to accept the root reducer as the de
 * [Webpack](https://webpack.js.org/) - Dependency Management
 * [Babel](https://babeljs.io/) - compiling scripts
 
-## Authors
-
-* **Evans Munene** - [Vorane](https://github.com/muneneevans)
-* **Brian Savatia** - [Vorane](https://github.com/savatia)
 
 See also the list of [contributors](https://github.com/muneneevans/react-js-bolierplate/graphs/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License
-
-## Acknowledgments
-
-* God
-* [Vorane Development Team](http://www.vorane.com)
