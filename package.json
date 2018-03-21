@@ -1,7 +1,7 @@
 {
-	"name": "react-boilerplate",
+	"name": "tisk-sacco",
 	"version": "1.0.0",
-	"description": "a basic and opininated boilerplate for a react app",
+	"description": "sacco member management application",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --open --config webpack.dev.js",
@@ -16,15 +16,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/muneneevans/react-js-bolierplate.git"
+		"url": "git+https://github.com/muneneevans/tisk_sacco.git"
 	},
 	"keywords": ["boilerplate"],
 	"author": "Evans Munene",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/muneneevans/react-js-bolierplate/issues"
+		"url": "https://github.com/muneneevans/tisk_sacco/issues"
 	},
-	"homepage": "https://github.com/muneneevans/react-js-bolierplate#readme",
+	"homepage": "https://github.com/muneneevans/tisk_sacco#readme",
 	"dependencies": {
 		"preact": "^8.2.7",
 		"preact-compat": "^3.17.0",
