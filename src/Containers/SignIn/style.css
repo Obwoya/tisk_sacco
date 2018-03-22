@@ -22,10 +22,8 @@
 .form {
   border: solid 1px #ddd;
   border-radius: 2px;
-   margin: auto;
-    /* width: 60%; */
+  margin: auto;
   max-width: 450px;
-  /* transform: translateY(25%); */
 }
 
 .formGroup {
@@ -47,6 +45,8 @@
 }
 
 .formSubmitGroup {
+  margin: auto;
+  max-width: 450px;
 }
 .formSubmitButton {
   background: #b32017;

@@ -45,6 +45,8 @@
 }
 
 .formSubmitGroup {
+  margin: auto;
+  max-width: 450px;
 }
 .formSubmitButton {
   background: #b32017;

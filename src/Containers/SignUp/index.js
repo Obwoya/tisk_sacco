@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styles from "./style.css"
 
+import Button from "../../Components/Button"
 class SignUp extends Component {
 	render() {
 		return (
@@ -42,15 +43,20 @@ class SignUp extends Component {
 								/>
 							</div>
 						</div>
-						<div className={styles.formSubmitGroup}>
-							<button className={styles.formSubmitButton}>Sign Up</button>
-						</div>
 					</form>
+						<div className={styles.formSubmitGroup}>
+							<Button
+								children="SIGN UP"
+								backgroundColor={"#b32017"}
+								foregroundColor={"#ffffff"}
+								raised={true}
+								// clickAction={this.handleSubmitButton.bind(this)}
+							/>
+						</div>
 					<p className={styles.signInText}>
 						already have an account? <a href="#"> sign in</a>
 					</p>
 				</div>
-				
 			</div>
 		)
 	}

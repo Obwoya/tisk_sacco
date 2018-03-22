@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styles from "./style.css"
 
+import Button from "../../Components/Button"
 class signIn extends Component {
 	render() {
 		return (
@@ -16,7 +17,7 @@ class signIn extends Component {
 									name="email"
 									placeholder="email"
 								/>
-							</div>							
+							</div>
 							<div className={styles.inputField}>
 								<input
 									type="password"
@@ -24,17 +25,22 @@ class signIn extends Component {
 									name="password"
 									placeholder="password"
 								/>
-							</div>							
-						</div>
-						<div className={styles.formSubmitGroup}>
-							<button className={styles.formSubmitButton}>Sign in</button>
+							</div>
 						</div>
 					</form>
+					<div className={styles.formSubmitGroup}>
+						<Button
+							children="SIGN UP"
+							backgroundColor={"#b32017"}
+							foregroundColor={"#ffffff"}
+							raised={true}
+							// clickAction={this.handleSubmitButton.bind(this)}
+						/>
+					</div>
 					<p className={styles.signUpText}>
 						dont have an account? <a href="#"> sign up</a>
 					</p>
 				</div>
-				
 			</div>
 		)
 	}
