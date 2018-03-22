@@ -8,7 +8,7 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<ProfileBanner />
+				<ProfileBanner user={{ name:"Evans Munene"}}/>
 				<div className={styles.contentGrid}>
 					<RecentTransactions />
 				</div>
