@@ -26,36 +26,26 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(./images/workspace.svg  );
+  background-image: url(./images/workspace.svg);
   z-index: -1;
 }
-.welcomeMessage{
-    text-align: center;
+.welcomeMessage {
+  text-align: center;
 }
-.welcomeMessage>h2,p{
-    margin: 0;
+.welcomeMessage > h2,
+p {
+  margin: 0;
 }
-.welcomeMessage>p{
-    font-size: 11px;
+.welcomeMessage > p {
+  font-size: 11px;
 }
-
 
 .signUpGroup {
-    padding-top: 20px;
-    margin: auto;
-    max-width: 450px;
+  padding-top: 20px;
+  margin: auto;
+  max-width: 450px;
 }
-.signUpButton {
-  background: #b32017;
-  width: 100%;
-  border: none;
-  color: white;
-  text-transform: uppercase;
-  font-size: 22px;
-  line-height: 22px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
+.signUp.signUpButton {
 }
 .signInText {
   margin: 0px;
@@ -63,4 +53,59 @@
   font-size: 11px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.signUpButton {
+  width: 100%;
+  border: none;
+  background: #b32017;
+  color: white;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px rgba(54, 54, 54, 0.4);
+}
+
+/* Ripple magic */
+.signUpButton {
+  position: relative;
+  overflow: hidden;
+}
+
+.signUpButton:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.signUpButton:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
 }
