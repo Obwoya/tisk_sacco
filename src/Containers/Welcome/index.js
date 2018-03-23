@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import styles from "./style.css"
-
+import { Link, Redirect } from "react-router-dom"
 import Button from "../../Components/Button"
 class WelcomePage extends Component {
-	handleSubmitButton(){		
+	handleSubmitButton() {
+		return(<Redirect to="/signup"/>)
 	}
 	render() {
 		return (
@@ -21,11 +22,11 @@ class WelcomePage extends Component {
 							backgroundColor={"#b32017"}
 							foregroundColor={"#ffffff"}
 							raised={true}
-							clickAction={this.handleSubmitButton.bind(this)}						
-						/>						
+							clickAction={this.handleSubmitButton.bind(this)}
+						/>
 					</div>
 					<p className={styles.signInText}>
-						already have an account? <a href="#"> sign in</a>
+						already have an account? <Link to="/signin"> sign in</Link>
 					</p>
 				</div>
 			</div>

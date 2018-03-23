@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -72,7 +72,7 @@ class signIn extends Component {
 					</form>
 					<div className={styles.formSubmitGroup}>
 						<Button
-							children="SIGN UP"
+							children="SIGN In"
 							backgroundColor={"#b32017"}
 							foregroundColor={"#ffffff"}
 							raised={true}
@@ -80,7 +80,7 @@ class signIn extends Component {
 						/>
 					</div>
 					<p className={styles.signUpText}>
-						dont have an account? <a href="#"> sign up</a>
+						dont have an account? <Link to="/signup"> sign up</Link>
 					</p>
 				</div>
 			</div>
