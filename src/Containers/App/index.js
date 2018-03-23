@@ -1,12 +1,6 @@
 import React, { Component } from "react"
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,	
-} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { connect } from "react-redux"
-
-
 
 import PrivateRoute from "../../Components/PrivateRoute"
 import { getAuthStatus } from "../../Store/Users/selectors"
@@ -38,11 +32,9 @@ class App extends Component {
 	}
 }
 
-
-
 const mapStateToProps = state => {
 	return {
-		isAuthenticated: getAuthStatus(state.users)
+		isUserAuthenticated: getAuthStatus(state.users)
 	}
 }
 
