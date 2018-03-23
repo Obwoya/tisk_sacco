@@ -16,14 +16,14 @@ export default class UsersService {
 				Accept: "application/json",
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({
-				user
-			})
+			body: JSON.stringify(user)
 		}
 
 		return fetch(url, request)
 			.then(response => {
-				return response.json()
+				if(response.status === 200){
+					return response.json()
+				}
 			})
 			.catch(error => {
 				throw error

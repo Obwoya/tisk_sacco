@@ -6,7 +6,7 @@ export const login = (user) => {
 		dispatch({
 			type: actionTypes.LOGIN_REQUEST
 		})
-		return UsersService.getToken(user).then(response => {
+		return UsersService.getToken(user).then(response => {			
 			return dispatch({
 				type: actionTypes.LOGIN_SUCCESS,
 				token: response

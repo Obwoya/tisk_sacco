@@ -1,9 +1,49 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { Redirect } from "react-router-dom"
+
+import * as userActions from "../../Store/Users/actions"
+import * as userSelectors from "../../Store/Users/selectors"
+
 import styles from "./style.css"
 
 import Button from "../../Components/Button"
 class signIn extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			user: {
+				email: "",
+				password: ""
+			}
+		}
+
+		this.handleChange = this.handleChange.bind(this)
+	}
+
+	handleSubmitButton() {
+		this.props.userActions.login(this.state.user)
+	}
+
+	handleChange(event) {
+		let property = this.state.user
+		property[event.target.name] = event.target.value
+		this.setState({
+			...this.state,
+			user: property
+		})
+	}
+
 	render() {
+		const { from } = this.props.location.state || {
+			from: { pathname: "/home" }
+		}
+
+		if (this.props.isUserAuthenticated) {
+			return <Redirect to={from.pathname} />
+		}
+
 		return (
 			<div className={styles.signInGrid}>
 				<div className={styles.formGrid}>
@@ -16,6 +56,7 @@ class signIn extends Component {
 									id="email"
 									name="email"
 									placeholder="email"
+									onChange={this.handleChange}
 								/>
 							</div>
 							<div className={styles.inputField}>
@@ -24,6 +65,7 @@ class signIn extends Component {
 									id="password"
 									name="password"
 									placeholder="password"
+									onChange={this.handleChange}
 								/>
 							</div>
 						</div>
@@ -34,7 +76,7 @@ class signIn extends Component {
 							backgroundColor={"#b32017"}
 							foregroundColor={"#ffffff"}
 							raised={true}
-							// clickAction={this.handleSubmitButton.bind(this)}
+							clickAction={this.handleSubmitButton.bind(this)}
 						/>
 					</div>
 					<p className={styles.signUpText}>
@@ -46,4 +88,16 @@ class signIn extends Component {
 	}
 }
 
-export default signIn
+const mapStateToProps = state => {
+	return {
+		isUserAuthenticated: userSelectors.getAuthStatus(state.users)
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		userActions: bindActionCreators(userActions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(signIn)
