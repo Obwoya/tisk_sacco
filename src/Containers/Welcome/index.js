@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import styles from "./style.css"
-import { Link, Redirect } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import Button from "../../Components/Button"
 class WelcomePage extends Component {
 	handleSubmitButton() {
-		return(<Redirect to="/signup"/>)
+		this.props.history.push("/signup")
 	}
 	render() {
 		return (
@@ -34,4 +34,4 @@ class WelcomePage extends Component {
 	}
 }
 
-export default WelcomePage
+export default withRouter(WelcomePage)

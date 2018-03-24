@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Link } from "react-router-dom"
 
+import { withRouter} from "react-router-dom"
+
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
 
@@ -26,6 +28,7 @@ class SignUp extends Component {
 
 	handleSubmitButton() {
 		this.props.userActions.signup(this.state.user)
+		this.props.history.push("/home")
 	}
 
 	handleChange(event) {
@@ -128,4 +131,4 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter( SignUp))

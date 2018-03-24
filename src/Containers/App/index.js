@@ -18,7 +18,11 @@ class App extends Component {
 					<Switch>
 						<Route path="/signup" component={SignUp} />
 						<Route path="/signin" component={SignIn} />
-						<Route path="/home" component={Home} />
+						<PrivateRoute
+							path="/home"
+							component={Home}
+							isUserAuthenticated={this.props.isUserAuthenticated}
+						/>
 						<PrivateRoute
 							path="/protected"
 							component={Home}
