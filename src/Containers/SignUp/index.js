@@ -94,7 +94,7 @@ class SignUp extends Component {
 							</div>
 							<div className={styles.inputField}>
 								<input
-									type="tel"
+									type="password"
 									id="password"
 									name="confirmPassword"
 									placeholder="confirm password"
