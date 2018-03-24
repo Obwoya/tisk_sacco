@@ -66,7 +66,7 @@ var config = {
 			display: "standalone",
 			orientation: "portrait",
 			background_color: "#fff",
-			theme_color: "#f1592a",
+			theme_color: "#b32017",
 			icons: [
 				{
 					src: SRC_DIR + "/assets/icons/android-chrome-192x192.png",
