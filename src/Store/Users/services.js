@@ -27,7 +27,7 @@ export default class UsersService {
 				throw error
 			})
 	}
-
+	
 	static refreshToken(token) {
 		const url = UsersService.host.concat("/refreshtoken/")
 
@@ -53,4 +53,29 @@ export default class UsersService {
 				return error
 			})
 	}
+	
+	static registerUser(user) {
+		const url = UsersService.host.concat("/users/api/new/")
+
+		var myHeaders = new Headers()
+		myHeaders.append("content-type", "application/json")
+		myHeaders.append("X-Custom-Header", "ProcessThisImmediately")
+		const request = {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(user)
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				throw error
+			})
+	}
+	
 }

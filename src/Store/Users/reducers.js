@@ -5,9 +5,12 @@ import { combineReducers } from "redux"
 
 const initialState = Immutable({
 	_loginProcess: {},
-	auth:{
+	auth: {
 		_isUserAuthenticated: false
-	}
+	},
+
+	_signupProcess: {},
+	userInformation: {}
 })
 
 export const usersReducer = (state = initialState, action = {}) => {
@@ -19,10 +22,20 @@ export const usersReducer = (state = initialState, action = {}) => {
 	case actionTypes.LOGIN_SUCCESS:
 		return state.merge({
 			_loginProcess: { status: processTypes.SUCCESS },
-			auth:{
+			auth: {
 				_isUserAuthenticated: true,
 				token: action.token.token
 			}
+		})
+
+	case actionTypes.SIGNUP_REQUEST:
+		return state.merge({
+			_signupProcess: { status: processTypes.PROCESSING }
+		})
+	case actionTypes.SIGNUP_SUCCESS:		
+		return state.merge({
+			_signupProcess: { status: processTypes.SUCCESS },
+			userInformation: action.userInformation
 		})
 	default:
 		return state

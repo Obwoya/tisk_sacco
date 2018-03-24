@@ -27,4 +27,21 @@ describe("User selectors", () => {
 
 		expect(userSelectors.getAuthStatus(sampleState.users)).toEqual(true)
 	})
+
+	it("returns user information", () => {
+		let sampleState = {
+			users: {
+				users: {
+					userInformation: {
+						email: "email@email.com",
+						password: "pbkdf2",
+						phone_number: "123456789",
+						first_name: "john",
+						last_name: "doe"
+					}
+				}
+			}
+		}
+		expect(userSelectors.getUserInformation(sampleState.users)).toEqual(sampleState.users.users.userInformation)
+	})
 })
