@@ -1,16 +1,34 @@
 /* global  it, describe, expect */
 import React from "react"
 import { shallow } from "enzyme"
-import SignUp from "../index"
+import Signup from "../index"
 
+import configureMockStore from "redux-mock-store"
+import thunk from "redux-thunk"
+
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
 describe("<SignUp/>", () => {
 	it("Must render ", function() {
-		expect(shallow(<SignUp />).exists())
+		const store = mockStore({
+			users: { users: { auth: { _isUserAuthenticated: true } } }
+		})
+		expect(shallow(<Signup store={store} />).exists())
 	})
 	it("Must render the wrapper div ", function() {
-		const SignUpPage = shallow(<SignUp />)
-		expect(SignUpPage.getElement().props.className).toEqual("signUpGrid")
-		expect(SignUpPage.getElement().type).toEqual("div")
-	})	
+		const store = mockStore({
+			users: { users: { auth: { _isUserAuthenticated: true } } }
+		})
+		const SignUpPage = shallow(
+			<Signup store={store} isUserAuthenticated={true} />
+		)
+
+		// console.log(SignUpPage.getElement().type.displayName)
+		expect(SignUpPage.getElement().type.displayName).toEqual(
+			"withRouter(SignUp)"
+		)
+		// expect(SignUpPage.getElement().props.className).toEqual("signUpGrid")
+		// expect(SignUpPage.getElement().type).toEqual("div")
+	})
 })

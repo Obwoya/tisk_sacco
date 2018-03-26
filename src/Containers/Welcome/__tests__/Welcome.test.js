@@ -2,10 +2,14 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Welcome from "../index"
+import { Route } from "react-router-dom"
 
 describe("<Welcome/>", () => {
-	it("Must render the wrapper div ", function() {
-		const WelcomePage = shallow(<Welcome />)		
-		expect(WelcomePage.find("div").length).toEqual(6)
+	it("Has the withRouter HOC function ", function() {
+		const WelcomePage = shallow(<Welcome />)				
+		expect( typeof( WelcomePage.getElement().type)).toEqual("function")
+		// expect( WelcomePage.getElement().type).toEqual(
+		// 	[Function Route]
+		// )
 	})
 })

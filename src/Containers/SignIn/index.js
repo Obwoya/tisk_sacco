@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Redirect, Link } from "react-router-dom"
+import { Redirect, Link, withRouter } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -9,7 +9,7 @@ import * as userSelectors from "../../Store/Users/selectors"
 import styles from "./style.css"
 
 import Button from "../../Components/Button"
-class SignIn extends Component {
+export class SignIn extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -100,4 +100,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignIn))

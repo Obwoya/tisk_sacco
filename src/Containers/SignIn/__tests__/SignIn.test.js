@@ -20,7 +20,12 @@ describe("<SignIn/>", () => {
 		const store = mockStore({
 			users: { users: { auth: { _isUserAuthenticated: true } } }
 		})
-		const SignInPage = shallow(<SignIn store={store} isUserAuthenticated={true} />)
+		const SignInPage = shallow(
+			<SignIn store={store} isUserAuthenticated={true} />
+		)
+		expect(SignInPage.getElement().type.displayName).toEqual(
+			"withRouter(SignIn)"
+		)
 		// console.log(SignInPage.getElement())
 		// expect(SignInPage.getElement().props.className).toEqual("signInGrid")
 		// expect(SignInPage.getElement().type).toEqual("div")

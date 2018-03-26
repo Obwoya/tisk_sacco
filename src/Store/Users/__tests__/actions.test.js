@@ -1,4 +1,4 @@
-/* global  it, describe, expect */
+/* global  it, describe, expect, beforeAll, jest */
 import configureMockStore from "redux-mock-store"
 import thunk from "redux-thunk"
 
@@ -9,6 +9,11 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 describe("User action creators", () => {
+	beforeAll(() => {
+		global.sessionStorage = jest.genMockFunction()
+		global.sessionStorage.setItem = jest.genMockFunction()
+		global.sessionStorage.getItem = jest.genMockFunction()
+	})
 	it("should create an action to get a new token", () => {
 		let sampleToken = {
 			token: "tokencodes"
