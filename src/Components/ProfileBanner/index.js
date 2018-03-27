@@ -12,7 +12,7 @@ const ProfileBanner = ({ user, accountInformation = { balance: 0 } }) => {
 					<Avatar image={user.image} />
 				</div>
 				<div className={styles.profileNameGrid}>
-					<ProfileName name={user.name} />
+					<ProfileName name={user.first_name + " " + user.last_name} />
 				</div>
 			</div>
 			<div className={styles.accountGrid}>

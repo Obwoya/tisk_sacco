@@ -10,7 +10,9 @@ const initialState = Immutable({
 	},
 
 	_signupProcess: {},
-	userInformation: {}
+	userInformation: {},
+
+	_getUserInformationProcess: {}
 })
 
 export const usersReducer = (state = initialState, action = {}) => {
@@ -32,9 +34,19 @@ export const usersReducer = (state = initialState, action = {}) => {
 		return state.merge({
 			_signupProcess: { status: processTypes.PROCESSING }
 		})
-	case actionTypes.SIGNUP_SUCCESS:		
+	case actionTypes.SIGNUP_SUCCESS:
 		return state.merge({
 			_signupProcess: { status: processTypes.SUCCESS },
+			userInformation: action.userInformation
+		})
+
+	case actionTypes.GET_USER_INFORMATION_REQUESTED:
+		return state.merge({
+			_getUserInformationProcess: { status: processTypes.PROCESSING }
+		})
+	case actionTypes.GET_USER_INFORMATION_SUCCESS:
+		return state.merge({
+			_getUserInformationProcess: {status: processTypes.SUCCESS},
 			userInformation: action.userInformation
 		})
 	default:

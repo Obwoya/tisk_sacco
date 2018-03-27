@@ -53,4 +53,70 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+	it("should create an action get user information", () => {
+		let sampleResponse = {
+			id: 25,
+			password:
+				"pbkdf2_sha256$100000$zqSnuiKJf9BW$LlX5M/Jz6upGV0qu0g3hR7ncydxGI7y6TY+2s2nciU0=",
+			last_login: null,
+			is_superuser: false,
+			email: "munene24@gmail.com",
+			first_name: "captain",
+			last_name: "overmars",
+			gender: "",
+			phone_number: "0770372789",
+			date_joined: "2018-03-26T20:38:12.503916Z",
+			is_active: true,
+			groups: [],
+			user_permissions: []
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_INFORMATION_REQUESTED },
+			{
+				type: actionTypes.GET_USER_INFORMATION_SUCCESS,
+				userInformation: sampleResponse
+			}
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
+		store
+			.dispatch(
+				userActions.getUserInformation({
+					phoneNumber: sampleResponse.phone_number
+				})
+			)
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+		
+	})
+	it("Raises an exception when the user is not found", () => {
+		let sampleResponse = {
+			phone_number: "0770372789"
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_INFORMATION_REQUESTED },
+			{
+				type: actionTypes.GET_USER_INFORMATION_ERROR
+			}
+		]
+
+		const store = mockStore({})
+
+		fetch.mockResponse({}, { status: 404 })
+		store
+			.dispatch(
+				userActions.getUserInformation({
+					phoneNumber: sampleResponse.phone_number
+				})
+			)
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
 })

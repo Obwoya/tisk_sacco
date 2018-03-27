@@ -59,3 +59,24 @@ export const signup = user => {
 		})
 	}
 }
+
+export const getUserInformation = ({phoneNumber}) =>{
+	return dispatch =>{
+		dispatch({type: actionTypes.GET_USER_INFORMATION_REQUESTED})
+
+		return UsersService.getUserInfomation({phoneNumber}).then(response =>{
+			
+			if(response.status === 200){
+				return Promise.resolve( response.json()).then(userInformation =>{
+					return dispatch({
+						type: actionTypes.GET_USER_INFORMATION_SUCCESS,
+						userInformation: userInformation
+					})
+				})
+			}
+			else if( response.status === 404 ){
+				return dispatch({type: actionTypes.GET_USER_INFORMATION_ERROR})
+			}
+		})
+	}
+}

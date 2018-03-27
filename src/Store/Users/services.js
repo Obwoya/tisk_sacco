@@ -1,8 +1,8 @@
 export default class UsersService {
 	static get host() {
 		delete UsersService.host
-		return (UsersService.host = "https://demo-tiskserver.herokuapp.com")
-		// return (UsersService.host = "http://localhost:8000")
+		// return (UsersService.host = "https://demo-tiskserver.herokuapp.com")
+		return (UsersService.host = "http://localhost:8000")
 	}
 
 	static getToken(user) {
@@ -76,6 +76,24 @@ export default class UsersService {
 			})
 			.catch(error => {
 				throw error
+			})
+	}
+
+	static getUserInfomation({ phoneNumber }) {
+		const url = UsersService.host.concat("/users/api/" + phoneNumber + "/")
+		const request = {
+			method: "GET",
+			headers: {
+				Authorization: "JWT " + sessionStorage.getItem("jwt")
+			}
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				return error
 			})
 	}
 }
