@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes"
 import UsersService from "./services"
 
-const manageToken = () => {
+export const manageToken = () => {
 	setTimeout(() => {
 		// Refresh the token
 
@@ -17,7 +17,7 @@ const manageToken = () => {
 				throw error
 			})
 		manageToken()
-	}, 10000)
+	}, 20000)
 }
 
 export const login = user => {
