@@ -19,7 +19,7 @@ class App extends Component {
 						<Route path="/signup" component={SignUp} />
 						<Route path="/signin" component={SignIn} />
 						<PrivateRoute
-							path="/:id/home"
+							path="/home"
 							component={Home}
 							isUserAuthenticated={this.props.isUserAuthenticated}
 						/>

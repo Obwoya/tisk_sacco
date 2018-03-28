@@ -14,7 +14,9 @@ describe("Users reducer", () => {
 	it("should return state with token on LOGIN SUCEESS", () => {
 		const action = {
 			type: actionTypes.LOGIN_SUCCESS,
-			token: { token: "token" }
+			token: { token: "token" , user:{
+				email: "email@email.com"
+			}}
 		}
 		const expected = {
 			_loginProcess: { status: processTypes.SUCCESS },

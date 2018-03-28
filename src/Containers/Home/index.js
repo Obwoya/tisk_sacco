@@ -11,9 +11,7 @@ import ProfileBanner from "../../Components/ProfileBanner"
 import RecentTransactions from "../../Components/RecentTransactions"
 class HomePage extends Component {
 	componentDidMount() {
-		this.props.userActions.getUserInformation({
-			phoneNumber: this.props.match.params.id
-		})
+		this.props.userActions.getUserInformation(this.props.userInformation)
 	}
 
 	render() {

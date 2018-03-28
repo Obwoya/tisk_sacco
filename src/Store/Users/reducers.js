@@ -26,8 +26,9 @@ export const usersReducer = (state = initialState, action = {}) => {
 			_loginProcess: { status: processTypes.SUCCESS },
 			auth: {
 				_isUserAuthenticated: true,
-				token: action.token.token
-			}
+				token: action.token.token,
+			},
+			userInformation: action.user,
 		})
 
 	case actionTypes.SIGNUP_REQUEST:

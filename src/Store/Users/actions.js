@@ -32,7 +32,8 @@ export const login = user => {
 					dispatch(manageToken)
 					return dispatch({
 						type: actionTypes.LOGIN_SUCCESS,
-						token: token
+						token: token,
+						user: user
 					})
 				})
 			}
@@ -60,11 +61,11 @@ export const signup = user => {
 	}
 }
 
-export const getUserInformation = ({phoneNumber}) =>{
+export const getUserInformation = ({email}) =>{
 	return dispatch =>{
 		dispatch({type: actionTypes.GET_USER_INFORMATION_REQUESTED})
 
-		return UsersService.getUserInfomation({phoneNumber}).then(response =>{
+		return UsersService.getUserInfomation({email}).then(response =>{
 			
 			if(response.status === 200){
 				return Promise.resolve( response.json()).then(userInformation =>{
