@@ -1,5 +1,5 @@
 .depositPage{
-    background-color: #00695C;
+    background-color: #b32017;
     min-height: 100%;
     text-align: center;
     color: white;
@@ -21,6 +21,7 @@
 
 .depositAmountWrapper{
     margin: 20px;
+    border-bottom: solid;
 }
 
 .depositAmount{
