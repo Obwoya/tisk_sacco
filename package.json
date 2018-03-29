@@ -10,15 +10,16 @@
 		"test:cover": "npm run test -- --coverage ",
 		"watch": "webpack --watch",
 		"build": "webpack --config webpack.prod.js ",
-		"dashboard":
-			"webpack-dashboard -- webpack-dev-server --open --config webpack.dev.js",
+		"dashboard": "webpack-dashboard -- webpack-dev-server --open --config webpack.dev.js",
 		"server": "json-server --watch server/db.json --port 3004"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/muneneevans/tisk_sacco.git"
 	},
-	"keywords": ["boilerplate"],
+	"keywords": [
+		"boilerplate"
+	],
 	"author": "Evans Munene",
 	"license": "MIT",
 	"bugs": {
@@ -84,8 +85,7 @@
 	},
 	"jest": {
 		"moduleNameMapper": {
-			"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-				"<rootDir>/tools/assetTransformer.js",
+			"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetTransformer.js",
 			"\\.(css)$": "identity-obj-proxy"
 		},
 		"setupFiles": [

@@ -1,0 +1,83 @@
+.depositPage{
+    background-color: #00695C;
+    min-height: 100%;
+    text-align: center;
+    color: white;
+}
+
+.topBar{
+    text-align: left;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.arrowBack{
+    margin-right: 20px;
+}
+
+.pageContent{
+
+}
+
+.depositAmountWrapper{
+    margin: 20px;
+}
+
+.depositAmount{
+    background-color: transparent;
+    color:white;
+    border: none;
+    padding: 15px;
+    margin: 20px 0px;
+    font-size: 90px;
+    width: auto;
+    text-align: center;
+}
+
+.depositAmount::placeholder{
+    color:white;
+    opacity: 1;
+}
+.depositAmount:-moz-placeholder{
+    color:white;
+    opacity: 1;
+}
+.depositAmount:-ms-input-placeholder{
+    color:white;
+    opacity: 1;
+}
+
+.depositAmount::-webkit-outer-spin-button,
+.depositAmount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} 
+
+.depositAmount > sup{
+    font-size: x-large;
+}
+
+.depositCurrency{
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.depositNext{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    text-decoration: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+}
+
+.depositNext:visited{
+    color: white;
+}
+
+.depositNext:hover,
+.depositNext:active{
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.5s ease-out;
+}
