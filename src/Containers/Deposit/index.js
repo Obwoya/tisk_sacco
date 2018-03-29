@@ -7,7 +7,7 @@ class Deposit extends React.Component{
         return(
             <div className={styles.depositPage}>
                 <div className={styles.topBar}>
-                    <span className={styles.arrowBack}></span>
+                    <span className={styles.arrowBack}>&#8592;</span>
                     Pay Felix Ongati
                 </div>
                 <div className={styles.pageContent}>
