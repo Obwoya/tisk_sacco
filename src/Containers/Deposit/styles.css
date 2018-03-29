@@ -1,6 +1,7 @@
 .depositPage{
     background-color: #00695C;
-    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
     text-align: center;
     color: white;
 }
@@ -65,7 +66,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     color: white;
     text-decoration: none;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -80,4 +81,28 @@
 .depositNext:active{
     background-color: rgba(0, 0, 0, 0.4);
     transition: background-color 0.5s ease-out;
+}
+
+.depositNumpad{
+    margin: 0 auto;
+}
+
+.depositNumpad > tbody > tr{
+}
+
+.depositNumpad > tbody > tr > td{
+    vertical-align: middle;
+    padding: 20px 0px;
+}
+
+.depositNumpad > tbody > tr > td > a{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    padding: 15px 50px;
+}
+
+.depositNumpad > tbody > tr > td > a:visited{
+    color: white;
 }
