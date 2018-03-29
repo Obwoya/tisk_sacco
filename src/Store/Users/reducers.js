@@ -4,7 +4,7 @@ import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
 const initialState = Immutable({
-	_loginProcess: {},
+	_loginProcess: { status: processTypes.IDLE },
 	auth: {
 		_isUserAuthenticated: false
 	},
@@ -26,9 +26,9 @@ export const usersReducer = (state = initialState, action = {}) => {
 			_loginProcess: { status: processTypes.SUCCESS },
 			auth: {
 				_isUserAuthenticated: true,
-				token: action.token.token,
+				token: action.token.token
 			},
-			userInformation: action.user,
+			userInformation: action.user
 		})
 
 	case actionTypes.SIGNUP_REQUEST:
@@ -47,7 +47,7 @@ export const usersReducer = (state = initialState, action = {}) => {
 		})
 	case actionTypes.GET_USER_INFORMATION_SUCCESS:
 		return state.merge({
-			_getUserInformationProcess: {status: processTypes.SUCCESS},
+			_getUserInformationProcess: { status: processTypes.SUCCESS },
 			userInformation: action.userInformation
 		})
 	default:

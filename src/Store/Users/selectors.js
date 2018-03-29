@@ -4,3 +4,5 @@ export const getUserInformation = ({ users }) => users.userInformation
 
 
 export const getUserInformationStatus = ({ users }) => users._getUserInformationProcess
+
+export const getLoginProcessStatus = ({users})=> users._loginProcess

@@ -58,4 +58,16 @@ describe("User selectors", () => {
 		
 		expect(userSelectors.getUserInformationStatus(sampleState.users)).toEqual(sampleState.users.users._getUserInformationProcess)
 	})
+	it("returns log in process status", ()=>{
+		
+		let sampleState = {
+			users: {
+				users: {
+					_loginProcess: {status: processTypes.PROCESSING}
+				}
+			}
+		}
+		
+		expect(userSelectors.getLoginProcessStatus(sampleState.users)).toEqual(sampleState.users.users._loginProcess)
+	})
 })

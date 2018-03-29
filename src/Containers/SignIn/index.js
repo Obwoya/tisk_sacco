@@ -2,7 +2,9 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Redirect, Link, withRouter } from "react-router-dom"
+import { BarLoader } from "react-spinners"
 
+import * as processTypes from "../../Store/Shared/processTypes"
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
 
@@ -44,32 +46,41 @@ export class SignIn extends Component {
 			return <Redirect to={from.pathname} />
 		}
 
+		const { _loginProcess } = this.props
 		return (
 			<div className={styles.signInGrid}>
 				<div className={styles.formGrid}>
 					<div className={styles.headerGrid} />
-					<form className={styles.form}>
-						<div className={styles.formGroup}>
-							<div className={styles.inputField}>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									placeholder="email"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className={styles.inputField}>
-								<input
-									type="password"
-									id="password"
-									name="password"
-									placeholder="password"
-									onChange={this.handleChange}
-								/>
+					{_loginProcess.status === processTypes.PROCESSING ? (
+						<div className={styles.ringLoaderGrid}>
+							<div className={styles.ringLoader}>
+								<BarLoader color={"#b32017"} loading={true} height={4}/>
 							</div>
 						</div>
-					</form>
+					) : (
+						<form className={styles.form}>
+							<div className={styles.formGroup}>
+								<div className={styles.inputField}>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										placeholder="email"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className={styles.inputField}>
+									<input
+										type="password"
+										id="password"
+										name="password"
+										placeholder="password"
+										onChange={this.handleChange}
+									/>
+								</div>
+							</div>
+						</form>
+					)}
 					<div className={styles.formSubmitGroup}>
 						<Button
 							children="SIGN In"
@@ -90,6 +101,7 @@ export class SignIn extends Component {
 
 const mapStateToProps = state => {
 	return {
+		_loginProcess: userSelectors.getLoginProcessStatus(state.users),
 		isUserAuthenticated: userSelectors.getAuthStatus(state.users)
 	}
 }

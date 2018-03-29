@@ -68,3 +68,22 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+
+
+.ringLoaderGrid{  
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  margin: auto;
+  max-width: 450px;
+}
+
+.ringLoader{
+  margin: auto;
+  width: 50px;
+  transform: translateX(-25px)
+  
+}

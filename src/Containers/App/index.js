@@ -17,10 +17,15 @@ class App extends Component {
 			<Router>
 				<div>
 					<Switch>
-						<Route path="/deposit" component={Deposit} />
+						
 						<Route path="/signup" component={SignUp} />
 						<Route path="/signin" component={SignIn} />
 					
+						<PrivateRoute
+							path="/deposit"
+							component={Deposit}
+							isUserAuthenticated={this.props.isUserAuthenticated}
+						/>
 						<PrivateRoute
 							path="/home"
 							component={Home}
