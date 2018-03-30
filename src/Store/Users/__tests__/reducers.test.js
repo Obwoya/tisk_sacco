@@ -1,7 +1,7 @@
 /* global  it, describe, expect */
 import * as actionTypes from "../actionTypes"
 import * as processTypes from "../../Shared/processTypes"
-import { usersReducer } from "../reducers"
+import { usersReducer, savingsReducer } from "../reducers"
 import Immutable from "seamless-immutable"
 
 describe("Users reducer", () => {
@@ -14,9 +14,12 @@ describe("Users reducer", () => {
 	it("should return state with token on LOGIN SUCEESS", () => {
 		const action = {
 			type: actionTypes.LOGIN_SUCCESS,
-			token: { token: "token" , user:{
-				email: "email@email.com"
-			}}
+			token: {
+				token: "token",
+				user: {
+					email: "email@email.com"
+				}
+			}
 		}
 		const expected = {
 			_loginProcess: { status: processTypes.SUCCESS },
@@ -111,5 +114,85 @@ describe("Users reducer", () => {
 		}
 
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+
+	it("should return relevant state for get user deposits", () => {
+		const successAction = {
+			type: actionTypes.GET_USER_DEPOSITS_SUCCESS,
+			userDeposits: {
+				first_name: "John",
+				last_name: "Doe",
+				email: "name@email.com",
+				phone_number: "0712345678",
+				user_deposit: [
+					{
+						id: "113436bd-9c6c-49e1-881b-bdc18f24b289",
+						time: "2018-03-29T09:48:33.996686Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					},
+					{
+						id: "3bcab39d-bd79-433d-9c12-520fef686382",
+						time: "2018-03-29T09:40:21.371750Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					},
+					{
+						id: "a9eb9e1d-47b1-416f-a09f-d88794f0314d",
+						time: "2018-03-29T09:39:46.242490Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					}
+				]
+			}
+		}
+		const expectedSuccessState = {
+			_getUserDepositsProcess: { status: processTypes.SUCCESS },
+			userDeposits: {
+				first_name: "John",
+				last_name: "Doe",
+				email: "name@email.com",
+				phone_number: "0712345678",
+				user_deposit: [
+					{
+						id: "113436bd-9c6c-49e1-881b-bdc18f24b289",
+						time: "2018-03-29T09:48:33.996686Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					},
+					{
+						id: "3bcab39d-bd79-433d-9c12-520fef686382",
+						time: "2018-03-29T09:40:21.371750Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					},
+					{
+						id: "a9eb9e1d-47b1-416f-a09f-d88794f0314d",
+						time: "2018-03-29T09:39:46.242490Z",
+						amount: "200.00",
+						code: "",
+						user: 1
+					}
+				]
+			}
+		}
+
+		
+		const requestAction = {
+			type: actionTypes.GET_USER_DEPOSITS_REQUESTED
+		}
+		const expectedRequestState = {
+			_getUserDepositsProcess: { status: processTypes.PROCESSING }
+		}
+
+		expect(savingsReducer(Immutable({}), successAction)).toEqual(expectedSuccessState)	
+		expect(savingsReducer(Immutable({}), requestAction)).toEqual(
+			expectedRequestState
+		)
 	})
 })

@@ -3,6 +3,7 @@ import * as processTypes from "../Shared/processTypes"
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
+
 const initialState = Immutable({
 	_loginProcess: { status: processTypes.IDLE },
 	auth: {
@@ -12,7 +13,8 @@ const initialState = Immutable({
 	_signupProcess: {},
 	userInformation: {},
 
-	_getUserInformationProcess: {}
+	_getUserInformationProcess: {},
+	_getUserDepositsProcess: {}
 })
 
 export const usersReducer = (state = initialState, action = {}) => {
@@ -50,11 +52,30 @@ export const usersReducer = (state = initialState, action = {}) => {
 			_getUserInformationProcess: { status: processTypes.SUCCESS },
 			userInformation: action.userInformation
 		})
+
+	default:
+		return state
+	}
+}
+
+export const savingsReducer = (state = initialState, action = {}) => {
+	switch (action.type) {
+	case actionTypes.GET_USER_DEPOSITS_REQUESTED:
+		return state.merge({
+			_getUserDepositsProcess: { status: processTypes.PROCESSING }
+		})
+	case actionTypes.GET_USER_DEPOSITS_SUCCESS:
+		return state.merge({
+			_getUserDepositsProcess: { status: processTypes.SUCCESS },
+			userDeposits: action.userDeposits
+		})
+
 	default:
 		return state
 	}
 }
 
 export default combineReducers({
-	users: usersReducer
+	users: usersReducer,
+	savings: savingsReducer
 })

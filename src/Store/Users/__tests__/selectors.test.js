@@ -70,4 +70,17 @@ describe("User selectors", () => {
 		
 		expect(userSelectors.getLoginProcessStatus(sampleState.users)).toEqual(sampleState.users.users._loginProcess)
 	})
+
+	it("returns get user deposits", ()=>{
+		
+		let sampleState = {
+			users: {
+				savings: {
+					userDeposits: []
+				}
+			}
+		}
+		
+		expect(userSelectors.getUserDeposits(sampleState.users)).toEqual(sampleState.users.savings.userDeposits)
+	})
 })

@@ -55,16 +55,16 @@ describe("User action creators", () => {
 	})
 	it("should create an action get user information", () => {
 		let sampleResponse = {
-			id: 25,
+			id: 1,
 			password:
 				"pbkdf2_sha256$100000$zqSnuiKJf9BW$LlX5M/Jz6upGV0qu0g3hR7ncydxGI7y6TY+2s2nciU0=",
 			last_login: null,
 			is_superuser: false,
-			email: "munene24@gmail.com",
-			first_name: "captain",
-			last_name: "overmars",
+			email: "name@email.com",
+			first_name: "John",
+			last_name: "Doe",
 			gender: "",
-			phone_number: "0770372789",
+			phone_number: "0712345678",
 			date_joined: "2018-03-26T20:38:12.503916Z",
 			is_active: true,
 			groups: [],
@@ -91,11 +91,10 @@ describe("User action creators", () => {
 				// return of async actions
 				expect(store.getActions()).toEqual(expectedActions)
 			})
-		
 	})
 	it("Raises an exception when the user is not found", () => {
 		let sampleResponse = {
-			phone_number: "0770372789"
+			phone_number: "0712345678"
 		}
 
 		const expectedActions = [
@@ -112,6 +111,85 @@ describe("User action creators", () => {
 			.dispatch(
 				userActions.getUserInformation({
 					phoneNumber: sampleResponse.phone_number
+				})
+			)
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
+
+	it("should create an action get user deposits", () => {
+		let sampleResponse = {
+			first_name: "John",
+			last_name: "Doe",
+			email: "name@email.com",
+			phone_number: "0712345678",
+			user_deposit: [
+				{
+					id: "113436bd-9c6c-49e1-881b-bdc18f24b289",
+					time: "2018-03-29T09:48:33.996686Z",
+					amount: "200.00",
+					code: "",
+					user: 1
+				},
+				{
+					id: "3bcab39d-bd79-433d-9c12-520fef686382",
+					time: "2018-03-29T09:40:21.371750Z",
+					amount: "200.00",
+					code: "",
+					user: 1
+				},
+				{
+					id: "a9eb9e1d-47b1-416f-a09f-d88794f0314d",
+					time: "2018-03-29T09:39:46.242490Z",
+					amount: "200.00",
+					code: "",
+					user: 1
+				}
+			]
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_DEPOSITS_REQUESTED },
+			{
+				type: actionTypes.GET_USER_DEPOSITS_SUCCESS,
+				userDeposits: sampleResponse.user_deposit
+			}
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
+		store
+			.dispatch(
+				userActions.getUserDeposits({
+					id: 1
+				})
+			)
+			.then(() => {
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
+	it("Raises an exception when the user deposits is not found", () => {
+		let sampleResponse = {
+			detail: "Not found."
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_DEPOSITS_REQUESTED },
+			{
+				type: actionTypes.GET_USER_DEPOSITS_ERROR,
+				error: sampleResponse.user_deposit
+			}
+		]
+
+		const store = mockStore({})
+
+		fetch.mockResponse({}, { status: 404 })
+		store
+			.dispatch(
+				userActions.getUserDeposits({
+					id: 1
 				})
 			)
 			.then(() => {

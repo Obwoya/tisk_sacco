@@ -96,4 +96,23 @@ export default class UsersService {
 				return error
 			})
 	}
+	static getUserDeposits({ email }, token) {
+		const url = UsersService.host.concat(
+			"/users/api/" + email + "/savings/deposits"
+		)
+		const request = {
+			method: "GET",
+			headers: {
+				Authorization: "JWT " + token
+			}
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				return error
+			})
+	}
 }

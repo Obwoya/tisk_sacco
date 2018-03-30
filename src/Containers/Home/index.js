@@ -10,8 +10,18 @@ import * as userSelectors from "../../Store/Users/selectors"
 import ProfileBanner from "../../Components/ProfileBanner"
 import RecentTransactions from "../../Components/RecentTransactions"
 class HomePage extends Component {
+	constructor(props) {
+		super(props)
+
+	}
 	componentDidMount() {
-		this.props.userActions.getUserInformation(this.props.userInformation)
+		let getUser  =() => Promise.resolve(
+			this.props.userActions.getUserInformation(this.props.userInformation)
+		)
+		getUser().then(()=>{
+			this.props.userActions.getUserDeposits(this.props.userInformation)
+			console.log(this.props.userInformation)
+		})
 	}
 
 	render() {
@@ -48,7 +58,8 @@ const mapStateToProps = state => {
 		getUserInformationProcess: userSelectors.getUserInformationStatus(
 			state.users
 		),
-		userInformation: userSelectors.getUserInformation(state.users)
+		userInformation: userSelectors.getUserInformation(state.users),
+		userDepoists: userSelectors.getUserDeposits(state.users)
 	}
 }
 

@@ -12,11 +12,15 @@ const mockStore = configureMockStore(middlewares)
 describe("<Home/>", () => {
 	it("Must render the wrapper div ", function() {
 		const store = mockStore({
-			users: { users: { auth: { _isUserAuthenticated: true } } }
+			users: {
+				users: {
+					auth: { _isUserAuthenticated: true },
+				},
+				savings: { userDeposits: [] }
+			}
 		})
 
 		const HomePage = shallow(<Home store={store} />)
 		expect(typeof HomePage.getElement().type).toEqual("function")
-
 	})
 })

@@ -55,11 +55,11 @@ describe("users service ", () => {
 				"pbkdf2_sha256$100000$zqSnuiKJf9BW$LlX5M/Jz6upGV0qu0g3hR7ncydxGI7y6TY+2s2nciU0=",
 			last_login: null,
 			is_superuser: false,
-			email: "munene24@gmail.com",
+			email: "name@email.com",
 			first_name: "captain",
 			last_name: "overmars",
 			gender: "",
-			phone_number: "0770372789",
+			phone_number: "0712345678",
 			date_joined: "2018-03-26T20:38:12.503916Z",
 			is_active: true,
 			groups: [],
@@ -70,6 +70,31 @@ describe("users service ", () => {
 		return UsersService.getUserInfomation({
 			phoneNumber: sampleResponse.phone_number
 		}).then(response => {
+			expect(response.body).toEqual(JSON.stringify(sampleResponse))
+		})
+	})
+
+	it("gets the user deposits", () => {
+		let sampleResponse = {
+			id: 1,
+			password: "some password",
+			last_login: null,
+			is_superuser: false,
+			email: "email@email.com",
+			first_name: "John",
+			last_name: "Doe",
+			gender: "",
+			phone_number: "0712345678",
+			date_joined: "2018-03-26T20:38:12.503916Z",
+			is_active: true,
+			groups: [],
+			user_permissions: []
+		}
+
+		fetch.mockResponse(JSON.stringify(sampleResponse))
+		return UsersService.getUserDeposits({
+			id: 1
+		}, sessionStorage.getItem("jwt")).then(response => {
 			expect(response.body).toEqual(JSON.stringify(sampleResponse))
 		})
 	})
