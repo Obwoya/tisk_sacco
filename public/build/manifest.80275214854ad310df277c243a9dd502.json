@@ -1,0 +1,42 @@
+{
+  "icons": [
+    {
+      "src": "/build/icon_512x512.38f19580785bc54ca424b9da3c752e4c.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/build/icon_384x384.db69c2d21f5d3a6a888d4a58b4d2e2ad.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/build/icon_256x256.65770b37a650b2400b1e1b33efa66282.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/build/icon_192x192.296f42eb83f725d02067492f005eed53.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/build/icon_128x128.c338f104f02ba0884465f63453d4ed9c.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/build/icon_96x96.d2be53f882299e1a1dc0deebc17b8aec.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Tisk",
+  "short_name": "rjb",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "en-us",
+  "background_color": "#fff",
+  "theme_color": "#b32017"
+}
