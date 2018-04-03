@@ -1,3 +1,5 @@
+
+
 .depositPage{
     background-color: #00695C;
     height: 100%;
@@ -101,8 +103,37 @@
     font-size: 24px;
     text-decoration: none;
     padding: 15px 50px;
+    cursor: pointer;
 }
 
 .depositNumpad > tbody > tr > td > a:visited{
     color: white;
+}
+
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #00695C radial-gradient(circle, transparent 1%, #00695C 1%) center/15000%;
+}
+.ripple:active {
+  background-color: rgba(255, 255, 255, 0.4);;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button.ripple  {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
 }
