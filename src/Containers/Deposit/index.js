@@ -1,5 +1,5 @@
 import React from "react"
-
+import { withRouter } from "react-router-dom"
 import styles from "./styles.css"
 
 class Deposit extends React.Component {
@@ -7,7 +7,14 @@ class Deposit extends React.Component {
 		return (
 			<div className={styles.depositPage}>
 				<div className={styles.topBar}>
-					<span className={styles.arrowBack}>&#8592;</span>
+					<span
+						className={styles.arrowBack}
+						onClick={() => {
+							this.props.history.goBack()
+						}}
+					>
+						&#8592;
+					</span>
 					Deposit Money
 				</div>
 				<div className={styles.pageContent}>
@@ -22,7 +29,7 @@ class Deposit extends React.Component {
 							{/* <sup>$</sup> */}
 							0.00
 						</span>
-                        <br/>
+						<br />
 					</div>
 
 					{/* <div className={styles.depositCurrency}>USD ></div> */}
@@ -35,4 +42,4 @@ class Deposit extends React.Component {
 	}
 }
 
-export default Deposit
+export default withRouter(Deposit)

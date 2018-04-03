@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
+import { withRouter } from "react-router-dom"
 
 import styles from "./style.css"
 
@@ -12,15 +13,14 @@ import RecentTransactions from "../../Components/RecentTransactions"
 class HomePage extends Component {
 	constructor(props) {
 		super(props)
-
 	}
 	componentDidMount() {
-		let getUser  =() => Promise.resolve(
-			this.props.userActions.getUserInformation(this.props.userInformation)
-		)
-		getUser().then(()=>{
+		let getUser = () =>
+			Promise.resolve(
+				this.props.userActions.getUserInformation(this.props.userInformation)
+			)
+		getUser().then(() => {
 			this.props.userActions.getUserDeposits(this.props.userInformation)
-			console.log(this.props.userInformation)
 		})
 	}
 
@@ -36,7 +36,8 @@ class HomePage extends Component {
 
 						<div className={styles.quickActions}>
 							<div>
-								<button type="submit" className={styles.quickActionDeposit}>
+								<button type="submit" className={styles.quickActionDeposit}
+									onClick={()=>{this.props.history.push("/deposit/new")}}>
 									<div className={styles.quickActionIcon} />
 									<div>Deposit Cash</div>
 								</button>
@@ -69,4 +70,6 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(
+	withRouter(HomePage)
+)

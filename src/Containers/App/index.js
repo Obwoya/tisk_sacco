@@ -19,7 +19,7 @@ class App extends Component {
 					<Switch>
 						
 						<Route path="/signup" component={SignUp} />
-						<Route path="/deposit" component={Deposit} />
+						<Route path="/deposit/new" component={Deposit} />
 						<Route path="/signin" component={SignIn} />
 					
 						{/* <PrivateRoute
