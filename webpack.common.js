@@ -33,8 +33,7 @@ var config = {
 			{
 				test: /\.(js|jsx)$/,
 				include: SRC_DIR,
-				loader: "babel-loader",				
-				
+				loader: "babel-loader"
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg|eot|svg|ttf|woff|woff2)$/,
@@ -65,7 +64,7 @@ var config = {
 			start_url: "/",
 			display: "standalone",
 			orientation: "portrait",
-			background_color: "#fff",
+			background_color: "#b32017",
 			theme_color: "#b32017",
 			icons: [
 				{
