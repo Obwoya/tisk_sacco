@@ -9,8 +9,21 @@ import store from "./Store/configureStore"
 
 render(
 	<Provider store={store}>
-		<App  />
+		<App />
 	</Provider>,
-	
+
 	document.getElementById("app")
 )
+
+if ("serviceWorker" in navigator) {
+	window.addEventListener("load", function() {
+		navigator.serviceWorker
+			.register("./serviceWorker.js", { scope: "/" })
+			.then(() => {
+				// console.log(registration)
+			})
+			.catch(error => {
+				throw error
+			})
+	})
+}
