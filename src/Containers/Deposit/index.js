@@ -38,16 +38,16 @@ class Deposit extends React.Component{
             <div className={styles.depositPage}>
                 <div className={styles.topBar}>
                     <span className={styles.arrowBack}>&#8592;</span>
-                    Pay Felix Ongati
+                    Deposit savings
                 </div>
                 <div className={styles.pageContent}>
                     <div className={styles.depositAmountWrapper}>
                         <span type="number" placeholder="0.00" step="0.01" className={styles.depositAmount}>
-                        <sup>$</sup>
+                        {/* <sup>$</sup> */}
                         {this.state.depositAmount}
                         </span>
                     </div>
-                    <div className={styles.depositCurrency}>USD ></div>
+                    {/* <div className={styles.depositCurrency}>USD ></div> */}
                     <table className={styles.depositNumpad}>
                         <tbody>
                             <tr>

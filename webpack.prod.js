@@ -4,6 +4,10 @@ const common = require("./webpack.common.js")
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const BabiliPlugin = require("babili-webpack-plugin")
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
+const workboxPlugin = require("workbox-webpack-plugin")
+
+var path = require("path")
+var DIST_DIR = path.resolve(__dirname, "public")
 
 module.exports = merge(common, {
 	module: {
@@ -28,6 +32,10 @@ module.exports = merge(common, {
 		new BabiliPlugin(),
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": JSON.stringify("production")
+		}),
+		new workboxPlugin.InjectManifest({
+			swSrc: "./src/serviceWorker.js",
+			swDest: DIST_DIR + "/serviceWorker.js"
 		})
-	]	
+	]
 })

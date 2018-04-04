@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const WebpackPwaManifest = require("webpack-pwa-manifest")
 
+
 var path = require("path")
 
 var DIST_DIR = path.resolve(__dirname, "public")
