@@ -3,6 +3,7 @@ var ManifestPlugin = require("webpack-manifest-plugin")
 
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
+const workboxPlugin = require("workbox-webpack-plugin")
 const WebpackPwaManifest = require("webpack-pwa-manifest")
 
 var path = require("path")
@@ -18,7 +19,9 @@ var config = {
 			"redux",
 			"react-redux",
 			"react-router",
-			"redux-thunk"
+			"react-router-dom",
+			"redux-thunk",
+			"react-spinners",
 		],
 		app: SRC_DIR + "/index.js"
 	},
@@ -81,6 +84,10 @@ var config = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
 			minChunks: Infinity
+		}),
+		new workboxPlugin.InjectManifest({
+			swSrc: "./src/serviceWorker.js",
+			swDest: "serviceWorker.js"
 		})
 	]
 }

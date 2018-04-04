@@ -15,14 +15,12 @@ render(
 	document.getElementById("app")
 )
 
-
-require("./serviceWorker")
 if ("serviceWorker" in navigator) {
 	window.addEventListener("load", function() {
 		navigator.serviceWorker
 			.register("./serviceWorker.js", { scope: "/" })
-			.then(() => {
-				// console.log(registration)
+			.then(registration => {
+				registration.pushManager.subscribe({ userVisibleOnly: true })
 			})
 			.catch(error => {
 				throw error
