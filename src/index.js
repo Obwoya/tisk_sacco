@@ -15,6 +15,8 @@ render(
 	document.getElementById("app")
 )
 
+
+require("./serviceWorker")
 if ("serviceWorker" in navigator) {
 	window.addEventListener("load", function() {
 		navigator.serviceWorker
