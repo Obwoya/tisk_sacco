@@ -59,7 +59,7 @@ var config = {
 		}),
 		new WebpackPwaManifest({
 			name: "Tisk",
-			short_name: "rjb",
+			short_name: "tisk",
 			lang: "en-us",
 			start_url: "/",
 			display: "standalone",

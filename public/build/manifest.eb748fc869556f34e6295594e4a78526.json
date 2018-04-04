@@ -32,7 +32,7 @@
     }
   ],
   "name": "Tisk",
-  "short_name": "rjb",
+  "short_name": "tisk",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "/",
