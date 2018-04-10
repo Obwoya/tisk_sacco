@@ -9,8 +9,30 @@ if ("function" === typeof importScripts) {
 
 	if (workbox) {
 		workbox.routing.registerRoute(
-			new RegExp(".*vendor.js"),
+			new RegExp(".*\.js"),
 			workbox.strategies.cacheFirst()
+		)
+		
+		// workbox.routing.registerRoute(
+		// 	// Cache CSS files
+		// 	//,
+		// 	new RegExp("/"),
+		// 	// Use cache but update in the background ASAP
+		// 	workbox.strategies.staleWhileRevalidate({
+		// 		// Use a custom cache name
+		// 		cacheName: "html-cache"
+		// 	})
+		// )
+		
+		workbox.routing.registerRoute(
+			// Cache CSS files
+			//,
+			new RegExp("/*"),
+			// Use cache but update in the background ASAP
+			workbox.strategies.cacheFirst({
+				// Use a custom cache name
+				cacheName: "html-cache"
+			})
 		)
 
 		workbox.routing.registerRoute(
