@@ -12,6 +12,13 @@ if ("function" === typeof importScripts) {
 			new RegExp(".*\.js"),
 			workbox.strategies.cacheFirst()
 		)
+
+		workbox.routing.registerRoute(
+			new RegExp(".*\.json"),
+			workbox.strategies.cacheFirst({
+				cacheName: "json-cache"
+			})
+		)
 		
 		// workbox.routing.registerRoute(
 		// 	// Cache CSS files
