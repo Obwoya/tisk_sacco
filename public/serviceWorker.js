@@ -1,4 +1,4 @@
-importScripts("/build/precache-manifest.a7a6eb3c11654685b5adfdecba199cd1.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("/build/precache-manifest.9fd607edc0833cbea48b1e110fe8e095.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 /* global  importScripts, workbox*/
 
@@ -11,8 +11,37 @@ if ("function" === typeof importScripts) {
 
 	if (workbox) {
 		workbox.routing.registerRoute(
-			new RegExp(".*vendor.js"),
+			new RegExp(".*\.js"),
 			workbox.strategies.cacheFirst()
+		)
+
+		workbox.routing.registerRoute(
+			new RegExp(".*\.json"),
+			workbox.strategies.cacheFirst({
+				cacheName: "json-cache"
+			})
+		)
+		
+		// workbox.routing.registerRoute(
+		// 	// Cache CSS files
+		// 	//,
+		// 	new RegExp("/"),
+		// 	// Use cache but update in the background ASAP
+		// 	workbox.strategies.staleWhileRevalidate({
+		// 		// Use a custom cache name
+		// 		cacheName: "html-cache"
+		// 	})
+		// )
+		
+		workbox.routing.registerRoute(
+			// Cache CSS files
+			//,
+			new RegExp("/*"),
+			// Use cache but update in the background ASAP
+			workbox.strategies.cacheFirst({
+				// Use a custom cache name
+				cacheName: "html-cache"
+			})
 		)
 
 		workbox.routing.registerRoute(

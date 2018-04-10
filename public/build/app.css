@@ -545,7 +545,7 @@ p {
 ._2zpxavb3KZ_cmsnYup5RIx{
     text-align: left;
     padding: 25px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 ._2ov3R9W5dhKYI223tafBbN{
@@ -567,9 +567,17 @@ p {
     border: none;
     padding: 15px;
     margin: 20px 0px;
-    font-size: 90px;
+    font-size: 60px;
     width: auto;
     text-align: center;
+}
+
+@media only screen and (min-height:545px) {
+    
+    ._2PFzzESC_S5B5OV2w8NN1m{
+        font-size: 70px
+    }
+  
 }
 
 ._2PFzzESC_S5B5OV2w8NN1m::placeholder{
