@@ -1,17 +1,18 @@
 import { render } from "react-dom"
 import React from "react"
+
+import { PersistGate } from "redux-persist/integration/react"
 import { Provider } from "react-redux"
+import { store, persistor } from "./Store/configureStore"
 
 import "./app.css"
-
 import App from "./Containers/App"
-import store from "./Store/configureStore"
-
 render(
 	<Provider store={store}>
-		<App />
+		<PersistGate loading={null} persistor={persistor}>
+			<App />
+		</PersistGate>
 	</Provider>,
-
 	document.getElementById("app")
 )
 
