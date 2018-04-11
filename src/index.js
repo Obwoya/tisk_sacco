@@ -9,9 +9,7 @@ import "./app.css"
 import App from "./Containers/App"
 render(
 	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
-			<App />
-		</PersistGate>
+		<App />
 	</Provider>,
 	document.getElementById("app")
 )
