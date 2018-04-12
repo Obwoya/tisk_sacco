@@ -37,6 +37,7 @@
 		"react-spinners": "^0.2.6",
 		"redux": "^3.7.1",
 		"redux-persist": "^5.9.1",
+		"redux-persist-seamless-immutable": "^1.0.1",
 		"redux-thunk": "^2.2.0",
 		"seamless-immutable": "^7.1.2",
 		"workbox-sw": "^3.0.1"

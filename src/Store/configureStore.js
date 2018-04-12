@@ -1,7 +1,25 @@
 import { createStore, applyMiddleware } from "redux"
-import rootReducer from "./rootReducer"
 import thunk from "redux-thunk"
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage" // defaults to localStorage for web and AsyncStorage for react-native
+// import hardSet from "redux-persist/lib/stateReconciler/hardSet"
+import {
+	seamlessImmutableReconciler,
+	seamlessImmutableTransformer
+} from "redux-persist-seamless-immutable"
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+import rootReducer from "./rootReducer"
+
+const persistConfig = {
+	key: "root",
+	storage,
+	stateReconciler: seamlessImmutableReconciler,
+	transforms: [seamlessImmutableTransformer]
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+const store = createStore(persistedReducer, applyMiddleware(thunk))
+export const persistor = persistStore(store)
 
 export default store
