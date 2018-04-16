@@ -3,6 +3,14 @@ import * as processTypes from "../Shared/processTypes"
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
+import storage from "redux-persist/lib/storage"
+import { persistReducer } from "redux-persist"
+
+import {
+	seamlessImmutableReconciler,
+	seamlessImmutableTransformer
+} from "redux-persist-seamless-immutable"
+
 const initialState = Immutable({
 	_loginProcess: { status: processTypes.IDLE },
 	auth: {
@@ -15,6 +23,19 @@ const initialState = Immutable({
 	_getUserInformationProcess: {},
 	_getUserDepositsProcess: {}
 })
+
+const usersPersistConfig = {
+	key: "users",
+	storage,
+	blacklist: [
+		"_loginProcess",
+		"_signupProcess",
+		"_getUserInformationProcess",
+		"_getUserDepositsProcess"
+	],
+	stateReconciler: seamlessImmutableReconciler,
+	transforms: [seamlessImmutableTransformer]
+}
 
 export const usersReducer = (state = initialState, action = {}) => {
 	switch (action.type) {
@@ -32,10 +53,10 @@ export const usersReducer = (state = initialState, action = {}) => {
 			userInformation: action.user
 		})
 
-	case actionTypes.LOGIN_FAILED:		
+	case actionTypes.LOGIN_FAILED:
 		return state.merge({
 			_loginProcess: { status: processTypes.IDLE },
-			auth: {_isUserAuthenticated: false}
+			auth: { _isUserAuthenticated: false }
 		})
 
 	case actionTypes.SIGNUP_REQUEST:
@@ -81,6 +102,6 @@ export const savingsReducer = (state = initialState, action = {}) => {
 }
 
 export default combineReducers({
-	users: usersReducer,
-	savings: savingsReducer
+	users: persistReducer(usersPersistConfig, usersReducer),
+	savings: persistReducer(usersPersistConfig, savingsReducer)
 })
