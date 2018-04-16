@@ -3,7 +3,6 @@ import * as processTypes from "../Shared/processTypes"
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
-
 const initialState = Immutable({
 	_loginProcess: { status: processTypes.IDLE },
 	auth: {
@@ -31,6 +30,12 @@ export const usersReducer = (state = initialState, action = {}) => {
 				token: action.token.token
 			},
 			userInformation: action.user
+		})
+
+	case actionTypes.LOGIN_FAILED:		
+		return state.merge({
+			_loginProcess: { status: processTypes.IDLE },
+			auth: {_isUserAuthenticated: false}
 		})
 
 	case actionTypes.SIGNUP_REQUEST:
