@@ -1,4 +1,4 @@
-importScripts("/build/precache-manifest.971ca01243e93160bb5e69cd6dfb7fc1.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("/build/precache-manifest.2e6262eec38ab54db1aaed20d4a61303.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 /* global  importScripts, workbox*/
 
@@ -6,8 +6,6 @@ if ("function" === typeof importScripts) {
 	importScripts(
 		"https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js"
 	)
-
-	console.log("here")
 
 	if (workbox) {
 		workbox.routing.registerRoute(
@@ -87,7 +85,7 @@ if ("function" === typeof importScripts) {
 			//,
 			new RegExp("/*"),
 			// Use cache but update in the background ASAP
-			workbox.strategies.cacheFirst({
+			workbox.strategies.staleWhileRevalidate({
 				// Use a custom cache name
 				cacheName: "others-cache"
 			})
