@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Link } from "react-router-dom"
 
-import { withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -78,7 +78,7 @@ class SignUp extends Component {
 								<input
 									type="tel"
 									id="phoneNumber"
-									name="phoneNumber"
+									name="phone_number"
 									placeholder="phone number"
 									onChange={this.handleChange}
 								/>
@@ -140,4 +140,4 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter( SignUp))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp))
