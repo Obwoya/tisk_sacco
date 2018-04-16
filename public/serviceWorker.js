@@ -1,4 +1,4 @@
-importScripts("/build/precache-manifest.1aabb9fd8dc5ff95628c3acd3ca2d6b6.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("/build/precache-manifest.e1c9cefb60ee675e084cfcf5aee2ecce.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 /* global  importScripts, workbox*/
 
@@ -80,16 +80,16 @@ if ("function" === typeof importScripts) {
 				]
 			})
 		)
-		workbox.routing.registerRoute(
-			// Cache CSS files
-			//,
-			new RegExp("/*"),
-			// Use cache but update in the background ASAP
-			workbox.strategies.staleWhileRevalidate({
-				// Use a custom cache name
-				cacheName: "others-cache"
-			})
-		)
+			// workbox.routing.registerRoute(
+			// 	// Cache CSS files
+			// 	//,
+			// 	new RegExp("/*"),
+			// 	// Use cache but update in the background ASAP
+			// 	workbox.strategies.staleWhileRevalidate({
+			// 		// Use a custom cache name
+			// 		cacheName: "others-cache"
+			// 	})
+			// )
 	}
 }
 
