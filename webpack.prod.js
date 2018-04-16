@@ -5,6 +5,7 @@ const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const BabiliPlugin = require("babili-webpack-plugin")
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 const workboxPlugin = require("workbox-webpack-plugin")
+const CleanWebpackPlugin = require("clean-webpack-plugin")
 
 var path = require("path")
 var DIST_DIR = path.resolve(__dirname, "public")
@@ -23,6 +24,7 @@ module.exports = merge(common, {
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin(["public"]),
 		new UglifyJSPlugin({
 			sourceMap: true
 		}),

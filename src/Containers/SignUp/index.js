@@ -85,6 +85,15 @@ class SignUp extends Component {
 							</div>
 							<div className={styles.inputField}>
 								<input
+									type="number"
+									id="national_id"
+									name="national_id"
+									placeholder="national id"
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className={styles.inputField}>
+								<input
 									type="password"
 									id="password"
 									name="password"
