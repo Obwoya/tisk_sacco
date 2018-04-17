@@ -6,7 +6,7 @@ class Activate extends React.Component{
         super(props)
 
         this.state = {
-            noOfCharsInCode: 7
+            noOfCharsInCode: 6
         }
     }
 

@@ -53,7 +53,7 @@ export const signup = user => {
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
 				return Promise.resolve(response.json()).then(userInformation => {
-					dispatch(login({ email: user.email, password: user.password }))
+					// dispatch(login({ email: user.email, password: user.password }))
 					return dispatch({
 						type: actionTypes.SIGNUP_SUCCESS,
 						userInformation: userInformation

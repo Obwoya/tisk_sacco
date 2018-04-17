@@ -42,7 +42,7 @@ describe("User action creators", () => {
 
 		const expectedActions = [
 			{ type: actionTypes.SIGNUP_REQUEST },
-			{ type: actionTypes.LOGIN_REQUEST },
+			// { type: actionTypes.LOGIN_REQUEST },
 			{ type: actionTypes.SIGNUP_SUCCESS, userInformation: sampleUser }
 		]
 
