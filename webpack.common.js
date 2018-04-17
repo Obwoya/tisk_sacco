@@ -2,7 +2,7 @@ var webpack = require("webpack")
 var ManifestPlugin = require("webpack-manifest-plugin")
 
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+
 const WebpackPwaManifest = require("webpack-pwa-manifest")
 
 
@@ -21,7 +21,8 @@ var config = {
 			"react-router",
 			"redux-thunk"
 		],
-		app: SRC_DIR + "/index.js"
+		app: SRC_DIR + "/index.js",
+		serviceWorker: SRC_DIR + "/serviceWorker.js"
 	},
 	output: {
 		path: DIST_DIR + "/build",
@@ -51,10 +52,10 @@ var config = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(["public"]),
+		
 		new HtmlWebpackPlugin({
 			filename: DIST_DIR + "/index.html",
-			template: SRC_DIR + "/index.html",
+			template: SRC_DIR + "/index-prod.html",
 			title: "Tisk",
 			inject: true
 		}),

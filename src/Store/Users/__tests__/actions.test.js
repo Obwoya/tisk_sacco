@@ -119,6 +119,31 @@ describe("User action creators", () => {
 			})
 	})
 
+	it("dispatches login failed when request is unauthorized", () => {
+		let sampleResponse = { detail: "Signature has expired." }
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_INFORMATION_REQUESTED },
+			{
+				type: actionTypes.LOGIN_FAILED
+			}
+		]
+
+		const store = mockStore({})
+
+		fetch.mockResponse({}, { status: 401 })
+		store
+			.dispatch(
+				userActions.getUserInformation({
+					phoneNumber: sampleResponse.phone_number
+				})
+			)
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
+
 	it("should create an action get user deposits", () => {
 		let sampleResponse = {
 			first_name: "John",

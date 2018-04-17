@@ -22,18 +22,18 @@ class App extends Component {
 						<Route path="/signup" component={SignUp} />
 						<Route path="/deposit/new" component={Deposit} />
 						<Route path="/signin" component={SignIn} />
-						<Route path="/home" component={Home}/>
+						{/* <Route path="/home" component={Home}/> */}
 {/* 					
 						<PrivateRoute
 							path="/deposit"
 							component={Deposit}
 							isUserAuthenticated={this.props.isUserAuthenticated}
 						/> */}
-						{/* <PrivateRoute
+						<PrivateRoute
 							path="/home"
 							component={Home}
 							isUserAuthenticated={this.props.isUserAuthenticated}
-						/> */}
+						/>
 						<PrivateRoute
 							path="/protected"
 							component={Home}

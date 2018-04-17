@@ -73,6 +73,7 @@ describe("users service ", () => {
 			expect(response.body).toEqual(JSON.stringify(sampleResponse))
 		})
 	})
+	
 
 	it("gets the user deposits", () => {
 		let sampleResponse = {
@@ -92,9 +93,12 @@ describe("users service ", () => {
 		}
 
 		fetch.mockResponse(JSON.stringify(sampleResponse))
-		return UsersService.getUserDeposits({
-			id: 1
-		}, sessionStorage.getItem("jwt")).then(response => {
+		return UsersService.getUserDeposits(
+			{
+				id: 1
+			},
+			sessionStorage.getItem("jwt")
+		).then(response => {
 			expect(response.body).toEqual(JSON.stringify(sampleResponse))
 		})
 	})

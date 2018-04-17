@@ -50,8 +50,14 @@ p {
 .signInText {
   margin: 0px;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
+.moreInfoText {
+  margin: 0px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

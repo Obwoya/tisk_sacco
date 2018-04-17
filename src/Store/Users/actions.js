@@ -36,6 +36,10 @@ export const login = user => {
 						user: user
 					})
 				})
+			} else if (response.status === 400) {
+				return dispatch({
+					type: actionTypes.LOGIN_FAILED
+				})
 			}
 		})
 	}
@@ -74,6 +78,8 @@ export const getUserInformation = ({ email }) => {
 				})
 			} else if (response.status === 404) {
 				return dispatch({ type: actionTypes.GET_USER_INFORMATION_ERROR })
+			} else if (response.status === 401) {
+				return dispatch({ type: actionTypes.LOGIN_FAILED })
 			}
 		})
 	}
