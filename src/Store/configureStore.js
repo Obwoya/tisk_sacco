@@ -23,15 +23,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(persistedReducer, applyMiddleware(thunk))
 
 
-<<<<<<< HEAD
-export const store = createStore(
-	persistedReducer,
-	composeEnhancers(applyMiddleware(thunk))
-)
-export const persistor = persistStore(store)
-
-=======
 export const persistor = persistStore(store)
 
 export default store
->>>>>>> master
