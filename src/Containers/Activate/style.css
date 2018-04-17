@@ -1,0 +1,55 @@
+
+
+.activatePage{
+    background-color: #b32017;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.topBar{
+    text-align: left;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.arrowBack{
+    margin-right: 20px;
+}
+
+.pageContent{
+
+}
+
+.activateCodeWrapper > input{
+    width: 10%;
+    color: white;
+    background-color: transparent;
+    border: transparent;
+    font-weight: bold;
+    font-size: 32px;
+    border-bottom: solid white 2px;
+    margin: 1%;
+    text-align: center;
+}
+.depositNext{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+}
+
+.depositNext:visited{
+    color: white;
+}
+
+.depositNext:hover,
+.depositNext:active{
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.5s ease-out;
+}
