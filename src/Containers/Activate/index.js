@@ -50,11 +50,25 @@ class Activate extends React.Component{
         e.target.select()
     }
     
+
+    onSubmitHandler = (e) => {
+        e.preventDefault()
+        let code = ""
+
+        for (let i = 0; i <this.state.noOfCharsInCode; i++ ){
+            let inp = document.getElementById(`code_input_${i}`)
+            code = code + inp.value 
+        }
+
+        // The actual code
+        // console.log(code)
+
+    }
     render(){
         let inputs = []
         for (let i = 0; i <this.state.noOfCharsInCode; i++ ){
             inputs.push(<input type="text" key={i} id={`code_input_${i}`} 
-                onKeyUp={this.onKeyUpHandler} onFocus={this.onFocusHandler}
+                onKeyUp={this.onKeyUpHandler} onFocus={this.onFocusHandler} required
                 onPaste={this.onPasteHandler} maxLength="1" onChange={() => this.focusNext(i)}/>)
         }
         return(
@@ -63,12 +77,14 @@ class Activate extends React.Component{
                 <span className={styles.arrowBack}>&#8592;</span>
                 Insert Activation Code
             </div>
-            <div className={styles.pageContent}>
-                <div className={styles.activateCodeWrapper}>
-                {inputs}
+            <form onSubmit={this.onSubmitHandler}>
+                <div className={styles.pageContent}>
+                    <div className={styles.activateCodeWrapper}>
+                    {inputs}
+                    </div>
                 </div>
-            </div>
-            <a href="javascript:void(0);" className={styles.depositNext}>Next</a>
+                <input type="submit" className={styles.depositNext} value="Next"/>
+            </form>
         </div>
         )
     }
