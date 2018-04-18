@@ -53,6 +53,24 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+	it("should create an action to activate an account", () => {
+		
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },			
+			{ type: actionTypes.SIGNUP_SUCCESS }
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify({}), { status: 200 })
+		return store.dispatch(userActions.activateuser("JLTZnn")).then(() => {
+			// return of async actions
+			expect(store.getActions()).toEqual(expectedActions)
+		})
+	})
+	
+	
+	
 	it("should create an action get user information", () => {
 		let sampleResponse = {
 			id: 1,

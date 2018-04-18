@@ -55,6 +55,30 @@ export default class UsersService {
 			})
 	}
 
+	static sendActivationToken(token) {
+		const url = UsersService.host.concat("/users/api/activate/")
+
+		var myHeaders = new Headers()
+		myHeaders.append("content-type", "application/json")
+		myHeaders.append("X-Custom-Header", "ProcessThisImmediately")
+		const request = {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(token)
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				throw error
+			})
+	}
+
 	static registerUser(user) {
 		const url = UsersService.host.concat("/users/api/new/")
 
@@ -96,6 +120,7 @@ export default class UsersService {
 				return error
 			})
 	}
+
 	static getUserDeposits({ email }, token) {
 		const url = UsersService.host.concat(
 			"/users/api/" + email + "/savings/deposits"
