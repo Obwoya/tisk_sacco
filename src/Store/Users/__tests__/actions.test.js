@@ -53,6 +53,44 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+	it("should create an action get user types", () => {
+		let sampleResponse = [
+			{
+				name: "student",
+				registration_fee: 1000,
+				monthly_fee: 500,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "proffesional",
+				registration_fee: 2000,
+				monthly_fee: 1000,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "executive",
+				registration_fee: 10000,
+				monthly_fee: 5000,
+				description: "Lorem ipsum sit amet dolor"
+			}
+		]
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_TYPES_REQUESTED },
+			{
+				type: actionTypes.GET_USER_TYPES_SUCCESS,
+				payload: sampleResponse
+			}
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
+		store.dispatch(userActions.getUserTypes()).then(() => {			
+			expect(store.getActions()).toEqual(expectedActions)
+		})
+	})
+
+
 	it("should create an action get user information", () => {
 		let sampleResponse = {
 			id: 1,

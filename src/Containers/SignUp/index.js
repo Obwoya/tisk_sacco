@@ -39,7 +39,7 @@ class SignUp extends Component {
 			user: property
 		})
 	}
-
+	
 	render() {
 		return (
 			<div className={styles.signUpGrid}>
@@ -109,6 +109,18 @@ class SignUp extends Component {
 									placeholder="confirm password"
 								/>
 							</div>
+							<div className={styles.inputField}>
+								<select name="user_type" onChange={this.handleChange}>
+									<option selected disabled hidden>
+										account type
+									</option>
+									{this.props.userTypes.map((userType, key) => (
+										<option value={userType.name} key={key}>
+											{userType.name}
+										</option>
+									))}
+								</select>
+							</div>
 						</div>
 					</form>
 					<div className={styles.formSubmitGroup}>
@@ -131,7 +143,12 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
 	return {
-		userInformation: userSelectors.getUserInformation(state.users)
+		userInformation: userSelectors.getUserInformation(state.users),
+		userTypes: [
+			{ name: "student" },
+			{ name: "professional" },
+			{ name: "executive" }
+		]
 	}
 }
 

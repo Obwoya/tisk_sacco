@@ -64,6 +64,26 @@ export const signup = user => {
 	}
 }
 
+export const getUserTypes = () => {
+	return dispatch => {
+		dispatch({ type: actionTypes.GET_USER_TYPES_REQUESTED })
+
+		return UsersService.getUserTypes()
+			.then(response => response)
+			.then(response => {
+				if (response.status === 200) {
+					return Promise.resolve(response.json()).then(userTypes => {
+						return dispatch({
+							type: actionTypes.GET_USER_TYPES_SUCCESS,
+							payload: userTypes
+						})
+					})
+				} else if (response.status === 404) {
+					return dispatch({ type: actionTypes.GET_USER_TYPES_ERROR })
+				}
+			})
+	}
+}
 export const getUserInformation = ({ email }) => {
 	return dispatch => {
 		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })

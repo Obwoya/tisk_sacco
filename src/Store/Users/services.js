@@ -79,6 +79,21 @@ export default class UsersService {
 			})
 	}
 
+	static getUserTypes() {
+		const url = UsersService.host.concat("/users/types")
+		const request = {
+			method: "GET",
+			headers: {}
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				return error
+			})
+	}
 	static getUserInfomation({ email }) {
 		const url = UsersService.host.concat("/users/api/" + email + "/")
 		const request = {

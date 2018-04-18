@@ -33,7 +33,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.inputField > input {
+.inputField > input,select {
   outline: none;
   width: 100%;
   -webkit-appearance: none;
