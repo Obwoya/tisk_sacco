@@ -301,7 +301,7 @@ h1{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-._3MxLezLOARgd9wI6mkSQ9B > input {
+._3MxLezLOARgd9wI6mkSQ9B > input,select {
   outline: none;
   width: 100%;
   -webkit-appearance: none;
@@ -527,11 +527,17 @@ p {
 ._25BQ1i6w6qdYTpd5OVuOv3 {
   margin: 0px;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
+._3CSQZeFo5PvCPAa_ABeNYd {
+  margin: 0px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 
 .fUntfjC3Cxv_cIn0_HpQU{
