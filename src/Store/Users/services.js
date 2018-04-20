@@ -80,7 +80,7 @@ export default class UsersService {
 	}
 
 	static getUserTypes() {
-		const url = UsersService.host.concat("/users/types")
+		const url = UsersService.host.concat("/users/api/membershiptypes/")
 		const request = {
 			method: "GET",
 			headers: {}

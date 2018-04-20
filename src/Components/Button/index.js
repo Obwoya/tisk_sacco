@@ -6,12 +6,16 @@ const Button = ({
 	backgroundColor = "#FFFFFF",
 	foregroundColor = "#000000",
 	raised = false,
-	clickAction=()=>{},
-	clickPayload = {}
+	clickAction = () => {},
+	clickPayload = {},
+	disabled = false
 }) => {
 	return (
 		<button
-			onClick={ () =>{ clickAction(clickPayload)}}
+			disabled={disabled}
+			onClick={() => {
+				clickAction(clickPayload)
+			}}
 			className={styles.button}
 			style={{
 				backgroundColor,
