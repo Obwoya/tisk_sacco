@@ -301,12 +301,23 @@ h1{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-._3MxLezLOARgd9wI6mkSQ9B > input {
+._3MxLezLOARgd9wI6mkSQ9B > input,select {
   outline: none;
   width: 100%;
   -webkit-appearance: none;
   border: 0px solid #ccc;
   border-bottom: 1px solid #ccc;
+  background: white;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+input._3wWt7tUySFHAwZA6D_6RN_ {
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+  border: 0px solid red;
+  border-bottom: 1px solid red;
+  border-top: 1px solid red;
   background: white;
   padding-top: 2.5px;
   padding-bottom: 2.5px;

@@ -19,11 +19,16 @@ class SignUp extends Component {
 				password: "",
 				first_name: "",
 				last_name: "",
-				phone_number: ""
-			}
+				phone_number: "",
+				national_id: "",
+				membership_type: ""
+			},
+			validConfirmPassword: true,
+			formCompleted: false
 		}
 
 		this.handleChange = this.handleChange.bind(this)
+		this.handleConfirmPassword = this.handleConfirmPassword.bind(this)
 	}
 
 	handleSubmitButton() {
@@ -40,7 +45,32 @@ class SignUp extends Component {
 		})
 	}
 
+	handleConfirmPassword(event) {
+		if (this.state.user.password !== event.target.value) {
+			this.setState({
+				...this.state,
+				validConfirmPassword: false
+			})
+		} else {
+			this.setState({
+				...this.state,
+				validConfirmPassword: true
+			})
+		}
+	}
+
+	validateUser(user) {
+		let empty_field = Object.keys(user).filter(key => {
+			return user[key] === ""
+		})
+
+		return empty_field.length === 0
+	}
+
 	render() {
+		//check if all values have been provided
+		const formIsValid = this.validateUser(this.state.user)
+
 		return (
 			<div className={styles.signUpGrid}>
 				<div className={styles.formGrid}>
@@ -86,6 +116,7 @@ class SignUp extends Component {
 							<div className={styles.inputField}>
 								<input
 									type="number"
+									min="10000000"
 									id="national_id"
 									name="national_id"
 									placeholder="national id"
@@ -107,15 +138,32 @@ class SignUp extends Component {
 									id="password"
 									name="confirmPassword"
 									placeholder="confirm password"
+									onChange={this.handleConfirmPassword}
+									className={
+										!this.state.validConfirmPassword && styles.inputError
+									}
 								/>
+							</div>
+							<div className={styles.inputField}>
+								<select name="membership_type" onChange={this.handleChange}>
+									<option selected disabled hidden>
+										account type
+									</option>
+									{this.props.userTypes.map((userType, key) => (
+										<option value={userType.name} key={key}>
+											{userType.name}
+										</option>
+									))}
+								</select>
 							</div>
 						</div>
 					</form>
 					<div className={styles.formSubmitGroup}>
 						<Button
-							children="SIGN UP"
-							backgroundColor={"#b32017"}
-							foregroundColor={"#ffffff"}
+							disabled={!formIsValid}
+							children={formIsValid ? "SIGNUP" : "Please fill this form"}
+							backgroundColor={formIsValid ? "#b32017" : "#dfdfdf"}
+							foregroundColor={formIsValid ? "#ffffff" : "#black"}
 							raised={true}
 							clickAction={this.handleSubmitButton.bind(this)}
 						/>
@@ -131,7 +179,12 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
 	return {
-		userInformation: userSelectors.getUserInformation(state.users)
+		userInformation: userSelectors.getUserInformation(state.users),
+		userTypes: [
+			{ name: "student" },
+			{ name: "professional" },
+			{ name: "executive" }
+		]
 	}
 }
 
