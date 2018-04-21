@@ -41,8 +41,7 @@ describe("User action creators", () => {
 		}
 
 		const expectedActions = [
-			{ type: actionTypes.SIGNUP_REQUEST },
-			{ type: actionTypes.LOGIN_REQUEST },
+			{ type: actionTypes.SIGNUP_REQUEST },			
 			{ type: actionTypes.SIGNUP_SUCCESS, userInformation: sampleUser }
 		]
 
@@ -53,6 +52,27 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+	it("should create an action to activate an account", () => {
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS }
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(
+			JSON.stringify({
+				message: "user activation successful"
+			}),
+			{ status: 200 }
+		)
+		return store
+			.dispatch(userActions.activateUser({ token: "JLTZnn" }))
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
+
 	it("should create an action get user types", () => {
 		let sampleResponse = [
 			{
@@ -85,11 +105,10 @@ describe("User action creators", () => {
 
 		const store = mockStore({})
 		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
-		store.dispatch(userActions.getUserTypes()).then(() => {			
+		store.dispatch(userActions.getUserTypes()).then(() => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
-
 
 	it("should create an action get user information", () => {
 		let sampleResponse = {

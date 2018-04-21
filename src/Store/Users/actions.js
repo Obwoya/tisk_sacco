@@ -52,13 +52,27 @@ export const signup = user => {
 		})
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
-				return Promise.resolve(response.json()).then(userInformation => {
-					dispatch(login({ email: user.email, password: user.password }))
+				return Promise.resolve(response.json()).then(userInformation => {					
 					return dispatch({
 						type: actionTypes.SIGNUP_SUCCESS,
 						userInformation: userInformation
 					})
 				})
+			}
+		})
+	}
+}
+
+export const activateUser = token => {
+	return dispatch => {
+		dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED })
+		return UsersService.sendActivationToken(token).then(response => {
+			if (response.status === 200) {
+				return dispatch({
+					type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS
+				})
+			} else {
+				return dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_ERROR })
 			}
 		})
 	}

@@ -33,7 +33,7 @@ class SignUp extends Component {
 
 	handleSubmitButton() {
 		this.props.userActions.signup(this.state.user)
-		this.props.history.push("/home")
+		this.props.history.push("/activate")
 	}
 
 	handleChange(event) {
