@@ -64,6 +64,21 @@ export const signup = user => {
 	}
 }
 
+export const activateUser = token => {
+	return dispatch => {
+		dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED })
+		return UsersService.sendActivationToken(token).then(response => {
+			if (response.status === 200) {
+				return dispatch({
+					type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS
+				})
+			} else {
+				return dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_ERROR })
+			}
+		})
+	}
+}
+
 export const getUserTypes = () => {
 	return dispatch => {
 		dispatch({ type: actionTypes.GET_USER_TYPES_REQUESTED })

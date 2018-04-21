@@ -56,15 +56,22 @@ describe("User action creators", () => {
 	it("should create an action to activate an account", () => {
 		const expectedActions = [
 			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },
-			{ type: actionTypes.SIGNUP_SUCCESS }
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS }
 		]
 
 		const store = mockStore({})
-		fetch.mockResponse(JSON.stringify({}), { status: 200 })
-		return store.dispatch(userActions.activateuser("JLTZnn")).then(() => {
-			// return of async actions
-			expect(store.getActions()).toEqual(expectedActions)
-		})
+		fetch.mockResponse(
+			JSON.stringify({
+				message: "user activation successful"
+			}),
+			{ status: 200 }
+		)
+		return store
+			.dispatch(userActions.activateUser({ token: "JLTZnn" }))
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
 	})
 
 	it("should create an action get user types", () => {
