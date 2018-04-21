@@ -59,8 +59,7 @@ export default class UsersService {
 		const url = UsersService.host.concat("/users/api/activate/")
 
 		var myHeaders = new Headers()
-		myHeaders.append("content-type", "application/json")
-		myHeaders.append("X-Custom-Header", "ProcessThisImmediately")
+		myHeaders.append("content-type", "application/json")		
 		const request = {
 			method: "POST",
 			headers: {

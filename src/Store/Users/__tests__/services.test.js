@@ -50,15 +50,18 @@ describe("users service ", () => {
 		})
 	})
 
-	it("sends an activation token", ()=>{
+	it("sends an activation token", () => {
 		let sampleResponse = {
 			message: "user activation successful"
 		}
-		let token = {token:"JLTZnn"}
+		let token = { token: "JLTZnn" }
 
 		fetch.mockResponse(JSON.stringify(sampleResponse))
-		return UsersService.sendActivationToken(token).then(response =>{
-			expect(response).toEqual(sampleResponse)
+		return UsersService.sendActivationToken(token).then(response => {
+			expect(response.status).toEqual(200)
+			Promise.resolve(response.json()).then(message =>{				
+				expect(message).toEqual(sampleResponse)
+			})
 		})
 	})
 
