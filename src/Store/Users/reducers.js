@@ -38,7 +38,14 @@ export const usersReducer = (state = initialState, action = {}) => {
 			_loginProcess: { status: processTypes.IDLE },
 			auth: { _isUserAuthenticated: false }
 		})
-
+	case actionTypes.LOGIN_INVALID:
+		return state.merge({
+			_loginProcess: {
+				status: processTypes.ERROR,
+				message: "Unable to log with provided credentials"
+			},
+			auth: { _isUserAuthenticated: false }
+		})
 	case actionTypes.SIGNUP_REQUEST:
 		return state.merge({
 			_signupProcess: { status: processTypes.PROCESSING }

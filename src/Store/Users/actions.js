@@ -37,6 +37,29 @@ export const login = user => {
 					})
 				})
 			} else if (response.status === 400) {
+				//check if there is a non_field error
+				return Promise.resolve(response.json()).then(error => {
+					if ("non_field_errors" in error) {
+						//check if there is an error invalid credentials
+						let credentialErrors = error["non_field_errors"].find(item => {
+							return item === "Unable to log in with provided credentials."
+						})
+						if (credentialErrors !== undefined) {
+							return dispatch({
+								type: actionTypes.LOGIN_INVALID
+							})
+						} else {
+							return dispatch({
+								type: actionTypes.LOGIN_FAILED
+							})
+						}
+					} else {
+						return dispatch({
+							type: actionTypes.LOGIN_FAILED
+						})
+					}
+				})
+			} else {
 				return dispatch({
 					type: actionTypes.LOGIN_FAILED
 				})
@@ -52,7 +75,7 @@ export const signup = user => {
 		})
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
-				return Promise.resolve(response.json()).then(userInformation => {					
+				return Promise.resolve(response.json()).then(userInformation => {
 					return dispatch({
 						type: actionTypes.SIGNUP_SUCCESS,
 						userInformation: userInformation

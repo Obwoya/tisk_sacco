@@ -11,6 +11,7 @@ import * as userSelectors from "../../Store/Users/selectors"
 import styles from "./style.css"
 
 import Button from "../../Components/Button"
+import ErrorMessage from "../../Components/ErrorMessage"
 export class SignIn extends Component {
 	constructor(props) {
 		super(props)
@@ -54,7 +55,7 @@ export class SignIn extends Component {
 					{_loginProcess.status === processTypes.PROCESSING ? (
 						<div className={styles.ringLoaderGrid}>
 							<div className={styles.ringLoader}>
-								<BarLoader color={"#b32017"} loading={true} height={4}/>
+								<BarLoader color={"#b32017"} loading={true} height={4} />
 							</div>
 						</div>
 					) : (
@@ -78,6 +79,9 @@ export class SignIn extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
+								{_loginProcess.status === processTypes.ERROR && (
+									<ErrorMessage>{_loginProcess.message}</ErrorMessage>
+								)}
 							</div>
 						</form>
 					)}

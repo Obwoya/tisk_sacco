@@ -31,6 +31,25 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+
+	it("should create an action to get when invalid credentials are passed", () => {
+		let sampleResponse = {
+			non_field_errors: ["Unable to log in with provided credentials."]
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.LOGIN_REQUEST },
+			{ type: actionTypes.LOGIN_INVALID }
+		]
+
+		const store = mockStore({ token: [] })
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 400 })
+		return store.dispatch(userActions.login()).then(() => {
+			// return of async actions
+			expect(store.getActions()).toEqual(expectedActions)
+		})
+	})
+
 	it("should create an action to register a new user", () => {
 		let sampleUser = {
 			email: "email@email.com",
@@ -41,7 +60,7 @@ describe("User action creators", () => {
 		}
 
 		const expectedActions = [
-			{ type: actionTypes.SIGNUP_REQUEST },			
+			{ type: actionTypes.SIGNUP_REQUEST },
 			{ type: actionTypes.SIGNUP_SUCCESS, userInformation: sampleUser }
 		]
 

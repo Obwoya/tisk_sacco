@@ -33,6 +33,23 @@ describe("Users reducer", () => {
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
 	})
 
+	it("should return state with token on LOGIN INVALID", () => {
+		const action = {
+			type: actionTypes.LOGIN_INVALID
+		}
+		const expected = {
+			_loginProcess: {
+				status: processTypes.ERROR,
+				message: "Unable to log with provided credentials"
+			},
+			auth: {
+				_isUserAuthenticated: false,				
+			}
+		}
+
+		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+
 	it("Return state with signupProcessing as PROCESSING in SIGNUP REQUEST", () => {
 		const action = { type: actionTypes.SIGNUP_REQUEST }
 		const expected = { _signupProcess: { status: processTypes.PROCESSING } }
@@ -90,7 +107,7 @@ describe("Users reducer", () => {
 		}
 		const expected = {
 			_getUserTypesProcess: {
-				status: processTypes.SUCCESS,
+				status: processTypes.SUCCESS
 			},
 			userTypes: [{ name: "student", registration_fee: 200 }]
 		}
