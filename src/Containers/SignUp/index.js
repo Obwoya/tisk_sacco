@@ -19,13 +19,17 @@ class SignUp extends Component {
 				password: "",
 				first_name: "",
 				last_name: "",
-				phone_number: ""
+				phone_number: "",
+				member_type: ""
 			}
 		}
 
 		this.handleChange = this.handleChange.bind(this)
 	}
 
+	componentDidMount() {
+		this.props.userActions.getUserTypes()
+	}
 	handleSubmitButton() {
 		this.props.userActions.signup(this.state.user)
 		this.props.history.push("/home")
@@ -39,7 +43,7 @@ class SignUp extends Component {
 			user: property
 		})
 	}
-	
+
 	render() {
 		return (
 			<div className={styles.signUpGrid}>
@@ -109,18 +113,20 @@ class SignUp extends Component {
 									placeholder="confirm password"
 								/>
 							</div>
-							<div className={styles.inputField}>
-								<select name="user_type" onChange={this.handleChange}>
-									<option selected disabled hidden>
-										account type
-									</option>
-									{this.props.userTypes.map((userType, key) => (
-										<option value={userType.name} key={key}>
-											{userType.name}
+							{ this.props.userTypes  && (
+								<div className={styles.inputField}>
+									<select name="user_type" onChange={this.handleChange}>
+										<option selected disabled hidden>
+											account type
 										</option>
-									))}
-								</select>
-							</div>
+										{this.props.userTypes.map((userType, key) => (
+											<option value={userType.id} key={key}>
+												{userType.name}
+											</option>
+										))}
+									</select>
+								</div>
+							)}
 						</div>
 					</form>
 					<div className={styles.formSubmitGroup}>
@@ -144,11 +150,7 @@ class SignUp extends Component {
 const mapStateToProps = state => {
 	return {
 		userInformation: userSelectors.getUserInformation(state.users),
-		userTypes: [
-			{ name: "student" },
-			{ name: "professional" },
-			{ name: "executive" }
-		]
+		userTypes: userSelectors.getUserTypes(state.users)
 	}
 }
 
