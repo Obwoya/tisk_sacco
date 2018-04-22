@@ -96,3 +96,9 @@
 .quickActions button:focus:not(:active)::after {
   animation: ripple 1s ease-out;
 }
+
+
+.mfsRegistrationCallToAction{
+  padding: 20px;
+  text-align: justify;
+}

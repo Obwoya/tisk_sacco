@@ -5,15 +5,23 @@ import { withRouter } from "react-router-dom"
 
 import styles from "./style.css"
 
+import * as processTypes from "../../Store/Shared/processTypes"
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
 
 import ProfileBanner from "../../Components/ProfileBanner"
 import RecentTransactions from "../../Components/RecentTransactions"
+import Button from "../../Components/Button"
 class HomePage extends Component {
 	constructor(props) {
 		super(props)
+		this.handleMFSRegistration = this.handleMFSRegistration.bind(this)
 	}
+
+	handleMFSRegistration() {
+		this.props.history.push("/welcome")
+	}
+
 	componentDidMount() {
 		let getUser = () =>
 			Promise.resolve(
@@ -25,28 +33,52 @@ class HomePage extends Component {
 	}
 
 	render() {
+		// let userInformation = this.props.userInformation
+		// let { is_mfs_active } = userInformation.user_member
+		let { userInformation, getUserInformationProcess } = this.props
+		let is_mfs_active = false
 		return (
 			<div>
-				{this.props.userInformation && (
+				{getUserInformationProcess.status === processTypes.SUCCESS && (
 					<div>
-						<ProfileBanner user={this.props.userInformation} />
-						<div className={styles.contentGrid}>
-							<RecentTransactions />
-						</div>
-
-						<div className={styles.quickActions}>
+						<ProfileBanner user={userInformation} />
+						{is_mfs_active ? (
 							<div>
-								<button type="submit" className={styles.quickActionDeposit}
-									onClick={()=>{this.props.history.push("/deposit/new")}}>
-									<div className={styles.quickActionIcon} />
-									<div>Deposit Cash</div>
-								</button>
-								<button type="submit" className={styles.quickActionLoan}>
-									<div className={styles.quickActionIcon} />
-									<div>Take Loan</div>
-								</button>
+								<div className={styles.contentGrid}>
+									<RecentTransactions />
+								</div>
+
+								<div className={styles.quickActions}>
+									<div>
+										<button
+											type="submit"
+											className={styles.quickActionDeposit}
+											onClick={() => {
+												this.props.history.push("/deposit/new")
+											}}
+										>
+											<div className={styles.quickActionIcon} />
+											<div>Deposit Cash</div>
+										</button>
+										<button type="submit" className={styles.quickActionLoan}>
+											<div className={styles.quickActionIcon} />
+											<div>Take Loan</div>
+										</button>
+									</div>
+								</div>
 							</div>
-						</div>
+						) : (
+							<div className={styles.mfsRegistrationCallToAction}>
+								<h3> Welcome {userInformation.first_name}. Your account does not seem to be active. You can make transactions by clicking the button below </h3>
+								<Button
+									children="BEGIN TRANSACTIONGS"
+									backgroundColor={"#b32017"}
+									foregroundColor={"#ffffff"}
+									raised={true}
+									clickAction={this.handleMFSRegistration}
+								/>
+							</div>
+						)}
 					</div>
 				)}
 			</div>
