@@ -102,7 +102,7 @@ export const activateUser = token => {
 }
 
 export const getUserTypes = () => {
-	return dispatch => {
+	return dispatch => {		
 		dispatch({ type: actionTypes.GET_USER_TYPES_REQUESTED })
 
 		return UsersService.getUserTypes()
