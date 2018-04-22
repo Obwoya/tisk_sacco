@@ -1,0 +1,63 @@
+.welcomePageGrid {
+  height: 100vh;
+  position: relative;
+}
+.welcomeGrid {
+  padding: 30px;
+  /* background: red; */
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.headerGrid {
+  max-height: 25vh;
+  height: 15vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../assets/images/tiskSacco.gif);
+  z-index: -1;
+}
+.imageGrid {
+  max-height: 35vh;
+  height: 35vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: -1;
+}
+.welcomeMessage {
+  text-align: center;
+}
+.welcomeMessage > h2,
+p {
+  margin: 0;
+}
+.welcomeMessage > p {
+  font-size: 11px;
+}
+
+.signUpGroup {
+  padding-top: 20px;
+  margin: auto;
+  max-width: 450px;
+}
+.signUp.signUpButton {
+}
+.signInText {
+  margin: 0px;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.moreInfoText {
+  margin: 0px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

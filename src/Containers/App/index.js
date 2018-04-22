@@ -11,6 +11,7 @@ import SignIn from "../SignIn"
 import Welcome from "../Welcome"
 import Deposit from "../Deposit"
 import Activate from "../Activate"
+import RegistrationFees from "../RegistrationFees"
 
 class App extends Component {
 	render() {
@@ -18,12 +19,13 @@ class App extends Component {
 			<Router>
 				<div>
 					<Switch>
-						<Route path="/activate" component={Activate}/>
+						<Route path="/activate" component={Activate} />
 						<Route path="/signup" component={SignUp} />
 						<Route path="/deposit/new" component={Deposit} />
 						<Route path="/signin" component={SignIn} />
+						<Route path="/registrationfees" component={RegistrationFees} />
 						{/* <Route path="/home" component={Home}/> */}
-{/* 					
+						{/* 					
 						<PrivateRoute
 							path="/deposit"
 							component={Deposit}
