@@ -36,7 +36,7 @@ class HomePage extends Component {
 		// let userInformation = this.props.userInformation
 		// let { is_mfs_active } = userInformation.user_member
 		let { userInformation, getUserInformationProcess } = this.props
-		let is_mfs_active = false
+		let is_mfs_active = userInformation.user_member.is_msf_active
 		return (
 			<div>
 				{getUserInformationProcess.status === processTypes.SUCCESS && (
@@ -69,7 +69,12 @@ class HomePage extends Component {
 							</div>
 						) : (
 							<div className={styles.mfsRegistrationCallToAction}>
-								<h3> Welcome {userInformation.first_name}. Your account does not seem to be active. You can make transactions by clicking the button below </h3>
+								<h3>
+									{" "}
+									Welcome {userInformation.first_name}. Your account does not
+									seem to be active. You can make transactions by clicking the
+									button below{" "}
+								</h3>
 								<Button
 									children="BEGIN TRANSACTIONGS"
 									backgroundColor={"#b32017"}

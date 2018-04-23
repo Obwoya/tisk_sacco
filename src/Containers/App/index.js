@@ -23,7 +23,7 @@ class App extends Component {
 						<Route path="/signup" component={SignUp} />
 						<Route path="/deposit/new" component={Deposit} />
 						<Route path="/signin" component={SignIn} />
-						<Route path="/registrationfees" component={RegistrationFees} />
+						{/* <Route path="/registrationfees" component={RegistrationFees} /> */}
 						{/* <Route path="/home" component={Home}/> */}
 						{/* 					
 						<PrivateRoute
@@ -34,6 +34,11 @@ class App extends Component {
 						<PrivateRoute
 							path="/home"
 							component={Home}
+							isUserAuthenticated={this.props.isUserAuthenticated}
+						/>
+						<PrivateRoute
+							path="/registrationfees"
+							component={RegistrationFees}
 							isUserAuthenticated={this.props.isUserAuthenticated}
 						/>
 						<PrivateRoute
