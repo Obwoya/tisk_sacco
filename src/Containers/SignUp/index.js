@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Link } from "react-router-dom"
 
-import { withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -19,16 +19,24 @@ class SignUp extends Component {
 				password: "",
 				first_name: "",
 				last_name: "",
-				phone_number: ""
-			}
+				phone_number: "",
+				national_id: "",
+				member_type: ""
+			},
+			validConfirmPassword: true,
+			formCompleted: false
 		}
 
 		this.handleChange = this.handleChange.bind(this)
+		this.handleConfirmPassword = this.handleConfirmPassword.bind(this)
 	}
 
+	componentDidMount() {
+		this.props.userActions.getUserTypes()
+	}
 	handleSubmitButton() {
 		this.props.userActions.signup(this.state.user)
-		this.props.history.push("/home")
+		this.props.history.push("/activate")
 	}
 
 	handleChange(event) {
@@ -40,7 +48,32 @@ class SignUp extends Component {
 		})
 	}
 
+	handleConfirmPassword(event) {
+		if (this.state.user.password !== event.target.value) {
+			this.setState({
+				...this.state,
+				validConfirmPassword: false
+			})
+		} else {
+			this.setState({
+				...this.state,
+				validConfirmPassword: true
+			})
+		}
+	}
+
+	validateUser(user) {
+		let empty_field = Object.keys(user).filter(key => {
+			return user[key] === ""
+		})
+
+		return empty_field.length === 0
+	}
+
 	render() {
+		//check if all values have been provided
+		const formIsValid = this.validateUser(this.state.user)
+
 		return (
 			<div className={styles.signUpGrid}>
 				<div className={styles.formGrid}>
@@ -78,7 +111,7 @@ class SignUp extends Component {
 								<input
 									type="tel"
 									id="phoneNumber"
-									name="phoneNumber"
+									name="phone_number"
 									placeholder="phone number"
 									onChange={this.handleChange}
 								/>
@@ -86,6 +119,7 @@ class SignUp extends Component {
 							<div className={styles.inputField}>
 								<input
 									type="number"
+									min="10000000"
 									id="national_id"
 									name="national_id"
 									placeholder="national id"
@@ -107,15 +141,34 @@ class SignUp extends Component {
 									id="password"
 									name="confirmPassword"
 									placeholder="confirm password"
+									onChange={this.handleConfirmPassword}
+									className={
+										!this.state.validConfirmPassword && styles.inputError
+									}
 								/>
 							</div>
+							{this.props.userTypes && (
+								<div className={styles.inputField}>
+									<select name="member_type" onChange={this.handleChange}>
+										<option selected disabled hidden>
+											account type
+										</option>
+										{this.props.userTypes.map((userType, key) => (
+											<option value={userType.id} key={key}>
+												{userType.name}
+											</option>
+										))}
+									</select>
+								</div>
+							)}
 						</div>
 					</form>
 					<div className={styles.formSubmitGroup}>
 						<Button
-							children="SIGN UP"
-							backgroundColor={"#b32017"}
-							foregroundColor={"#ffffff"}
+							disabled={!formIsValid}
+							children={formIsValid ? "SIGNUP" : "Please fill this form"}
+							backgroundColor={formIsValid ? "#b32017" : "#dfdfdf"}
+							foregroundColor={formIsValid ? "#ffffff" : "#black"}
 							raised={true}
 							clickAction={this.handleSubmitButton.bind(this)}
 						/>
@@ -131,7 +184,8 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
 	return {
-		userInformation: userSelectors.getUserInformation(state.users)
+		userInformation: userSelectors.getUserInformation(state.users),
+		userTypes: userSelectors.getUserTypes(state.users)
 	}
 }
 
@@ -140,4 +194,4 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter( SignUp))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp))

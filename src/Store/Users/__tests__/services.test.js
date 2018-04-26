@@ -8,6 +8,7 @@ describe("users service ", () => {
 		global.sessionStorage.setItem = jest.genMockFunction()
 		global.sessionStorage.getItem = jest.genMockFunction()
 	})
+
 	it("makes request for new token", () => {
 		// expect( typeof( OrdersService.getOrders())).toBe("function")
 		let response = {
@@ -24,6 +25,7 @@ describe("users service ", () => {
 			expect(response).toEqual(response)
 		})
 	})
+
 	it("makes request for new user", () => {
 		// expect( typeof( OrdersService.getOrders())).toBe("function")
 		let sampleResponse = {
@@ -45,6 +47,21 @@ describe("users service ", () => {
 
 		return UsersService.registerUser(sampleUser).then(response => {
 			expect(response).toEqual(response)
+		})
+	})
+
+	it("sends an activation token", () => {
+		let sampleResponse = {
+			message: "user activation successful"
+		}
+		let token = { token: "JLTZnn" }
+
+		fetch.mockResponse(JSON.stringify(sampleResponse))
+		return UsersService.sendActivationToken(token).then(response => {
+			expect(response.status).toEqual(200)
+			Promise.resolve(response.json()).then(message =>{				
+				expect(message).toEqual(sampleResponse)
+			})
 		})
 	})
 
@@ -73,7 +90,34 @@ describe("users service ", () => {
 			expect(response.body).toEqual(JSON.stringify(sampleResponse))
 		})
 	})
-	
+
+	it("gets the user types", () => {
+		let actualResponse = [
+			{
+				name: "student",
+				registration_fee: 1000,
+				monthly_fee: 500,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "proffesional",
+				registration_fee: 2000,
+				monthly_fee: 1000,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "executive",
+				registration_fee: 10000,
+				monthly_fee: 5000,
+				description: "Lorem ipsum sit amet dolor"
+			}
+		]
+
+		fetch.mockResponse(JSON.stringify(actualResponse))
+		return UsersService.getUserTypes().then(response => {
+			expect(response.body).toEqual(JSON.stringify(actualResponse))
+		})
+	})
 
 	it("gets the user deposits", () => {
 		let sampleResponse = {

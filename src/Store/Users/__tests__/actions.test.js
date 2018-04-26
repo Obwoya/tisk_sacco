@@ -31,6 +31,25 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+
+	it("should create an action to get when invalid credentials are passed", () => {
+		let sampleResponse = {
+			non_field_errors: ["Unable to log in with provided credentials."]
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.LOGIN_REQUEST },
+			{ type: actionTypes.LOGIN_INVALID }
+		]
+
+		const store = mockStore({ token: [] })
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 400 })
+		return store.dispatch(userActions.login()).then(() => {
+			// return of async actions
+			expect(store.getActions()).toEqual(expectedActions)
+		})
+	})
+
 	it("should create an action to register a new user", () => {
 		let sampleUser = {
 			email: "email@email.com",
@@ -42,7 +61,6 @@ describe("User action creators", () => {
 
 		const expectedActions = [
 			{ type: actionTypes.SIGNUP_REQUEST },
-			{ type: actionTypes.LOGIN_REQUEST },
 			{ type: actionTypes.SIGNUP_SUCCESS, userInformation: sampleUser }
 		]
 
@@ -53,6 +71,64 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+	it("should create an action to activate an account", () => {
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },
+			{ type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS }
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(
+			JSON.stringify({
+				message: "user activation successful"
+			}),
+			{ status: 200 }
+		)
+		return store
+			.dispatch(userActions.activateUser({ token: "JLTZnn" }))
+			.then(() => {
+				// return of async actions
+				expect(store.getActions()).toEqual(expectedActions)
+			})
+	})
+
+	it("should create an action get user types", () => {
+		let sampleResponse = [
+			{
+				name: "student",
+				registration_fee: 1000,
+				monthly_fee: 500,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "proffesional",
+				registration_fee: 2000,
+				monthly_fee: 1000,
+				description: "Lorem ipsum sit amet dolor"
+			},
+			{
+				name: "executive",
+				registration_fee: 10000,
+				monthly_fee: 5000,
+				description: "Lorem ipsum sit amet dolor"
+			}
+		]
+
+		const expectedActions = [
+			{ type: actionTypes.GET_USER_TYPES_REQUESTED },
+			{
+				type: actionTypes.GET_USER_TYPES_SUCCESS,
+				payload: sampleResponse
+			}
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
+		store.dispatch(userActions.getUserTypes()).then(() => {
+			expect(store.getActions()).toEqual(expectedActions)
+		})
+	})
+
 	it("should create an action get user information", () => {
 		let sampleResponse = {
 			id: 1,

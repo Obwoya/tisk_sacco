@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import * as processTypes from "../Shared/processTypes"
-import { createTransform } from "redux-persist"
+
 
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
@@ -19,7 +19,8 @@ const initialState = Immutable({
 	userInformation: {},
 
 	_getUserInformationProcess: {},
-	_getUserDepositsProcess: {}
+	_getUserDepositsProcess: {},
+	_getUserTypesProcess: {}
 })
 
 const usersPersistConfig = {
@@ -58,6 +59,16 @@ export const usersReducer = (state = initialState, action = {}) => {
 			auth: { _isUserAuthenticated: false }
 		}
 
+
+	case actionTypes.LOGIN_INVALID:
+		return {
+			...state,
+			_loginProcess: {
+				status: processTypes.ERROR,
+				message: "Unable to log with provided credentials"
+			},
+			auth: { _isUserAuthenticated: false }
+		}
 	case actionTypes.SIGNUP_REQUEST:
 		return {
 			...state,
@@ -68,6 +79,23 @@ export const usersReducer = (state = initialState, action = {}) => {
 			...state,
 			_signupProcess: { status: processTypes.SUCCESS },
 			userInformation: action.userInformation
+		}
+
+	case actionTypes.GET_USER_TYPES_REQUESTED:
+		return {
+			...state,
+			_getUserTypesProcess: {
+				status: processTypes.PROCESSING
+			}
+		}
+
+	case actionTypes.GET_USER_TYPES_SUCCESS:
+		return {
+			...state,
+			_getUserTypesProcess: {
+				status: processTypes.SUCCESS
+			},
+			userTypes: action.payload
 		}
 
 	case actionTypes.GET_USER_INFORMATION_REQUESTED:

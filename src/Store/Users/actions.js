@@ -37,6 +37,29 @@ export const login = user => {
 					})
 				})
 			} else if (response.status === 400) {
+				//check if there is a non_field error
+				return Promise.resolve(response.json()).then(error => {
+					if ("non_field_errors" in error) {
+						//check if there is an error invalid credentials
+						let credentialErrors = error["non_field_errors"].find(item => {
+							return item === "Unable to log in with provided credentials."
+						})
+						if (credentialErrors !== undefined) {
+							return dispatch({
+								type: actionTypes.LOGIN_INVALID
+							})
+						} else {
+							return dispatch({
+								type: actionTypes.LOGIN_FAILED
+							})
+						}
+					} else {
+						return dispatch({
+							type: actionTypes.LOGIN_FAILED
+						})
+					}
+				})
+			} else {
 				return dispatch({
 					type: actionTypes.LOGIN_FAILED
 				})
@@ -53,7 +76,6 @@ export const signup = user => {
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
 				return Promise.resolve(response.json()).then(userInformation => {
-					dispatch(login({ email: user.email, password: user.password }))
 					return dispatch({
 						type: actionTypes.SIGNUP_SUCCESS,
 						userInformation: userInformation
@@ -64,6 +86,41 @@ export const signup = user => {
 	}
 }
 
+export const activateUser = token => {
+	return dispatch => {
+		dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED })
+		return UsersService.sendActivationToken(token).then(response => {
+			if (response.status === 200) {
+				return dispatch({
+					type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS
+				})
+			} else {
+				return dispatch({ type: actionTypes.GET_USER_ACTIVATION_CODE_ERROR })
+			}
+		})
+	}
+}
+
+export const getUserTypes = () => {
+	return dispatch => {		
+		dispatch({ type: actionTypes.GET_USER_TYPES_REQUESTED })
+
+		return UsersService.getUserTypes()
+			.then(response => response)
+			.then(response => {
+				if (response.status === 200) {
+					return Promise.resolve(response.json()).then(userTypes => {
+						return dispatch({
+							type: actionTypes.GET_USER_TYPES_SUCCESS,
+							payload: userTypes
+						})
+					})
+				} else if (response.status === 404) {
+					return dispatch({ type: actionTypes.GET_USER_TYPES_ERROR })
+				}
+			})
+	}
+}
 export const getUserInformation = ({ email }) => {
 	return dispatch => {
 		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })

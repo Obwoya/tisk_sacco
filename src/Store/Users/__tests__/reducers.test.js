@@ -11,6 +11,7 @@ describe("Users reducer", () => {
 
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
 	})
+
 	it("should return state with token on LOGIN SUCEESS", () => {
 		const action = {
 			type: actionTypes.LOGIN_SUCCESS,
@@ -26,6 +27,23 @@ describe("Users reducer", () => {
 			auth: {
 				_isUserAuthenticated: true,
 				token: "token"
+			}
+		}
+
+		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+
+	it("should return state with token on LOGIN INVALID", () => {
+		const action = {
+			type: actionTypes.LOGIN_INVALID
+		}
+		const expected = {
+			_loginProcess: {
+				status: processTypes.ERROR,
+				message: "Unable to log with provided credentials"
+			},
+			auth: {
+				_isUserAuthenticated: false,				
 			}
 		}
 
@@ -64,10 +82,34 @@ describe("Users reducer", () => {
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
 	})
 
+	it("should state with _getUserTypes as PROCESSING in GET USER TYPES REQUEST", () => {
+		const action = { type: actionTypes.GET_USER_TYPES_REQUESTED }
+		const expected = {
+			_getUserTypesProcess: { status: processTypes.PROCESSING }
+		}
+
+		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+
 	it("should state with userInformationProcess as PROCESSING in GET USER INFORMATION REQUEST", () => {
 		const action = { type: actionTypes.GET_USER_INFORMATION_REQUESTED }
 		const expected = {
 			_getUserInformationProcess: { status: processTypes.PROCESSING }
+		}
+
+		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+
+	it("Should return user types and completed process on GET_USER_TYPES_SUCCESS", () => {
+		const action = {
+			type: actionTypes.GET_USER_TYPES_SUCCESS,
+			payload: [{ name: "student", registration_fee: 200 }]
+		}
+		const expected = {
+			_getUserTypesProcess: {
+				status: processTypes.SUCCESS
+			},
+			userTypes: [{ name: "student", registration_fee: 200 }]
 		}
 
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
@@ -182,7 +224,6 @@ describe("Users reducer", () => {
 			}
 		}
 
-		
 		const requestAction = {
 			type: actionTypes.GET_USER_DEPOSITS_REQUESTED
 		}
@@ -190,7 +231,9 @@ describe("Users reducer", () => {
 			_getUserDepositsProcess: { status: processTypes.PROCESSING }
 		}
 
-		expect(savingsReducer(Immutable({}), successAction)).toEqual(expectedSuccessState)	
+		expect(savingsReducer(Immutable({}), successAction)).toEqual(
+			expectedSuccessState
+		)
 		expect(savingsReducer(Immutable({}), requestAction)).toEqual(
 			expectedRequestState
 		)

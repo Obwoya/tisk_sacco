@@ -28,6 +28,9 @@ class WelcomePage extends Component {
 					<p className={styles.signInText}>
 						already have an account? <Link to="/signin"> sign in</Link>
 					</p>
+					<a href="http://www.tisk.co.ke" target="blank" className={styles.moreInfoText}>
+						<p>www.tisk.co.ke</p>
+					</a>
 				</div>
 			</div>
 		)

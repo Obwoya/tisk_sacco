@@ -78,15 +78,15 @@ if ("function" === typeof importScripts) {
 				]
 			})
 		)
-			// workbox.routing.registerRoute(
-			// 	// Cache CSS files
-			// 	//,
-			// 	new RegExp("/*"),
-			// 	// Use cache but update in the background ASAP
-			// 	workbox.strategies.staleWhileRevalidate({
-			// 		// Use a custom cache name
-			// 		cacheName: "others-cache"
-			// 	})
-			// )
+		// workbox.routing.registerRoute(
+		// 	// Cache CSS files
+		// 	//,
+		// 	new RegExp("/*"),
+		// 	// Use cache but update in the background ASAP
+		// 	workbox.strategies.staleWhileRevalidate({
+		// 		// Use a custom cache name
+		// 		cacheName: "others-cache"
+		// 	})
+		// )
 	}
 }
