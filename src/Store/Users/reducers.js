@@ -1,15 +1,13 @@
 import * as actionTypes from "./actionTypes"
 import * as processTypes from "../Shared/processTypes"
 
-
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
 import storage from "redux-persist/lib/storage"
 import { persistReducer } from "redux-persist"
 
-
-const initialState = Immutable({
+const usersInitialState = Immutable({
 	_loginProcess: { status: processTypes.IDLE },
 	auth: {
 		_isUserAuthenticated: false
@@ -31,10 +29,10 @@ const usersPersistConfig = {
 		"_signupProcess",
 		"_getUserInformationProcess",
 		"_getUserDepositsProcess"
-	]	
+	]
 }
 
-export const usersReducer = (state = initialState, action = {}) => {
+export const usersReducer = (state = usersInitialState, action = {}) => {
 	switch (action.type) {
 	case actionTypes.LOGIN_REQUEST:
 		return {
@@ -58,7 +56,6 @@ export const usersReducer = (state = initialState, action = {}) => {
 			_loginProcess: { status: processTypes.IDLE },
 			auth: { _isUserAuthenticated: false }
 		}
-
 
 	case actionTypes.LOGIN_INVALID:
 		return {
@@ -105,6 +102,7 @@ export const usersReducer = (state = initialState, action = {}) => {
 		}
 	case actionTypes.GET_USER_INFORMATION_SUCCESS:
 		return {
+			...state,
 			_getUserInformationProcess: { status: processTypes.SUCCESS },
 			userInformation: action.userInformation
 		}
@@ -114,7 +112,17 @@ export const usersReducer = (state = initialState, action = {}) => {
 	}
 }
 
-export const savingsReducer = (state = initialState, action = {}) => {
+const savingsInitialState = Immutable({
+	_getUserDepositsProcess: { status: processTypes.IDLE }
+})
+
+const savingsPersistConfig = {
+	key: "savings",
+	storage,
+	blacklist: ["_getUserDepositsProcess"]
+}
+
+export const savingsReducer = (state = savingsInitialState, action = {}) => {
 	switch (action.type) {
 	case actionTypes.GET_USER_DEPOSITS_REQUESTED:
 		return {
@@ -135,5 +143,5 @@ export const savingsReducer = (state = initialState, action = {}) => {
 
 export default combineReducers({
 	users: persistReducer(usersPersistConfig, usersReducer),
-	savings: persistReducer(usersPersistConfig, savingsReducer)
+	savings: persistReducer(savingsPersistConfig, savingsReducer)
 })

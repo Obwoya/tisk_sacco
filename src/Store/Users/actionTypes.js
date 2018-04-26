@@ -4,7 +4,9 @@ export const LOGIN_ERROR = "users.LOGIN_ERROR"
 export const LOGIN_FAILED = "users.LOGIN_FAILED"
 export const LOGIN_INVALID = "users.LOGIN_INVALID"
 
-export const SET_TOKEN = "users.SET_TOKEN"
+export const SET_TOKEN_REQUEST = "users.SET_TOKEN_REQUEST"
+export const SET_TOKEN_SUCESS = "users.SET_TOKEN_SUCESS"
+export const SET_TOKEN_FAIL = "users.SET_TOKENFAILT"
 
 export const SIGNUP_REQUEST = "users.SIGNUP_REQUEST"
 export const SIGNUP_SUCCESS = "users.SIGNUP_SUCCESS"
