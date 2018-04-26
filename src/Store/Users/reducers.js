@@ -66,6 +66,17 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			},
 			auth: { _isUserAuthenticated: false }
 		}
+
+	case actionTypes.SET_TOKEN_SUCESS:
+		return {
+			...state,
+			auth: { _isUserAuthenticated: true, token: action.payload }
+		}
+	case actionTypes.SET_TOKEN_FAIL:
+		return {
+			...state,
+			auth: { _isUserAuthenticated: false }
+		}
 	case actionTypes.SIGNUP_REQUEST:
 		return {
 			...state,

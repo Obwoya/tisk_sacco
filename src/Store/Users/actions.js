@@ -1,23 +1,46 @@
 import * as actionTypes from "./actionTypes"
 import UsersService from "./services"
 
+const getSessionToken = () => {
+	return getState => {
+		if (getState().users.users.auth["token"] !== undefined) {
+			return getState().users.users.auth["token"]
+		} else {
+			return false
+		}
+	}
+}
 export const manageToken = () => {
-	setTimeout(() => {
-		// Refresh the token
-
-		UsersService.refreshToken(sessionStorage.getItem("jwt"))
-			.then(response => {
-				if (response.status === 200) {
-					Promise.resolve(response.json()).then(token => {
-						sessionStorage.setItem("jwt", token.token)
+	return (dispatch, getState) => {
+		setTimeout(() => {
+			// Refresh the token
+			if (getSessionToken()) {
+				UsersService.refreshToken(getState().users.users.auth["token"])
+					.then(response => {
+						if (response.status === 200) {
+							Promise.resolve(response.json()).then(token => {
+								dispatch({
+									type: actionTypes.SET_TOKEN_SUCESS,
+									payload: token.token
+								})
+							})
+						} else {
+							dispatch({
+								type: actionTypes.SET_TOKEN_FAIL
+							})
+						}
 					})
-				}
-			})
-			.catch(error => {
-				throw error
-			})
-		manageToken()
-	}, 20000)
+					.catch(error => {
+						throw error
+					})
+				dispatch(manageToken())
+			} else {
+				dispatch({
+					type: actionTypes.SET_TOKEN_FAIL
+				})
+			}
+		}, 20000)
+	}
 }
 
 export const login = user => {
@@ -28,8 +51,7 @@ export const login = user => {
 		return UsersService.getToken(user).then(response => {
 			if (response.status === 200) {
 				return Promise.resolve(response.json()).then(token => {
-					sessionStorage.setItem("jwt", token.token)
-					dispatch(manageToken)
+					dispatch(manageToken())
 					return dispatch({
 						type: actionTypes.LOGIN_SUCCESS,
 						token: token,
@@ -68,6 +90,12 @@ export const login = user => {
 	}
 }
 
+export const backgroundLogin = () => {
+	return dispatch => {
+		dispatch(manageToken())
+	}
+}
+
 export const signup = user => {
 	return dispatch => {
 		dispatch({
@@ -102,7 +130,7 @@ export const activateUser = token => {
 }
 
 export const getUserTypes = () => {
-	return dispatch => {		
+	return dispatch => {
 		dispatch({ type: actionTypes.GET_USER_TYPES_REQUESTED })
 
 		return UsersService.getUserTypes()
@@ -121,11 +149,17 @@ export const getUserTypes = () => {
 			})
 	}
 }
+
 export const getUserInformation = ({ email }) => {
-	return dispatch => {
+	return (dispatch,getState) => {
 		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 
-		return UsersService.getUserInfomation({ email }).then(response => {
+		return UsersService.getUserInfomation(
+			{ email },
+			getState().users.users.auth["token"] !== undefined
+				? getState().users.users.auth["token"]
+				: "empty"
+		).then(response => {
 			if (response.status === 200) {
 				return Promise.resolve(response.json()).then(userInformation => {
 					return dispatch({
@@ -143,12 +177,14 @@ export const getUserInformation = ({ email }) => {
 }
 
 export const getUserDeposits = ({ email }) => {
-	return dispatch => {
+	return (dispatch,getState) => {
 		dispatch({ type: actionTypes.GET_USER_DEPOSITS_REQUESTED })
 
 		return UsersService.getUserDeposits(
 			{ email },
-			sessionStorage.getItem("jwt")
+			getState().users.users.auth["token"] !== undefined
+				? getState().users.users.auth["token"]
+				: "empty"
 		).then(response => {
 			if (response.status === 200) {
 				return Promise.resolve(response.json()).then(userDeposits => {

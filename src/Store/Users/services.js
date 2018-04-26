@@ -117,12 +117,12 @@ export default class UsersService {
 				return error
 			})
 	}
-	static getUserInfomation({ email }) {
+	static getUserInfomation({ email }, accessToken) {
 		const url = UsersService.host.concat("/users/api/" + email + "/")
 		const request = {
 			method: "GET",
 			headers: {
-				Authorization: "JWT " + sessionStorage.getItem("jwt")
+				Authorization: "JWT " + accessToken
 			}
 		}
 
