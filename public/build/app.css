@@ -301,23 +301,12 @@ h1{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-._3MxLezLOARgd9wI6mkSQ9B > input,select {
+._3MxLezLOARgd9wI6mkSQ9B > input {
   outline: none;
   width: 100%;
   -webkit-appearance: none;
   border: 0px solid #ccc;
   border-bottom: 1px solid #ccc;
-  background: white;
-  padding-top: 2.5px;
-  padding-bottom: 2.5px;
-}
-input._3wWt7tUySFHAwZA6D_6RN_ {
-  outline: none;
-  width: 100%;
-  -webkit-appearance: none;
-  border: 0px solid red;
-  border-bottom: 1px solid red;
-  border-top: 1px solid red;
   background: white;
   padding-top: 2.5px;
   padding-bottom: 2.5px;
@@ -538,17 +527,11 @@ p {
 ._25BQ1i6w6qdYTpd5OVuOv3 {
   margin: 0px;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-._3CSQZeFo5PvCPAa_ABeNYd {
-  margin: 0px;
-  text-align: center;
-  font-size: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
+
 
 
 .fUntfjC3Cxv_cIn0_HpQU{

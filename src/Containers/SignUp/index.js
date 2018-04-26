@@ -21,7 +21,7 @@ class SignUp extends Component {
 				last_name: "",
 				phone_number: "",
 				national_id: "",
-				membership_type: ""
+				member_type: ""
 			},
 			validConfirmPassword: true,
 			formCompleted: false
@@ -147,9 +147,9 @@ class SignUp extends Component {
 									}
 								/>
 							</div>
-							{ this.props.userTypes  && (
+							{this.props.userTypes && (
 								<div className={styles.inputField}>
-									<select name="user_type" onChange={this.handleChange}>
+									<select name="member_type" onChange={this.handleChange}>
 										<option selected disabled hidden>
 											account type
 										</option>

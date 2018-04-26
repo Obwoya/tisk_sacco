@@ -27,9 +27,7 @@
 	},
 	"homepage": "https://github.com/muneneevans/tisk_sacco#readme",
 	"dependencies": {
-		"emotion": "^9.1.0",
-		"localforage": "^1.7.1",
-		"npm": "^5.8.0",
+		"emotion": "^9.1.0",				
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1",
 		"react-redux": "^5.0.5",
@@ -37,8 +35,7 @@
 		"react-router-dom": "^4.1.1",
 		"react-spinners": "^0.2.6",
 		"redux": "^3.7.1",
-		"redux-persist": "^5.9.1",
-		"redux-persist-seamless-immutable": "^1.0.1",
+		"redux-persist": "^5.9.1",		
 		"redux-thunk": "^2.2.0",
 		"seamless-immutable": "^7.1.2",
 		"workbox-sw": "^3.0.1"
