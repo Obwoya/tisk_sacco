@@ -18,17 +18,16 @@ class App extends Component {
 			<Router>
 				<div>
 					<Switch>
-						<Route path="/activate" component={Activate}/>
+						<Route path="/activate" component={Activate} />
 						<Route path="/signup" component={SignUp} />
-						<Route path="/deposit/new" component={Deposit} />
+
 						<Route path="/signin" component={SignIn} />
-						{/* <Route path="/home" component={Home}/> */}
-{/* 					
+
 						<PrivateRoute
-							path="/deposit"
+							path="/deposit/new"
 							component={Deposit}
 							isUserAuthenticated={this.props.isUserAuthenticated}
-						/> */}
+						/>
 						<PrivateRoute
 							path="/home"
 							component={Home}
