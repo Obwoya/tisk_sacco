@@ -28,11 +28,13 @@
 	"homepage": "https://github.com/muneneevans/tisk_sacco#readme",
 	"dependencies": {
 		"emotion": "^9.1.0",
+		"history": "^4.7.2",
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1",
 		"react-redux": "^5.0.5",
 		"react-router": "^4.1.1",
 		"react-router-dom": "^4.1.1",
+		"react-router-redux": "^5.0.0-alpha.9",
 		"react-spinners": "^0.2.6",
 		"redux": "^3.7.1",
 		"redux-persist": "^5.9.1",
