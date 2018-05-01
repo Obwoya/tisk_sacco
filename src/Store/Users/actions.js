@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import UsersService from "./services"
+import { push } from "react-router-redux"
 
 const getSessionToken = () => {
 	return getState => {
@@ -104,10 +105,11 @@ export const signup = user => {
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
 				return Promise.resolve(response.json()).then(userInformation => {
-					return dispatch({
+					dispatch({
 						type: actionTypes.SIGNUP_SUCCESS,
 						userInformation: userInformation
 					})
+					return dispatch(push("/activate"))
 				})
 			}
 		})
@@ -151,7 +153,7 @@ export const getUserTypes = () => {
 }
 
 export const getUserInformation = ({ email }) => {
-	return (dispatch,getState) => {
+	return (dispatch, getState) => {
 		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 
 		return UsersService.getUserInfomation(
@@ -177,7 +179,7 @@ export const getUserInformation = ({ email }) => {
 }
 
 export const getUserDeposits = ({ email }) => {
-	return (dispatch,getState) => {
+	return (dispatch, getState) => {
 		dispatch({ type: actionTypes.GET_USER_DEPOSITS_REQUESTED })
 
 		return UsersService.getUserDeposits(

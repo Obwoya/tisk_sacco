@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
+import { ConnectedRouter } from "react-router-redux"
 import { connect } from "react-redux"
 
 import PrivateRoute from "../../Components/PrivateRoute"
@@ -15,10 +16,10 @@ import Activate from "../Activate"
 class App extends Component {
 	render() {
 		return (
-			<Router>
+			<ConnectedRouter history={this.props.history}>
 				<div>
 					<Switch>
-						<Route path="/activate" component={Activate} />
+						<Route path="/activate" component={Activate} />					
 						<Route path="/signup" component={SignUp} />
 
 						<Route path="/signin" component={SignIn} />
@@ -41,7 +42,7 @@ class App extends Component {
 						<Route path="/" component={Welcome} />
 					</Switch>
 				</div>
-			</Router>
+			</ConnectedRouter>
 		)
 	}
 }
