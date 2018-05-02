@@ -68,7 +68,9 @@ describe("User action creators", () => {
 		fetch.mockResponse(JSON.stringify(sampleUser), { status: 201 })
 		return store.dispatch(userActions.signup(sampleUser)).then(() => {
 			// return of async actions
-			expect(store.getActions()).toEqual(expectedActions)
+			expect(store.getActions()).toContainEqual(
+				expect.objectContaining(...expectedActions)
+			)
 		})
 	})
 	it("should create an action to activate an account", () => {
@@ -155,7 +157,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
 		store
 			.dispatch(
@@ -180,7 +190,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 404 })
 		store
@@ -205,7 +223,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 401 })
 		store
@@ -259,7 +285,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
 		store
 			.dispatch(
@@ -284,7 +318,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 404 })
 		store
