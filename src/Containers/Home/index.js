@@ -23,27 +23,49 @@ class HomePage extends Component {
 	}
 
 	componentDidMount() {
-		let getUser = () =>
-			Promise.resolve(
+		let getUser = () => {
+			return Promise.resolve(
 				this.props.userActions.getUserInformation(this.props.userInformation)
 			)
+		}
 		getUser().then(() => {
 			this.props.userActions.getUserDeposits(this.props.userInformation)
 		})
-		this.props.userActions.backgroundLogin()
+		// this.props.userActions.backgroundLogin()
+	}
+
+	mfsActicationRequest({ first_name }) {
+		return (
+			<div className={styles.mfsRegistrationCallToAction}>
+				<h3>
+					{" "}
+					Welcome {first_name}. Your account does not seem to be active. You can
+					make transactions by clicking the button below{" "}
+				</h3>
+				<Button
+					children="BEGIN TRANSACTING"
+					backgroundColor={"#b32017"}
+					foregroundColor={"#ffffff"}
+					raised={true}
+					clickAction={this.handleMFSRegistration}
+				/>
+			</div>
+		)
 	}
 
 	render() {
 		// let userInformation = this.props.userInformation
 		// let { is_mfs_active } = userInformation.user_member
 		let { userInformation, getUserInformationProcess } = this.props
-		let is_mfs_active = userInformation.user_member.is_msf_active
+		// let is_mfs_active = userInformation["user_member"]
+		// 	? userInformation.user_membe.is_msf_active
+		// 	: false
 		return (
 			<div>
 				{getUserInformationProcess.status === processTypes.SUCCESS && (
 					<div>
 						<ProfileBanner user={userInformation} />
-						{is_mfs_active ? (
+						{this.props.userInformation.user_member.is_mfs_active ? (
 							<div>
 								<div className={styles.contentGrid}>
 									<RecentTransactions />
@@ -69,21 +91,7 @@ class HomePage extends Component {
 								</div>
 							</div>
 						) : (
-							<div className={styles.mfsRegistrationCallToAction}>
-								<h3>
-									{" "}
-									Welcome {userInformation.first_name}. Your account does not
-									seem to be active. You can make transactions by clicking the
-									button below{" "}
-								</h3>
-								<Button
-									children="BEGIN TRANSACTIONGS"
-									backgroundColor={"#b32017"}
-									foregroundColor={"#ffffff"}
-									raised={true}
-									clickAction={this.handleMFSRegistration}
-								/>
-							</div>
+							<div>{this.mfsActicationRequest(userInformation)}</div>
 						)}
 					</div>
 				)}
