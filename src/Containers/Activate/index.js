@@ -1,94 +1,115 @@
-import React from 'react'
+import React from "react"
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+
 import styles from "./style.css"
 
-class Activate extends React.Component{
-    constructor(props){
-        super(props)
+import * as userActions from "../../Store/Users/actions"
+import * as userSelectors from "../../Store/Users/selectors"
 
-        this.state = {
-            noOfCharsInCode: 6
-        }
-    }
+class Activate extends React.Component {
+	constructor(props) {
+		super(props)
 
-    onPasteHandler = (e) => {
-        
-        let text = e.clipboardData.getData('Text')
-  
-        for (let i = 0; i <this.state.noOfCharsInCode; i++ ){
-            if(!(text.length > i) || (!(this.state.noOfCharsInCode > i ))) return;
-            let inp = document.getElementById(`code_input_${i}`)
-            inp.value = text[i]
-        }
-    }
+		this.state = {
+			noOfCharsInCode: 6
+		}
+	}
 
-    focusNext = (index) => {
-        if(!(this.state.noOfCharsInCode > index + 1)) return
-        let curInp = document.getElementById(`code_input_${index}`)
+	onPasteHandler = e => {
+		let text = e.clipboardData.getData("Text")
 
-        if(curInp.value == "") return
-        let inp = document.getElementById(`code_input_${index +1}`)
-        inp.focus()
-    }
+		for (let i = 0; i < this.state.noOfCharsInCode; i++) {
+			if (!(text.length > i) || !(this.state.noOfCharsInCode > i)) return
+			let inp = document.getElementById(`code_input_${i}`)
+			inp.value = text[i]
+		}
+	}
 
-    onKeyUpHandler = (e) => {
-        let keyCode = e.keyCode
-        switch(keyCode){
-            case 37:
-            case 39:
-                var rx = /^code_input_(.*)$/
-                let dir = keyCode - 38;
-                let id =  parseInt( rx.exec(e.target.id)[1]) + dir
-                let inp = document.getElementById(`code_input_${id}`)
-                if(inp == null) break;
-                inp.focus()
-            default:
-                break;
-        }
-    }
+	focusNext = index => {
+		if (!(this.state.noOfCharsInCode > index + 1)) return
+		let curInp = document.getElementById(`code_input_${index}`)
 
-    onFocusHandler = (e) => {
-        e.target.select()
-    }
-    
+		if (curInp.value == "") return
+		let inp = document.getElementById(`code_input_${index + 1}`)
+		inp.focus()
+	}
 
-    onSubmitHandler = (e) => {
-        e.preventDefault()
-        let code = ""
+	onKeyUpHandler = e => {
+		let keyCode = e.keyCode
+		switch (keyCode) {
+			case 37:
+			case 39:
+				var rx = /^code_input_(.*)$/
+				let dir = keyCode - 38
+				let id = parseInt(rx.exec(e.target.id)[1]) + dir
+				let inp = document.getElementById(`code_input_${id}`)
+				if (inp == null) break
+				inp.focus()
+			default:
+				break
+		}
+	}
 
-        for (let i = 0; i <this.state.noOfCharsInCode; i++ ){
-            let inp = document.getElementById(`code_input_${i}`)
-            code = code + inp.value 
-        }
+	onFocusHandler = e => {
+		e.target.select()
+	}
 
-        // The actual code
-        // console.log(code)
+	onSubmitHandler = e => {
+		e.preventDefault()
+		let code = ""
 
-    }
-    render(){
-        let inputs = []
-        for (let i = 0; i <this.state.noOfCharsInCode; i++ ){
-            inputs.push(<input type="text" key={i} id={`code_input_${i}`} 
-                onKeyUp={this.onKeyUpHandler} onFocus={this.onFocusHandler} required
-                onPaste={this.onPasteHandler} maxLength="1" onChange={() => this.focusNext(i)}/>)
-        }
-        return(
-        <div className={styles.activatePage}>
-            <div className={styles.topBar}>
-                <span className={styles.arrowBack}>&#8592;</span>
-                Insert Activation Code
-            </div>
-            <form onSubmit={this.onSubmitHandler}>
-                <div className={styles.pageContent}>
-                    <div className={styles.activateCodeWrapper}>
-                    {inputs}
-                    </div>
-                </div>
-                <input type="submit" className={styles.depositNext} value="Next"/>
-            </form>
-        </div>
-        )
-    }
+		for (let i = 0; i < this.state.noOfCharsInCode; i++) {
+			let inp = document.getElementById(`code_input_${i}`)
+			code = code + inp.value
+		}
+
+		this.props.userActions.activateUser({ token: code })
+		// The actual code
+		// console.log(code)
+	}
+	render() {
+		let inputs = []
+		for (let i = 0; i < this.state.noOfCharsInCode; i++) {
+			inputs.push(
+				<input
+					type="text"
+					key={i}
+					id={`code_input_${i}`}
+					onKeyUp={this.onKeyUpHandler}
+					onFocus={this.onFocusHandler}
+					required
+					onPaste={this.onPasteHandler}
+					maxLength="1"
+					onChange={() => this.focusNext(i)}
+				/>
+			)
+		}
+		return (
+			<div className={styles.activatePage}>
+				<div className={styles.topBar}>
+					<span className={styles.arrowBack}>&#8592;</span>
+					Insert Activation Code
+				</div>
+				<form onSubmit={this.onSubmitHandler}>
+					<div className={styles.pageContent}>
+						<div className={styles.activateCodeWrapper}>{inputs}</div>
+					</div>
+					<input type="submit" className={styles.depositNext} value="Next" />
+				</form>
+			</div>
+		)
+	}
 }
 
+const mapStateToProps = state => {
+	return {}
+}
 
-export default Activate
+const mapDispatchToProps = dispatch => {
+	return {
+		userActions: bindActionCreators(userActions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Activate)

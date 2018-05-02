@@ -75,8 +75,12 @@ describe("User action creators", () => {
 	})
 	it("should create an action to activate an account", () => {
 		const expectedActions = [
-			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },
-			{ type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS }
+			{ type: actionTypes.SEND_USER_ACTIVATION_CODE_REQUESTED },
+			{ type: actionTypes.SEND_USER_ACTIVATION_CODE_SUCCESS },
+			{
+				payload: { args: ["/signin"], method: "push" },
+				type: "@@router/CALL_HISTORY_METHOD"
+			}
 		]
 
 		const store = mockStore({})
