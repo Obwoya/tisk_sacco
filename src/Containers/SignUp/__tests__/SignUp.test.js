@@ -24,10 +24,10 @@ describe("<SignUp/>", () => {
 			<Signup store={store} isUserAuthenticated={true} />
 		)
 
-		// console.log(SignUpPage.getElement().type.displayName)
-		expect(SignUpPage.getElement().type.displayName).toEqual(
-			"withRouter(SignUp)"
-		)
+		// console.log(SignUpPage.getElement().type.propTypes.path)
+		// expect(SignUpPage.getElement().type.propTypes.path).toEqual(
+		// 	"[Function: bound checkType]"
+		// )
 		// expect(SignUpPage.getElement().props.className).toEqual("signUpGrid")
 		// expect(SignUpPage.getElement().type).toEqual("div")
 	})

@@ -56,10 +56,10 @@ export default class UsersService {
 	}
 
 	static sendActivationToken(token) {
-		const url = UsersService.host.concat("/users/api/activate/")
+		const url = UsersService.host.concat("/api/v1/users/activate/")
 
 		var myHeaders = new Headers()
-		myHeaders.append("content-type", "application/json")		
+		myHeaders.append("content-type", "application/json")
 		const request = {
 			method: "POST",
 			headers: {
@@ -117,13 +117,12 @@ export default class UsersService {
 				return error
 			})
 	}
-
-	static getUserInfomation({ email }) {
-		const url = UsersService.host.concat("/users/api/" + email + "/membership")
+	static getUserInfomation({ email }, accessToken) {
+		const url = UsersService.host.concat("/users/api/" + email + "/")
 		const request = {
 			method: "GET",
 			headers: {
-				Authorization: "JWT " + sessionStorage.getItem("jwt")
+				Authorization: "JWT " + accessToken
 			}
 		}
 

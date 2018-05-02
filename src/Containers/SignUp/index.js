@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Link } from "react-router-dom"
+import { withRouter}from "react-router-dom"
 
-import { withRouter } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -35,8 +35,7 @@ class SignUp extends Component {
 		this.props.userActions.getUserTypes()
 	}
 	handleSubmitButton() {
-		this.props.userActions.signup(this.state.user)
-		this.props.history.push("/activate")
+		this.props.userActions.signup(this.state.user)		
 	}
 
 	handleChange(event) {
@@ -194,4 +193,4 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp))
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(SignUp))

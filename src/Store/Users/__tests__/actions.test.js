@@ -68,13 +68,19 @@ describe("User action creators", () => {
 		fetch.mockResponse(JSON.stringify(sampleUser), { status: 201 })
 		return store.dispatch(userActions.signup(sampleUser)).then(() => {
 			// return of async actions
-			expect(store.getActions()).toEqual(expectedActions)
+			expect(store.getActions()).toContainEqual(
+				expect.objectContaining(...expectedActions)
+			)
 		})
 	})
 	it("should create an action to activate an account", () => {
 		const expectedActions = [
-			{ type: actionTypes.GET_USER_ACTIVATION_CODE_REQUESTED },
-			{ type: actionTypes.GET_USER_ACTIVATION_CODE_SUCCESS }
+			{ type: actionTypes.SEND_USER_ACTIVATION_CODE_REQUESTED },
+			{ type: actionTypes.SEND_USER_ACTIVATION_CODE_SUCCESS },
+			{
+				payload: { args: ["/signin"], method: "push" },
+				type: "@@router/CALL_HISTORY_METHOD"
+			}
 		]
 
 		const store = mockStore({})
@@ -155,7 +161,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
 		store
 			.dispatch(
@@ -180,7 +194,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 404 })
 		store
@@ -205,7 +227,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 401 })
 		store
@@ -259,7 +289,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 		fetch.mockResponse(JSON.stringify(sampleResponse), { status: 200 })
 		store
 			.dispatch(
@@ -284,7 +322,15 @@ describe("User action creators", () => {
 			}
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 404 })
 		store

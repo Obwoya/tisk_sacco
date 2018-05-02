@@ -30,6 +30,7 @@ class HomePage extends Component {
 		getUser().then(() => {
 			this.props.userActions.getUserDeposits(this.props.userInformation)
 		})
+		this.props.userActions.backgroundLogin()
 	}
 
 	render() {
