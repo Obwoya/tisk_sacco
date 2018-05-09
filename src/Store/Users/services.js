@@ -2,7 +2,8 @@ export default class UsersService {
 	static get host() {
 		delete UsersService.host
 		// return (UsersService.host = "https://demo-tiskserver.herokuapp.com")
-		return (UsersService.host = "http://localhost:8000")
+		// return (UsersService.host = "http://localhost:8000")
+		return (UsersService.host = "http://188.166.248.71")
 	}
 
 	static getToken(user) {
@@ -118,7 +119,9 @@ export default class UsersService {
 			})
 	}
 	static getUserInfomation({ email }, accessToken) {
-		const url = UsersService.host.concat("/api/v1/users/" + email + "/membership/")
+		const url = UsersService.host.concat(
+			"/api/v1/users/" + email + "/membership/"
+		)
 		const request = {
 			method: "GET",
 			headers: {
