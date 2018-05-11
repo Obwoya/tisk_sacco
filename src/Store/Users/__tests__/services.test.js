@@ -146,4 +146,17 @@ describe("users service ", () => {
 			expect(response.body).toEqual(JSON.stringify(sampleResponse))
 		})
 	})
+
+	it("gets the user deposits", () => {
+		let sampleResponse = {
+			message:"mfs sms sent"
+		}
+
+		fetch.mockResponse(JSON.stringify(sampleResponse))
+		return UsersService.requestMFSRegistration(			
+			"JWT somerandomauthtoken"
+		).then(response => {
+			expect(response.body).toEqual(JSON.stringify(sampleResponse))
+		})
+	})
 })
