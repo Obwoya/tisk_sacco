@@ -309,6 +309,7 @@ describe("User action creators", () => {
 				expect(store.getActions()).toEqual(expectedActions)
 			})
 	})
+
 	it("Raises an exception when the user deposits is not found", () => {
 		let sampleResponse = {
 			detail: "Not found."
@@ -343,5 +344,22 @@ describe("User action creators", () => {
 				// return of async actions
 				expect(store.getActions()).toEqual(expectedActions)
 			})
+	})
+
+	it("Should create an action to request MFS sms Registration code", () => {
+		let sampleResponse = { message: "sms code sent" }
+
+		const expectedActions = [
+			{ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_REQUESTED },
+			{ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS }
+		]
+
+		const store = mockStore({})
+
+		fetch.mockResponse({}, { status: 200 })
+
+		store.dispatch(userActions.requestMFSRegistrationCode()).then(() => {
+			expect(store.getActions()).toEqual(expectedActions)
+		})
 	})
 })

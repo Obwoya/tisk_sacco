@@ -19,7 +19,8 @@ class HomePage extends Component {
 	}
 
 	handleMFSRegistration() {
-		this.props.history.push("/welcome")
+		// this.props.history.push("/welcome")
+		this.props.userActions.requestMFSRegistrationCode()
 	}
 
 	componentDidMount() {

@@ -138,6 +138,26 @@ export default class UsersService {
 			})
 	}
 
+	static requestMFSRegistration(authToken) {
+		const url = UsersService.host.concat(
+			"/users/membership/request_mfs_registration"
+		)
+		const request = {
+			method: "GET",
+			headers: {
+				Authorization: "JWT " + authToken
+			}
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				throw error
+			})
+	}
+	
 	static getUserDeposits({ email }, token) {
 		const url = UsersService.host.concat(
 			"/users/api/" + email + "/savings/deposits"

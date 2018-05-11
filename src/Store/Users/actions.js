@@ -5,7 +5,7 @@ import { push } from "react-router-redux"
 const getSessionToken = () => {
 	return getState => {
 		if (getState().users.users.auth["token"] !== undefined) {
-			return getState().users.users.auth["token"]
+			return true
 		} else {
 			return false
 		}
@@ -205,5 +205,45 @@ export const getUserDeposits = ({ email }) => {
 				})
 			}
 		})
+	}
+}
+
+export const requestMFSRegistrationCode = () => {
+	return (dispatch, getState) => {
+		dispatch({ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_REQUESTED })
+
+		if (getSessionToken()) {
+			return UsersService.requestMFSRegistration(getState().users.users.auth["token"] ).then(
+				response => {
+					if (response.status === 200) {
+						dispatch({
+							type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS
+						})
+						return dispatch(push("/mfsactivate"))
+					} else if (response.status === 404) {
+						dispatch(push("/mfsactivate"))
+						return dispatch({
+							type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_FAILED,						
+						})						
+					}
+				}
+			)
+		} else {
+			dispatch({
+				type: actionTypes.LOGIN_FAILED
+			})
+			dispatch(push("/mfsactivate"))
+			return dispatch({
+				type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_FAILED,
+				error: "authentication failed"
+			})
+		}
+	}
+}
+
+
+export const activateMFSAccount = code =>{
+	return (dispatch,getState)=>{
+		dispatch(push("/home"))
 	}
 }
