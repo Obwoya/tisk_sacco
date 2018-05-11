@@ -2,8 +2,8 @@ export default class UsersService {
 	static get host() {
 		delete UsersService.host
 		// return (UsersService.host = "https://demo-tiskserver.herokuapp.com")
-		// return (UsersService.host = "http://localhost:8000")
-		return (UsersService.host = "http://188.166.248.71")
+		return (UsersService.host = "http://localhost:8000")
+		// return (UsersService.host = "http://188.166.248.71")
 	}
 
 	static getToken(user) {
