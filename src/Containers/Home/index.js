@@ -65,7 +65,7 @@ class HomePage extends Component {
 				{getUserInformationProcess.status === processTypes.SUCCESS && (
 					<div>
 						<ProfileBanner user={userInformation} />
-						{this.props.userInformation.user_member.is_mfs_active ? (
+						{this.props.userInformation.user_member.is_msf_active ? (
 							<div>
 								<div className={styles.contentGrid}>
 									<RecentTransactions />
