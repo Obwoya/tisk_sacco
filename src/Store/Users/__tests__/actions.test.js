@@ -354,7 +354,15 @@ describe("User action creators", () => {
 			{ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS }
 		]
 
-		const store = mockStore({})
+		const store = mockStore({
+			users: {
+				users: {
+					auth: {
+						token: "sometoken"
+					}
+				}
+			}
+		})
 
 		fetch.mockResponse({}, { status: 200 })
 

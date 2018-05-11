@@ -11,8 +11,6 @@ describe("<Private Route/>", () => {
 				component={PrivateRoute}
 				isUserAuthenticated={true}
 			/>
-        )
-        
-        // console.log(myRoute.getElement().type.propTypes.render)
+        )       
 	})
 })
