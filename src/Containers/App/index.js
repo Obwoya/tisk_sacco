@@ -14,6 +14,7 @@ import SignIn from "../SignIn"
 import Welcome from "../Welcome"
 import Deposit from "../Deposit"
 import Activate from "../Activate"
+import Activities from "../Activities"
 import ActivateMFS from "../ActivateMFS"
 import RegistrationFees from "../RegistrationFees"
 
@@ -36,6 +37,11 @@ class App extends Component {
 						<PrivateRoute
 							path="/deposit/new"
 							component={Deposit}
+							isUserAuthenticated={this.props.isUserAuthenticated}
+						/>
+						<PrivateRoute
+							path="/activities"
+							component={Activities}
 							isUserAuthenticated={this.props.isUserAuthenticated}
 						/>
 						<PrivateRoute

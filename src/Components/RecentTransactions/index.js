@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 import styles from "./style.css"
 
 import ActivityList from "../ActivityList"
@@ -10,7 +11,7 @@ const RecentTransactions = () => {
 				<div className={styles.cardHeading}>
 					<div className={styles.title}>Recent activity</div>
 					<div className={styles.more}>
-						<a href="#">More</a>
+						<Link to="/activities"> More</Link>						
 					</div>
 				</div>
 				<div>
