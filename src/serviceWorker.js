@@ -8,7 +8,7 @@ if ("function" === typeof importScripts) {
 	if (workbox) {
 		workbox.routing.registerRoute(
 			new RegExp(".vendor.js"),
-			workbox.strategies.cacheFirst({ cacheName: "vendor-cache" })
+			workbox.strategies.staleWhileRevalidate({ cacheName: "vendor-cache" })
 		)
 		workbox.routing.registerRoute(
 			new RegExp(".*.js"),

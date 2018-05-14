@@ -1,4 +1,4 @@
-importScripts("/build/precache-manifest.ba4a94e77c6b66dea5f2de0be9317bbf.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("/build/precache-manifest.2e1183c1a419236f3db83137cdde6445.js", "https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 /* global  importScripts, workbox*/
 
@@ -10,7 +10,7 @@ if ("function" === typeof importScripts) {
 	if (workbox) {
 		workbox.routing.registerRoute(
 			new RegExp(".vendor.js"),
-			workbox.strategies.cacheFirst({ cacheName: "vendor-cache" })
+			workbox.strategies.staleWhileRevalidate({ cacheName: "vendor-cache" })
 		)
 		workbox.routing.registerRoute(
 			new RegExp(".*.js"),
