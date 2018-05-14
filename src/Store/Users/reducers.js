@@ -26,8 +26,8 @@ const usersPersistConfig = {
 	storage,
 	blacklist: [
 		"_loginProcess",
+		// "_getUserInformationProcess",
 		"_signupProcess",
-		"_getUserInformationProcess",
 		"_getUserDepositsProcess"
 	]
 }

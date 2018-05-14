@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes"
+import * as selectors from "./selectors"
 import UsersService from "./services"
+import * as processTypes from "../Shared/processTypes"
 import { push } from "react-router-redux"
 
 const getSessionToken = () => {
@@ -155,7 +157,12 @@ export const getUserTypes = () => {
 
 export const getUserInformation = ({ email }) => {
 	return (dispatch, getState) => {
-		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
+		if (
+			selectors.getUserInformationStatus(getState().users).status !==
+			processTypes.SUCCESS
+		) {			
+			dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
+		}
 
 		return UsersService.getUserInfomation(
 			{ email },
@@ -213,21 +220,21 @@ export const requestMFSRegistrationCode = () => {
 		dispatch({ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_REQUESTED })
 
 		if (getSessionToken()) {
-			return UsersService.requestMFSRegistration(getState().users.users.auth["token"] ).then(
-				response => {
-					if (response.status === 200) {
-						dispatch({
-							type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS
-						})
-						return dispatch(push("/mfsactivate"))
-					} else if (response.status === 404) {
-						dispatch(push("/mfsactivate"))
-						return dispatch({
-							type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_FAILED,						
-						})						
-					}
+			return UsersService.requestMFSRegistration(
+				getState().users.users.auth["token"]
+			).then(response => {
+				if (response.status === 200) {
+					dispatch({
+						type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS
+					})
+					return dispatch(push("/mfsactivate"))
+				} else if (response.status === 404) {
+					dispatch(push("/mfsactivate"))
+					return dispatch({
+						type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_FAILED
+					})
 				}
-			)
+			})
 		} else {
 			dispatch({
 				type: actionTypes.LOGIN_FAILED
@@ -241,9 +248,8 @@ export const requestMFSRegistrationCode = () => {
 	}
 }
 
-
-export const activateMFSAccount = code =>{
-	return (dispatch,getState)=>{
+export const activateMFSAccount = code => {
+	return (dispatch, getState) => {
 		dispatch(push("/home"))
 	}
 }
