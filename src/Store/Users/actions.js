@@ -158,7 +158,7 @@ export const getUserTypes = () => {
 export const getUserInformation = ({ email }) => {
 	return (dispatch, getState) => {
 		if (
-			getState().users.users.userInformation["user_member"]["is_msf_active"]
+			!getState().users.users.userInformation["user_member"]
 		) {
 			dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 		}
