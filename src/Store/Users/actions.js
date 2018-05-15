@@ -158,9 +158,8 @@ export const getUserTypes = () => {
 export const getUserInformation = ({ email }) => {
 	return (dispatch, getState) => {
 		if (
-			selectors.getUserInformationStatus(getState().users).status !==
-			processTypes.SUCCESS
-		) {			
+			getState().users.users.userInformation["user_member"]["is_msf_active"]
+		) {
 			dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 		}
 
