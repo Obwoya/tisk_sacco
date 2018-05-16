@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { withRouter } from "react-router-dom"
+import { BarLoader } from "react-spinners"
 
 import styles from "./style.css"
 
@@ -63,7 +64,7 @@ class HomePage extends Component {
 		// 	: false
 		return (
 			<div>
-				{getUserInformationProcess.status === processTypes.SUCCESS && (
+				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
 						<ProfileBanner user={userInformation} />
 						{this.props.userInformation.user_member.is_msf_active ? (
@@ -94,6 +95,12 @@ class HomePage extends Component {
 						) : (
 							<div>{this.mfsActicationRequest(userInformation)}</div>
 						)}
+					</div>
+				) : (
+					<div className={styles.loadingContainer}>
+						<div className={styles.loadingGrid}>
+							<BarLoader color={"#b32017"} loading={true} height={4} />
+						</div>
 					</div>
 				)}
 			</div>

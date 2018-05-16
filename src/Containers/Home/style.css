@@ -102,3 +102,16 @@
   padding: 20px;
   text-align: justify;
 }
+
+.loadingContainer {
+  height: 100vh;
+  position: relative;
+}
+
+.loadingGrid {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
