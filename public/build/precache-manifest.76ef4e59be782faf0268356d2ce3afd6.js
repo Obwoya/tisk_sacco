@@ -3,7 +3,7 @@ self.__precacheManifest = [
     "url": "/build/da004d065fc686878821044fe35b3e4d.png"
   },
   {
-    "url": "/build/icon_96x96.d2be53f882299e1a1dc0deebc17b8aec.png"
+    "url": "/build/icon_96x96.ebb51083bbd506b690973e4d9f6d0596.png"
   },
   {
     "revision": "88331596c56fb2780baf",
@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "/build/e6bc2356bea135c617f678212d50bd21.woff2"
   },
   {
-    "url": "/build/icon_128x128.c338f104f02ba0884465f63453d4ed9c.png"
+    "url": "/build/icon_128x128.a9c0b740f1d99afbc4c07c5bd4f52f9b.png"
   },
   {
-    "url": "/build/icon_192x192.296f42eb83f725d02067492f005eed53.png"
+    "url": "/build/icon_192x192.6e0cb82957b69e556b3173b4f48660f0.png"
   },
   {
-    "url": "/build/icon_256x256.65770b37a650b2400b1e1b33efa66282.png"
+    "url": "/build/icon_256x256.cfd6d4317a1baa07bb1d676d9f970ce0.png"
   },
   {
-    "url": "/build/icon_384x384.db69c2d21f5d3a6a888d4a58b4d2e2ad.png"
+    "url": "/build/icon_384x384.abd5ee72db57cb8996ff0b9eadd2559d.png"
   },
   {
-    "url": "/build/icon_512x512.38f19580785bc54ca424b9da3c752e4c.png"
+    "url": "/build/icon_512x512.3edb0e310052db3aa53d8d835f2dfec5.png"
   },
   {
     "url": "/build/f4043e726fb5d48655db2f5ecff8d74c.woff2"
@@ -61,7 +61,7 @@ self.__precacheManifest = [
     "url": "/build/0ec36d183ddd6551242cde75367243a3.gif"
   },
   {
-    "revision": "ce0a244ec3152a62f5a38ca39a21c7fa",
+    "revision": "2978ed62223226124d8362d6e44e055d",
     "url": "/build/../index.html"
   }
 ];
