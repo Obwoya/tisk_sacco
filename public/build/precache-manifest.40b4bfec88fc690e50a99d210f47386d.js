@@ -10,14 +10,14 @@ self.__precacheManifest = [
     "url": "/build/serviceWorker.js"
   },
   {
-    "revision": "d964792e38621f10cc93",
+    "revision": "bb3a50ce4fbfc23076b9",
     "url": "/build/vendor.js"
   },
   {
     "url": "/build/f2a4eeab3c5e6b50c5d9f1e65b36518a.png"
   },
   {
-    "revision": "76eb004ffca106f3cef1",
+    "revision": "593867f5170f64cbb360",
     "url": "/build/app.js"
   },
   {
@@ -42,7 +42,7 @@ self.__precacheManifest = [
     "url": "/build/f4043e726fb5d48655db2f5ecff8d74c.woff2"
   },
   {
-    "revision": "76eb004ffca106f3cef1",
+    "revision": "593867f5170f64cbb360",
     "url": "/build/app.css"
   },
   {
