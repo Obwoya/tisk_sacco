@@ -1,0 +1,31 @@
+.accordion__title{
+    width: inherit
+}
+
+.accordion__header{
+    background: #b32017;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ffffff;
+    margin-top: 5px;
+}
+.accordion__header h3{
+    margin: 0px
+
+}
+
+.accordion__header:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}

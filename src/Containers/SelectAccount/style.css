@@ -10,16 +10,3 @@
   transform: translate(-50%, -50%);
 }
 
-.buttonContainer{
-  padding-top: 15px;
-  padding-top: 15px;
-}
-.primaryText{
-  margin : 0px;
-  font-weight: bold
-}
-.secondaryText {
-  margin: 0px;
-  padding-top: 5px;
-  text-transform: lowercase;
-}
