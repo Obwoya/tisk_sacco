@@ -17,6 +17,7 @@ import Activate from "../Activate"
 import Activities from "../Activities"
 import ActivateMFS from "../ActivateMFS"
 import RegistrationFees from "../RegistrationFees"
+import SelectAcount from "../SelectAccount"
 
 class App extends Component {
 	componentDidMount() {
@@ -31,6 +32,7 @@ class App extends Component {
 				<div>
 					<Switch>
 						<Route path="/activate" component={Activate} />
+						<Route path="/selectAccount" component={SelectAcount} />
 						<Route path="/signup" component={SignUp} />
 
 						<Route path="/signin" component={SignIn} />
