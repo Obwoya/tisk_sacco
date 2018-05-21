@@ -1,12 +1,10 @@
 import React, { Component } from "react"
 
-import  "./style.css"
+import "./style.css"
 
-
-import AccordionComponent from "../../Components/Accordion"
+import AccordionComponent from "../../Components/AccountsAccordion"
 class SelectAccount extends Component {
 	render() {
-		
 		const data = {
 			do: "a deer, a female deer ",
 			re: "a drop of golden sun ",
@@ -16,8 +14,8 @@ class SelectAccount extends Component {
 		return (
 			<div className="parent">
 				<div className="child">
-					<AccordionComponent  data={data}/>
-					
+					<div className="headerGrid" />
+					<AccordionComponent data={data} />
 				</div>
 			</div>
 		)
