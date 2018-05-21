@@ -6,7 +6,7 @@ import styles from "../style.css"
 
 describe("<RecentTransactions/>", () => {
 	it("Must render the wrapper div ", function() {
-		expect(shallow(<div className={styles.recentTransactionsGrid} />).exists())
+		expect(shallow(<div className="recentTransactionsGrid" />).exists())
 	})
 	it("Must all the right number of grids ", function() {
 		const RecentTransactionsComponent = shallow(<RecentTransactions />)

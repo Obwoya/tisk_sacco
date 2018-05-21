@@ -5,8 +5,8 @@ import defaultAvatar from "./images/defaultAvatar.png"
 
 const Avatar = ({source =defaultAvatar}) => {
 	return (
-		<div className={styles.avatarGrid}>
-			<img className={styles.avatarImage} src={source} />			
+		<div className="avatarGrid">
+			<img className="avatarImage" src={source} />			
 		</div>
 	)
 }

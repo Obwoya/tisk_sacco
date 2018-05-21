@@ -49,19 +49,19 @@ export class SignIn extends Component {
 
 		const { _loginProcess } = this.props
 		return (
-			<div className={styles.signInGrid}>
-				<div className={styles.formGrid}>
-					<div className={styles.headerGrid} />
+			<div className="signInGrid">
+				<div className="formGrid">
+					<div className="headerGrid" />
 					{_loginProcess.status === processTypes.PROCESSING ? (
-						<div className={styles.ringLoaderGrid}>
-							<div className={styles.ringLoader}>
+						<div className="ringLoaderGrid">
+							<div className="ringLoader">
 								<BarLoader color={"#b32017"} loading={true} height={4} />
 							</div>
 						</div>
 					) : (
-						<form className={styles.form}>
-							<div className={styles.formGroup}>
-								<div className={styles.inputField}>
+						<form className="form">
+							<div className="formGroup">
+								<div className="inputField">
 									<input
 										type="email"
 										id="email"
@@ -70,7 +70,7 @@ export class SignIn extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className={styles.inputField}>
+								<div className="inputField">
 									<input
 										type="password"
 										id="password"
@@ -85,7 +85,7 @@ export class SignIn extends Component {
 							</div>
 						</form>
 					)}
-					<div className={styles.formSubmitGroup}>
+					<div className="formSubmitGroup">
 						<Button
 							children="SIGN In"
 							backgroundColor={"#b32017"}
@@ -94,7 +94,7 @@ export class SignIn extends Component {
 							clickAction={this.handleSubmitButton.bind(this)}
 						/>
 					</div>
-					<p className={styles.signUpText}>
+					<p className="signUpText">
 						dont have an account? <Link to="/signup"> sign up</Link>
 					</p>
 				</div>

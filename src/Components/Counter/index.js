@@ -22,7 +22,7 @@ class Counter extends Component {
 		return (
 			//add screen inside the div
 			<div>
-				<h1 className={styles.header}>App</h1>
+				<h1 className="header">App</h1>
                 <h2>{this.state.time}</h2>                
 			</div>
 		)

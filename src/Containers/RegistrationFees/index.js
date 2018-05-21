@@ -21,16 +21,16 @@ class RegistrationFeesPage extends Component {
 		let { userInformation, getUserInformationProcess } = this.props
 
 		return (
-			<div className={styles.welcomePageGrid}>
+			<div className="welcomePageGrid">
 				{getUserInformationProcess.status === processTypes.SUCCESS && (
-					<div className={styles.welcomeGrid}>
-						<div className={styles.headerGrid} />
+					<div className="welcomeGrid">
+						<div className="headerGrid" />
 
-						<div className={styles.welcomeMessage}>
+						<div className="welcomeMessage">
 							<h2>Registration Fees</h2>
 							<p>Complete the registration by paying the registrion fee</p>
 						</div>
-						<div className={styles.signUpGroup}>
+						<div className="signUpGroup">
 							<Button
 								children={
 									"PAY " +
@@ -42,10 +42,10 @@ class RegistrationFeesPage extends Component {
 								// clickAction={this.handleSubmitButton.bind(this)}
 							/>
 						</div>
-						<p className={styles.signInText}>
+						<p className="signInText">
 							not registered? <Link to="/signup"> sign up</Link>
 						</p>
-						<p className={styles.signInText}>
+						<p className="signInText">
 							<Link to="/">Home</Link>
 						</p>
 					</div>

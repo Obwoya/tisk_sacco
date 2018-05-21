@@ -6,19 +6,19 @@ import ProfileName from "../ProfileName"
 
 const ProfileBanner = ({ user, accountInformation = { balance: 0 } }) => {
 	return (
-		<div className={styles.bannerGrid}>
-			<div className={styles.profileGrid}>
-				<div className={styles.avatarGrid}>
-					<Avatar image={user.image} />
+		<div className="bannerGrid">
+			<div className="profileGrid">
+				<div className="avatarGrid">
+					<Avatar image="image" />
 				</div>
-				<div className={styles.profileNameGrid}>
+				<div className="profileNameGrid">
 					<ProfileName name={user.first_name + " " + user.last_name} />
 				</div>
 			</div>
-			<div className={styles.accountGrid}>
-				<div className={styles.accountInfoGrid}>
+			<div className="accountGrid">
+				<div className="accountInfoGrid">
 					<div>
-						<h2 className={styles.accountBalanceText}>
+						<h2 className="accountBalanceText">
 							{accountInformation.balance}
 						</h2>
 					</div>

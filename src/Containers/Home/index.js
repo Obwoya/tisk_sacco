@@ -38,7 +38,7 @@ class HomePage extends Component {
 
 	mfsActicationRequest({ first_name }) {
 		return (
-			<div className={styles.mfsRegistrationCallToAction}>
+			<div className="mfsRegistrationCallToAction">
 				<h3>
 					{" "}
 					Welcome {first_name}. Your account does not seem to be active. You can
@@ -69,24 +69,24 @@ class HomePage extends Component {
 						<ProfileBanner user={userInformation} />
 						{this.props.userInformation.user_member.is_msf_active ? (
 							<div>
-								<div className={styles.contentGrid}>
+								<div className="contentGrid">
 									<RecentTransactions />
 								</div>
 
-								<div className={styles.quickActions}>
+								<div className="quickActions">
 									<div>
 										<button
 											type="submit"
-											className={styles.quickActionDeposit}
+											className="quickActionDeposit"
 											onClick={() => {
 												this.props.history.push("/deposit/new")
 											}}
 										>
-											<div className={styles.quickActionIcon} />
+											<div className="quickActionIcon" />
 											<div>Deposit Cash</div>
 										</button>
-										<button type="submit" className={styles.quickActionLoan}>
-											<div className={styles.quickActionIcon} />
+										<button type="submit" className="quickActionLoan">
+											<div className="quickActionIcon" />
 											<div>Take Loan</div>
 										</button>
 									</div>
@@ -97,8 +97,8 @@ class HomePage extends Component {
 						)}
 					</div>
 				) : (
-					<div className={styles.loadingContainer}>
-						<div className={styles.loadingGrid}>
+					<div className="loadingContainer">
+						<div className="loadingGrid">
 							<BarLoader color={"#b32017"} loading={true} height={4} />
 						</div>
 					</div>

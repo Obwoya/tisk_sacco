@@ -6,11 +6,11 @@ import ActivityList from "../ActivityList"
 
 const RecentTransactions = () => {
 	return (
-		<div className={styles.cardWrapper}>
-			<div className={styles.card}>
-				<div className={styles.cardHeading}>
-					<div className={styles.title}>Recent activity</div>
-					<div className={styles.more}>
+		<div className="cardWrapper">
+			<div className="card">
+				<div className="cardHeading">
+					<div className="title">Recent activity</div>
+					<div className="more">
 						<Link to="/activities"> More</Link>						
 					</div>
 				</div>

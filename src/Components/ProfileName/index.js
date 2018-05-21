@@ -5,7 +5,7 @@ import styles from "./style.css"
 const ProfileName = ({name="Profile Name"}) => {
 	return (
 		<div>
-			<h2 className={styles.nameHeader} >{name}</h2>
+			<h2 className="nameHeader" >{name}</h2>
 		</div>
 	)
 }

@@ -8,15 +8,15 @@ class WelcomePage extends Component {
 	}
 	render() {
 		return (
-			<div className={styles.welcomePageGrid}>
-				<div className={styles.welcomeGrid}>
-					<div className={styles.headerGrid} />
-					<div className={styles.imageGrid} />
-					<div className={styles.welcomeMessage}>
+			<div className="welcomePageGrid">
+				<div className="welcomeGrid">
+					<div className="headerGrid" />
+					<div className="imageGrid" />
+					<div className="welcomeMessage">
 						<h2>Welcome</h2>
 						<p>The community for techies and by techies</p>
 					</div>
-					<div className={styles.signUpGroup}>
+					<div className="signUpGroup">
 						<Button
 							children="SIGN UP"
 							backgroundColor={"#b32017"}
@@ -25,10 +25,14 @@ class WelcomePage extends Component {
 							clickAction={this.handleSubmitButton.bind(this)}
 						/>
 					</div>
-					<p className={styles.signInText}>
+					<p className="signInText">
 						already have an account? <Link to="/signin"> sign in</Link>
 					</p>
-					<a href="http://www.tisk.co.ke" target="blank" className={styles.moreInfoText}>
+					<a
+						href="http://www.tisk.co.ke"
+						target="blank"
+						className="moreInfoText"
+					>
 						<p>www.tisk.co.ke</p>
 					</a>
 				</div>

@@ -74,12 +74,12 @@ class SignUp extends Component {
 		const formIsValid = this.validateUser(this.state.user)
 
 		return (
-			<div className={styles.signUpGrid}>
-				<div className={styles.formGrid}>
-					<div className={styles.headerGrid} />
-					<form className={styles.form}>
-						<div className={styles.formGroup}>
-							<div className={styles.inputField}>
+			<div className="signUpGrid">
+				<div className="formGrid">
+					<div className="headerGrid" />
+					<form className="form">
+						<div className="formGroup">
+							<div className="inputField">
 								<input
 									type="text"
 									id="first_name"
@@ -88,7 +88,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="text"
 									id="lasst_name"
@@ -97,7 +97,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="email"
 									id="email"
@@ -106,7 +106,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="tel"
 									id="phoneNumber"
@@ -115,7 +115,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="number"
 									min="10000000"
@@ -125,7 +125,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="password"
 									id="password"
@@ -134,7 +134,7 @@ class SignUp extends Component {
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div className={styles.inputField}>
+							<div className="inputField">
 								<input
 									type="password"
 									id="password"
@@ -147,7 +147,7 @@ class SignUp extends Component {
 								/>
 							</div>
 							{this.props.userTypes && (
-								<div className={styles.inputField}>
+								<div className="inputField">
 									<select name="member_type" onChange={this.handleChange}>
 										<option selected disabled hidden>
 											account type
@@ -162,7 +162,7 @@ class SignUp extends Component {
 							)}
 						</div>
 					</form>
-					<div className={styles.formSubmitGroup}>
+					<div className="formSubmitGroup">
 						<Button
 							disabled={!formIsValid}
 							children={formIsValid ? "SIGNUP" : "Please fill this form"}
@@ -172,7 +172,7 @@ class SignUp extends Component {
 							clickAction={this.handleSubmitButton.bind(this)}
 						/>
 					</div>
-					<p className={styles.signInText}>
+					<p className="signInText">
 						already have an account? <Link to="/signin"> sign in</Link>
 					</p>
 				</div>

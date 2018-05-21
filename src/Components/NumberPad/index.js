@@ -84,20 +84,20 @@ class NumberPad extends React.Component {
 			)
 		}
 		return (
-			<div className={styles.activatePage}>
-				<div className={styles.topBar}>
-					<span className={styles.arrowBack}>&#8592;</span>
-					<div className={styles.descrptionContainer}>
-					<p className={styles.title}>{this.props.title}</p>
+			<div className="activatePage">
+				<div className="topBar">
+					<span className="arrowBack">&#8592;</span>
+					<div className="descrptionContainer">
+					<p className="title">{this.props.title}</p>
 					<p >{this.props.description}</p>
 					</div>
 				</div>
 				
 				<form onSubmit={this.onSubmitHandler}>
-					<div className={styles.pageContent}>
-						<div className={styles.activateCodeWrapper}>{inputs}</div>
+					<div className="pageContent">
+						<div className="activateCodeWrapper">{inputs}</div>
 					</div>	
-					<input type="submit" className={styles.depositNext} value="Next" />
+					<input type="submit" className="depositNext" value="Next" />
 				</form>
 			</div>
 		)

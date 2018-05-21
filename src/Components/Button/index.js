@@ -16,7 +16,7 @@ const Button = ({
 			onClick={() => {
 				clickAction(clickPayload)
 			}}
-			className={styles.button}
+			className="button"
 			style={{
 				backgroundColor,
 				color: foregroundColor,
