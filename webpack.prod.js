@@ -18,7 +18,7 @@ module.exports = merge(common, {
 				exclude: /node_modules/,
 				loader: ExtractTextPlugin.extract({
 					fallback: "style-loader",
-					use: "css-loader?sourceMap,module"
+					use: "css-loader?sourceMap"
 				})
 			}
 		]
