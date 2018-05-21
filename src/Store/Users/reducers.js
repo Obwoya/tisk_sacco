@@ -47,7 +47,7 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 				_isUserAuthenticated: true,
 				token: action.token.token
 			},
-			userInformation: action.user
+			userEmail: action.user.email
 		}
 
 	case actionTypes.LOGIN_FAILED:
@@ -86,7 +86,7 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 		return {
 			...state,
 			_signupProcess: { status: processTypes.SUCCESS },
-			userInformation: action.userInformation
+			// userInformation: action.userInformation
 		}
 
 	case actionTypes.GET_USER_TYPES_REQUESTED:

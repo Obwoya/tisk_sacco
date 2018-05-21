@@ -4,6 +4,7 @@ export const getUserTypesProcessStatus = ({ users }) => users._getUserTypesProce
 export const getUserTypes = ({ users }) => users.userTypes
 
 export const getUserInformation = ({ users }) => users.userInformation
+export const getUserEmail = ({ users }) => users.userEmail
 
 export const getUserInformationStatus = ({ users }) =>
 	users._getUserInformationProcess

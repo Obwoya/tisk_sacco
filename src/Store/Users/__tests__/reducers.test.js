@@ -20,6 +20,9 @@ describe("Users reducer", () => {
 				user: {
 					email: "email@email.com"
 				}
+			},
+			user: {
+				email: "email@email.com"
 			}
 		}
 		const expected = {
@@ -27,7 +30,8 @@ describe("Users reducer", () => {
 			auth: {
 				_isUserAuthenticated: true,
 				token: "token"
-			}
+			},
+			userEmail: "email@email.com"
 		}
 
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
@@ -43,7 +47,7 @@ describe("Users reducer", () => {
 				message: "Unable to log with provided credentials"
 			},
 			auth: {
-				_isUserAuthenticated: false,				
+				_isUserAuthenticated: false
 			}
 		}
 
@@ -69,14 +73,14 @@ describe("Users reducer", () => {
 			}
 		}
 		const expected = {
-			_signupProcess: { status: processTypes.SUCCESS },
-			userInformation: {
-				email: "email@email.com",
-				password: "pbkdf2",
-				phone_number: "123456789",
-				first_name: "john",
-				last_name: "doe"
-			}
+			_signupProcess: { status: processTypes.SUCCESS }
+			// userInformation: {
+			// 	email: "email@email.com",
+			// 	password: "pbkdf2",
+			// 	phone_number: "123456789",
+			// 	first_name: "john",
+			// 	last_name: "doe"
+			// }
 		}
 
 		expect(usersReducer(Immutable({}), action)).toEqual(expected)
