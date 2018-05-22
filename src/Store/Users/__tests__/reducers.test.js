@@ -3,6 +3,7 @@ import * as actionTypes from "../actionTypes"
 import * as processTypes from "../../Shared/processTypes"
 import { usersReducer, savingsReducer } from "../reducers"
 import Immutable from "seamless-immutable"
+import {accountTypes} from "../accountTypes"
 
 describe("Users reducer", () => {
 	it("should return state with processing as Processing on LOGIN request", () => {
@@ -242,4 +243,16 @@ describe("Users reducer", () => {
 			expectedRequestState
 		)
 	})
+
+	it("should return all account types on request", () => {
+		const action = {
+			type: actionTypes.SET_ACCOUNT_TYPES_REQUESTED
+		}
+		const expected = {
+			accountTypes: accountTypes
+		}
+
+		expect(usersReducer(Immutable({}), action)).toEqual(expected)
+	})
+	
 })

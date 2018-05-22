@@ -25,8 +25,7 @@ class HomePage extends Component {
 	}
 
 	componentDidMount() {
-		let getUser = () => {
-			console.log(this.props.userEmail)
+		let getUser = () => {			
 			return Promise.resolve(
 				this.props.userActions.getUserInformation({
 					email: this.props.userEmail

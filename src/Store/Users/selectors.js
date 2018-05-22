@@ -12,3 +12,6 @@ export const getUserInformationStatus = ({ users }) =>
 export const getLoginProcessStatus = ({ users }) => users._loginProcess
 
 export const getUserDeposits = ({ savings }) => savings.userDeposits
+
+
+export const getAccountTypes = ({users}) => users.accountTypes

@@ -3,6 +3,7 @@ import * as selectors from "./selectors"
 import UsersService from "./services"
 import * as processTypes from "../Shared/processTypes"
 import { push } from "react-router-redux"
+import * as accountTypes from "./accountTypes"
 
 const getSessionToken = () => {
 	return getState => {
@@ -248,3 +249,5 @@ export const activateMFSAccount = code => {
 		dispatch(push("/home"))
 	}
 }
+
+

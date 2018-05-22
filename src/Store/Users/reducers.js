@@ -6,6 +6,7 @@ import { combineReducers } from "redux"
 
 import storage from "redux-persist/lib/storage"
 import { persistReducer } from "redux-persist"
+import { accountTypes } from "./accountTypes"
 
 const usersInitialState = Immutable({
 	_loginProcess: { status: processTypes.IDLE },
@@ -18,7 +19,9 @@ const usersInitialState = Immutable({
 
 	_getUserInformationProcess: {},
 	_getUserDepositsProcess: {},
-	_getUserTypesProcess: {}
+	_getUserTypesProcess: {},
+
+	accountTypes: accountTypes
 })
 
 const usersPersistConfig = {
@@ -28,7 +31,8 @@ const usersPersistConfig = {
 		"_loginProcess",
 		// "_getUserInformationProcess",
 		"_signupProcess",
-		"_getUserDepositsProcess"
+		"_getUserDepositsProcess",
+		"accountTypes"
 	]
 }
 
@@ -85,8 +89,8 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 	case actionTypes.SIGNUP_SUCCESS:
 		return {
 			...state,
-			_signupProcess: { status: processTypes.SUCCESS },
-			// userInformation: action.userInformation
+			_signupProcess: { status: processTypes.SUCCESS }
+				// userInformation: action.userInformation
 		}
 
 	case actionTypes.GET_USER_TYPES_REQUESTED:
@@ -118,6 +122,11 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			userInformation: action.userInformation
 		}
 
+	case actionTypes.SET_ACCOUNT_TYPES_REQUESTED:
+		return {
+			...state,
+			accountTypes: accountTypes
+		}
 	default:
 		return state
 	}

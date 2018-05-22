@@ -4,6 +4,7 @@ import thunk from "redux-thunk"
 
 import * as actionTypes from "../actionTypes"
 import * as userActions from "../actions"
+import * as accountTypes from "../accountTypes"
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -346,6 +347,8 @@ describe("User action creators", () => {
 			})
 	})
 
+
+
 	it("Should create an action to request MFS sms Registration code", () => {
 		let sampleResponse = { message: "sms code sent" }
 
@@ -370,4 +373,6 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
+
+	
 })
