@@ -21,7 +21,12 @@ const usersInitialState = Immutable({
 	_getUserDepositsProcess: {},
 	_getUserTypesProcess: {},
 
-	accountTypes: accountTypes
+	accountTypes: accountTypes,
+
+	_setSelectedAccountProcess: {
+		status: processTypes.IDLE
+	},
+	selectedAccountType: {}
 })
 
 const usersPersistConfig = {
@@ -32,7 +37,8 @@ const usersPersistConfig = {
 		// "_getUserInformationProcess",
 		"_signupProcess",
 		"_getUserDepositsProcess",
-		"accountTypes"
+		"accountTypes",
+		"_setSelectedAccountProcess"
 	]
 }
 
@@ -126,6 +132,11 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 		return {
 			...state,
 			accountTypes: accountTypes
+		}
+	case actionTypes.SET_SELECTED_ACCOUNT_TYPES_REQUESTED:
+		return {
+			...state,
+			selectedAccountType: action.accountType
 		}
 	default:
 		return state

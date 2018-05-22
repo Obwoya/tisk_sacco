@@ -17,7 +17,7 @@ import student from "./images/student.svg"
 import baby from "./images/baby.svg"
 import professional from "./images/professional.svg"
 
-const Example = ({ accountTypes = {} }) => (
+const AccountAccordion = ({ accountTypes = {} , registerAction}) => (
 	<Accordion className="accordion">
 		{Object.keys(accountTypes).map((accountType, i) => (
 			<AccordionItem key={i}>
@@ -37,6 +37,7 @@ const Example = ({ accountTypes = {} }) => (
 								borderColor: accountTypes[accountType].color,
 								color: accountTypes[accountType].color
 							}}
+							onClick={() => { registerAction(accountTypes[accountType])}}
 						>
 							register
 						</button>
@@ -47,4 +48,4 @@ const Example = ({ accountTypes = {} }) => (
 	</Accordion>
 )
 
-export default Example
+export default AccountAccordion

@@ -251,3 +251,10 @@ export const activateMFSAccount = code => {
 }
 
 
+export const setSelectedAccount = (accountType) =>{
+	return dispatch =>{
+		dispatch({
+			type :actionTypes.SET_SELECTED_ACCOUNT_TYPES_REQUESTED, accountType
+		})
+	}
+}
