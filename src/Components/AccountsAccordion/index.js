@@ -17,7 +17,7 @@ import student from "./images/student.svg"
 import baby from "./images/baby.svg"
 import professional from "./images/professional.svg"
 
-const AccountAccordion = ({ accountTypes = {} , registerAction}) => (
+const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 	<Accordion className="accordion">
 		{Object.keys(accountTypes).map((accountType, i) => (
 			<AccordionItem key={i}>
@@ -29,7 +29,41 @@ const AccountAccordion = ({ accountTypes = {} , registerAction}) => (
 					<h3>{accountTypes[accountType].name}</h3>
 				</AccordionItemTitle>
 				<AccordionItemBody>
-					<p>{accountTypes[accountType].slug}</p>
+					<p
+						className="label"
+						style={{ color: accountTypes[accountType].color }}
+					>
+						{accountTypes[accountType].slug}
+					</p>
+					<p>{accountTypes[accountType].description}</p>
+					<p>
+						<span
+							className="label"
+							style={{ color: accountTypes[accountType].color }}
+						>
+							registration fee
+						</span>
+						{accountTypes[accountType].registration_fee}
+					</p>
+					<p>
+						<span
+							className="label"
+							style={{ color: accountTypes[accountType].color }}
+						>
+							share capital:
+						</span>
+						{accountTypes[accountType].share_capital}
+					</p>
+					<p>
+						<span
+							className="label"
+							style={{ color: accountTypes[accountType].color }}
+						>
+							monthly contribution:
+						</span>
+						{accountTypes[accountType].monthly_contribution}
+					</p>
+
 					<div className="btnContainer">
 						<button
 							className="btn success"
@@ -37,7 +71,9 @@ const AccountAccordion = ({ accountTypes = {} , registerAction}) => (
 								borderColor: accountTypes[accountType].color,
 								color: accountTypes[accountType].color
 							}}
-							onClick={() => { registerAction(accountTypes[accountType])}}
+							onClick={() => {
+								registerAction(accountTypes[accountType])
+							}}
 						>
 							register
 						</button>
