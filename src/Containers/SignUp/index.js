@@ -142,7 +142,7 @@ class SignUp extends Component {
 									placeholder="confirm password"
 									onChange={this.handleConfirmPassword}
 									className={
-										!this.state.validConfirmPassword && styles.inputError
+										!this.state.validConfirmPassword && "inputError"
 									}
 								/>
 							</div>

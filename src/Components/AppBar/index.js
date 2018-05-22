@@ -8,14 +8,14 @@ const AppBar = ({ title = "AppBar", backButtonPressed }) => {
 		<header className="	appBar  promoteLayer  paperToolbar  paperShadow">
 			<div className="appBarContainer  paperToolbar">
 				<button
-					className={menu}
+					className="menu"
 					onClick={() => {
 						backButtonPressed()
 					}}
 				>
-					<span className={arrowBack}>&#8592;</span>
+					<span className="arrowBack">&#8592;</span>
 				</button>
-				<h1 className={logo}>{title}</h1>
+				<h1 className="logo">{title}</h1>
 			</div>
 		</header>
 	)
