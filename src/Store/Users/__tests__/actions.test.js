@@ -167,7 +167,8 @@ describe("User action creators", () => {
 				users: {
 					auth: {
 						token: "sometoken"
-					}
+					},
+					userInformation: {}
 				}
 			}
 		})
@@ -200,7 +201,8 @@ describe("User action creators", () => {
 				users: {
 					auth: {
 						token: "sometoken"
-					}
+					},
+					userInformation:{}
 				}
 			}
 		})
@@ -233,7 +235,8 @@ describe("User action creators", () => {
 				users: {
 					auth: {
 						token: "sometoken"
-					}
+					},
+					userInformation: {}
 				}
 			}
 		})

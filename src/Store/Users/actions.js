@@ -158,7 +158,10 @@ export const getUserTypes = () => {
 
 export const getUserInformation = ({ email }) => {
 	return (dispatch, getState) => {
-		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
+		let state = getState()
+		if (!state.users.users.userInformation["user_member"]) {
+			dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
+		}
 
 		return UsersService.getUserInfomation(
 			{ email },
