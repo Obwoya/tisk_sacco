@@ -33,7 +33,7 @@
     margin: 1%;
     text-align: center;
 }
-.depositNext{
+.next{
     background-color: rgba(0, 0, 0, 0.1);
     color: white;
     text-decoration: none;
@@ -47,12 +47,12 @@
     font-weight: bold;
 }
 
-.depositNext:visited{
+.next:visited{
     color: white;
 }
 
-.depositNext:hover,
-.depositNext:active{
+.next:hover,
+.next:active{
     background-color: rgba(0, 0, 0, 0.4);
     transition: background-color 0.5s ease-out;
 }

@@ -4,18 +4,12 @@ import "./style.css"
 
 import AccordionComponent from "../../Components/AccountsAccordion"
 class SelectAccount extends Component {
-	render() {
-		const data = {
-			do: "a deer, a female deer ",
-			re: "a drop of golden sun ",
-			me: "a name, I call myself ",
-			fa: "a long long way to run "
-		}
+	render() {		
 		return (
 			<div className="parent">
 				<div className="child">
 					<div className="headerGrid" />
-					<AccordionComponent data={data} />
+					<AccordionComponent />
 				</div>
 			</div>
 		)

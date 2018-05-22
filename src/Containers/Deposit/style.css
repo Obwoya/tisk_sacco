@@ -82,6 +82,7 @@
     left: 0;
     right: 0;
     padding: 25px;
+    width: inherit;
 }
 
 .depositNext:visited{

@@ -97,7 +97,7 @@ class NumberPad extends React.Component {
 					<div className="pageContent">
 						<div className="activateCodeWrapper">{inputs}</div>
 					</div>	
-					<input type="submit" className="depositNext" value="Next" />
+					<input type="submit" className="next" value="Next" />
 				</form>
 			</div>
 		)

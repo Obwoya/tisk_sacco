@@ -2,7 +2,7 @@ import React from "react"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 
-import styles from "./style.css"
+
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
