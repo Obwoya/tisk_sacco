@@ -38,7 +38,7 @@ const usersPersistConfig = {
 		"_signupProcess",
 		"_getUserDepositsProcess",
 		"accountTypes",
-		"_setSelectedAccountProcess"
+		"_setSelectedAccountProcess",
 	]
 }
 

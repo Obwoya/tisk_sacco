@@ -1,6 +1,7 @@
 export const getAuthStatus = ({ users }) => users.auth._isUserAuthenticated
 
-export const getUserTypesProcessStatus = ({ users }) => users._getUserTypesProcess
+export const getUserTypesProcessStatus = ({ users }) =>
+	users._getUserTypesProcess
 export const getUserTypes = ({ users }) => users.userTypes
 
 export const getUserInformation = ({ users }) => users.userInformation
@@ -13,5 +14,5 @@ export const getLoginProcessStatus = ({ users }) => users._loginProcess
 
 export const getUserDeposits = ({ savings }) => savings.userDeposits
 
-
-export const getAccountTypes = ({users}) => users.accountTypes
+export const getAccountTypes = ({ users }) => users.accountTypes
+export const getselectedAccountType = ({ users }) => users.selectedAccountType

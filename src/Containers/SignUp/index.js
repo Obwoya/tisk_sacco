@@ -2,8 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Link } from "react-router-dom"
-import { withRouter}from "react-router-dom"
-
+import { withRouter, Redirect } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
@@ -20,8 +19,7 @@ class SignUp extends Component {
 				first_name: "",
 				last_name: "",
 				phone_number: "",
-				national_id: "",
-				member_type: ""
+				national_id: "",				
 			},
 			validConfirmPassword: true,
 			formCompleted: false
@@ -35,7 +33,7 @@ class SignUp extends Component {
 		this.props.userActions.getUserTypes()
 	}
 	handleSubmitButton() {
-		this.props.userActions.signup(this.state.user)		
+		this.props.userActions.signup(this.state.user)
 	}
 
 	handleChange(event) {
@@ -72,11 +70,18 @@ class SignUp extends Component {
 	render() {
 		//check if all values have been provided
 		const formIsValid = this.validateUser(this.state.user)
-
+		let { selectedAccountType } = this.props
+		if (
+			Object.keys(selectedAccountType).length === 0 &&
+			selectedAccountType.constructor === Object
+		) {
+			return <Redirect to={"/selectAccount"} />
+		}
 		return (
 			<div className="signUpGrid">
 				<div className="formGrid">
 					<div className="headerGrid" />
+					<h2>{this.props.selectedAccountType.name}</h2>
 					<form className="form">
 						<div className="formGroup">
 							<div className="inputField">
@@ -141,25 +146,10 @@ class SignUp extends Component {
 									name="confirmPassword"
 									placeholder="confirm password"
 									onChange={this.handleConfirmPassword}
-									className={
-										!this.state.validConfirmPassword && "inputError"
-									}
+									className={!this.state.validConfirmPassword && "inputError"}
 								/>
 							</div>
-							{this.props.userTypes && (
-								<div className="inputField">
-									<select name="member_type" onChange={this.handleChange}>
-										<option selected disabled hidden>
-											account type
-										</option>
-										{this.props.userTypes.map((userType, key) => (
-											<option value={userType.id} key={key}>
-												{userType.name}
-											</option>
-										))}
-									</select>
-								</div>
-							)}
+							
 						</div>
 					</form>
 					<div className="formSubmitGroup">
@@ -184,7 +174,8 @@ class SignUp extends Component {
 const mapStateToProps = state => {
 	return {
 		userInformation: userSelectors.getUserInformation(state.users),
-		userTypes: userSelectors.getUserTypes(state.users)
+		userTypes: userSelectors.getUserTypes(state.users),
+		selectedAccountType: userSelectors.getselectedAccountType(state.users)
 	}
 }
 
@@ -193,4 +184,4 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default withRouter( connect(mapStateToProps, mapDispatchToProps)(SignUp))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))

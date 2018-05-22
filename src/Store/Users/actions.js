@@ -157,7 +157,7 @@ export const getUserTypes = () => {
 }
 
 export const getUserInformation = ({ email }) => {
-	return (dispatch, getState) => {		
+	return (dispatch, getState) => {
 		dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 
 		return UsersService.getUserInfomation(
@@ -250,11 +250,12 @@ export const activateMFSAccount = code => {
 	}
 }
 
-
-export const setSelectedAccount = (accountType) =>{
-	return dispatch =>{
+export const setSelectedAccount = accountType => {
+	return dispatch => {
 		dispatch({
-			type :actionTypes.SET_SELECTED_ACCOUNT_TYPES_REQUESTED, accountType
+			type: actionTypes.SET_SELECTED_ACCOUNT_TYPES_REQUESTED,
+			accountType
 		})
+		return dispatch(push("/signup"))
 	}
 }
