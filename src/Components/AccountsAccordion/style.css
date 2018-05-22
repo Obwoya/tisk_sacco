@@ -17,29 +17,28 @@
   margin: 0px;
 }
 
-.accordion__body{
-  padding: 10px 5px
+.accordion__body {
+  padding: 10px 5px;
+  padding-bottom: 0px;
 }
 
 .accordion__image {
   max-width: 30px;
-  max-height: 30px;  
+  max-height: 30px;
   float: right;
 }
 
-
-.profileNameGrid{
-    width: 75%;
-    float: left;
-    padding-top: 10px;
+.profileNameGrid {
+  width: 75%;
+  float: left;
+  padding-top: 10px;
 }
-.accordion{
-  border: none
+.accordion {
+  border: none;
 }
 
-
-.btnContainer{
-  padding: 5px 0px
+.btnContainer {
+  padding: 5px 0px;
 }
 .btn {
   border: 2px solid black;
@@ -55,7 +54,4 @@
 .success {
   border-color: #b32017;
   color: #b32017;
-  
 }
-
-
