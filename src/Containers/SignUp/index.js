@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Link } from "react-router-dom"
-import { withRouter, Redirect } from "react-router-dom"
+
+import { withRouter, Redirect, Link } from "react-router-dom"
 
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
 
-import styles from "./style.css"
+import "./style.css"
 import Button from "../../Components/Button"
 class SignUp extends Component {
 	constructor(props) {
@@ -19,7 +19,7 @@ class SignUp extends Component {
 				first_name: "",
 				last_name: "",
 				phone_number: "",
-				national_id: "",				
+				national_id: ""
 			},
 			validConfirmPassword: true,
 			formCompleted: false
@@ -81,7 +81,12 @@ class SignUp extends Component {
 			<div className="signUpGrid">
 				<div className="formGrid">
 					<div className="headerGrid" />
-					<h2>{this.props.selectedAccountType.name}</h2>
+					<div className="accountTypeGrid">
+						<h1>{this.props.selectedAccountType.name}</h1>
+						<div>
+							<Link to="/selectaccount"> change</Link>
+						</div>
+					</div>
 					<form className="form">
 						<div className="formGroup">
 							<div className="inputField">
@@ -149,7 +154,6 @@ class SignUp extends Component {
 									className={!this.state.validConfirmPassword && "inputError"}
 								/>
 							</div>
-							
 						</div>
 					</form>
 					<div className="formSubmitGroup">

@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom"
 import Button from "../../Components/Button"
 class WelcomePage extends Component {
 	handleSubmitButton() {
-		this.props.history.push("/signup")
+		this.props.history.push("/selectaccount")
 	}
 	render() {
 		return (
