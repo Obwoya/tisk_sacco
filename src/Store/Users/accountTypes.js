@@ -6,6 +6,13 @@ export const accountTypes = {
 		url: "",
 		color: "#b32017"
 	},
+	BUSINESS_INVESTOR: {
+		name: "BUSINESS INVESTOR",
+		slug: "Terabyte",
+		description: "",
+		url: "",
+		color: "#b32017"
+	},
 	BUSINESS: {
 		name: "BUSINESS",
 		slug: "Gigabyte",
