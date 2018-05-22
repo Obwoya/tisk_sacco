@@ -15,10 +15,24 @@ module.exports = merge(common, {
 		rules: [
 			{
 				test: /\.css$/,
-				exclude: /node_modules/,
+				// exclude: /node_modules/,
 				loader: ExtractTextPlugin.extract({
-					fallback: "style-loader",
-					use: "css-loader?sourceMap"
+					use: [
+						{
+							loader: "css-loader",
+							options: {
+								minimize: true,
+								sourceMap: true
+							}
+						},
+						{
+							loader: "postcss-loader",
+							options: {
+								plugins: () => [require("autoprefixer")],
+								sourceMap: true
+							}
+						}
+					]
 				})
 			}
 		]
