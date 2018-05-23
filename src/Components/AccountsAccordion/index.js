@@ -12,72 +12,64 @@ import "react-accessible-accordion/dist/fancy-example.css"
 import "./style.css"
 
 import investor from "./images/investor.svg"
-import business from "./images/business.svg"
-import student from "./images/student.svg"
-import baby from "./images/baby.svg"
-import professional from "./images/professional.svg"
+// import business from "./images/business.svg"
+// import student from "./images/student.svg"
+// import baby from "./images/baby.svg"
+// import professional from "./images/professional.svg"
 
 const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 	<Accordion className="accordion">
-		{Object.keys(accountTypes).map((accountType, i) => (
+		{accountTypes.map((accountType, i) => (
 			<AccordionItem key={i}>
 				<AccordionItemTitle
 					className="accordion__header"
-					style={{ background: accountTypes[accountType].color }}
+					style={{ background: accountType.color }}
 				>
 					<img src={investor} className="accordion__image" />
-					<h3>{accountTypes[accountType].name}</h3>
+					<h3>{accountType.name}</h3>
 				</AccordionItemTitle>
 				<AccordionItemBody>
-					<p
-						className="label"
-						style={{ color: accountTypes[accountType].color }}
-					>
-						{accountTypes[accountType].slug}
+					<p className="label" style={{ color: accountType.color }}>
+						{accountType.slug}
 					</p>
-					<p>{accountTypes[accountType].description}</p>
-					<p>
-						<span
-							className="label"
-							style={{ color: accountTypes[accountType].color }}
-						>
-							registration fee
-						</span>
-						{accountTypes[accountType].registration_fee}
-					</p>
-					<p>
-						<span
-							className="label"
-							style={{ color: accountTypes[accountType].color }}
-						>
-							share capital:
-						</span>
-						{accountTypes[accountType].share_capital}
-					</p>
-					<p>
-						<span
-							className="label"
-							style={{ color: accountTypes[accountType].color }}
-						>
-							monthly contribution:
-						</span>
-						{accountTypes[accountType].monthly_contribution}
-					</p>
+					<p>{accountType.description}</p>
 
-					<div className="btnContainer">
-						<button
-							className="btn success"
-							style={{
-								borderColor: accountTypes[accountType].color,
-								color: accountTypes[accountType].color
-							}}
-							onClick={() => {
-								registerAction(accountTypes[accountType])
-							}}
-						>
-							register
-						</button>
+					<div className="accountDetails">
+						<p>
+							<span className="label" style={{ color: accountType.color }}>
+								registration fee
+							</span>
+							{accountType.registration_fee}
+						</p>
+						<p>
+							<span className="label" style={{ color: accountType.color }}>
+								share capital:
+							</span>
+							{accountType.share_capital}
+						</p>
+						<p>
+							<span className="label" style={{ color: accountType.color }}>
+								monthly contribution:
+							</span>
+							{accountType.monthly_contribution}
+						</p>
 					</div>
+					{accountType.options.map((option, i) => (
+						<div className="btnContainer" key={i}>
+							<button
+								className="btn success"
+								style={{
+									borderColor: accountType.color,
+									color: accountType.color
+								}}
+								onClick={() => {
+									registerAction(accountType)
+								}}
+							>
+								{"register as " + option}
+							</button>
+						</div>
+					))}
 				</AccordionItemBody>
 			</AccordionItem>
 		))}
