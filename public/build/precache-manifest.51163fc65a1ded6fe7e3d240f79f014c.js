@@ -17,7 +17,7 @@ self.__precacheManifest = [
     "url": "/build/f2a4eeab3c5e6b50c5d9f1e65b36518a.png"
   },
   {
-    "revision": "d96d05971f540bc60a49",
+    "revision": "ea79e39ae37a9da51fa8",
     "url": "/build/app.js"
   },
   {
@@ -45,7 +45,7 @@ self.__precacheManifest = [
     "url": "/build/ce87ca52799bae686235129b79782748.svg"
   },
   {
-    "revision": "d96d05971f540bc60a49",
+    "revision": "ea79e39ae37a9da51fa8",
     "url": "/build/app.css"
   },
   {
