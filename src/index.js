@@ -16,16 +16,16 @@ render(
 	document.getElementById("app")
 )
 
-// require("./serviceWorker")
-// if ("serviceWorker" in navigator) {
-// 	window.addEventListener("load", function() {
-// 		navigator.serviceWorker
-// 			.register("./serviceWorker.js", { scope: "/" })
-// 			.then(() => {
-// 				// registration.pushManager.subscribe({ userVisibleOnly: true })
-// 			})
-// 			.catch(error => {
-// 				throw error
-// 			})
-// 	})
-// }
+require("./serviceWorker")
+if ("serviceWorker" in navigator) {
+	window.addEventListener("load", function() {
+		navigator.serviceWorker
+			.register("./serviceWorker.js", { scope: "/" })
+			.then(() => {
+				// registration.pushManager.subscribe({ userVisibleOnly: true })
+			})
+			.catch(error => {
+				throw error
+			})
+	})
+}
