@@ -22,7 +22,8 @@ if ("serviceWorker" in navigator) {
 		navigator.serviceWorker
 			.register("./serviceWorker.js", { scope: "/" })
 			.then(registration => {
-				registration.update()
+				// registration.unregister() 
+				// registration.update()
 				// registration.pushManager.subscribe({ userVisibleOnly: true })
 			})
 			.catch(error => {
