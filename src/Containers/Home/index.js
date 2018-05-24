@@ -68,7 +68,7 @@ class HomePage extends Component {
 			<div>
 				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
-						<ProfileBanner user={userInformation} />
+						<ProfileBanner user={userInformation.member} />
 						{this.props.userInformation.member.is_msf_active ? (
 							<div>
 								<div className="contentGrid">
@@ -95,7 +95,7 @@ class HomePage extends Component {
 								</div>
 							</div>
 						) : (
-							<div>{this.mfsActicationRequest(userInformation)}</div>
+							<div>{this.mfsActicationRequest(userInformation.member)}</div>
 						)}
 					</div>
 				) : (
