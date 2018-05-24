@@ -21,7 +21,8 @@ if ("serviceWorker" in navigator) {
 	window.addEventListener("load", function() {
 		navigator.serviceWorker
 			.register("./serviceWorker.js", { scope: "/" })
-			.then(() => {
+			.then(registration => {
+				registration.update()
 				// registration.pushManager.subscribe({ userVisibleOnly: true })
 			})
 			.catch(error => {
