@@ -1,3 +1,3 @@
-export const INDIVIDUAL = "memberTypes.INDIVIDUAL"
-export const BUSINESS = "memberTypes.BUSINESS"
-export const CHILD = "memberTypes.CHILD"
+export const INDIVIDUAL = "Individual"
+export const BUSINESS = "Business"
+export const CHILD = "Future"

@@ -4,6 +4,7 @@ import UsersService from "./services"
 import * as processTypes from "../Shared/processTypes"
 import { push } from "react-router-redux"
 import * as accountTypes from "./accountTypes"
+import * as memberTypes from "./memberTypes"
 
 const getSessionToken = () => {
 	return getState => {
@@ -259,6 +260,13 @@ export const setSelectedAccount = accountType => {
 			type: actionTypes.SET_SELECTED_ACCOUNT_TYPES_REQUESTED,
 			accountType
 		})
-		return dispatch(push("/signup"))
+		switch (accountType.type) {
+		case memberTypes.BUSINESS:
+			return dispatch(push("/companysignup"))
+		case memberTypes.INDIVIDUAL:
+			return dispatch(push("/signup"))
+		default:
+			return dispatch(push("/signup"))
+		}
 	}
 }

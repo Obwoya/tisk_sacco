@@ -26,7 +26,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 					style={{ background: accountType.color }}
 				>
 					<img src={investor} className="accordion__image" />
-					<h3>{accountType.name}</h3>
+					<h3>{accountType.slug}</h3>
 				</AccordionItemTitle>
 				<AccordionItemBody>
 					<p className="label" style={{ color: accountType.color }}>
@@ -54,7 +54,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 							{accountType.monthly_contribution}
 						</p>
 					</div>
-					{accountType.options.map((option, i) => (
+					{accountType.member_types.map((memberType, i) => (
 						<div className="btnContainer" key={i}>
 							<button
 								className="btn success"
@@ -63,10 +63,10 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 									color: accountType.color
 								}}
 								onClick={() => {
-									registerAction(accountType)
+									registerAction(memberType)
 								}}
 							>
-								{"register as " + option}
+								{"register as " + memberType.name}
 							</button>
 						</div>
 					))}
