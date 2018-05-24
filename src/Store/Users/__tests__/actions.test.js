@@ -74,6 +74,35 @@ describe("User action creators", () => {
 			)
 		})
 	})
+
+	it("should create an action to register a new individual user", () => {
+		let sampleUser = {
+			first_name: "brian",
+			last_name: "Keyonzo",
+			national_id: "30881289",
+			phone_number: "0713784212",
+			member_type: 2,
+			email: "briankeyonzo@yahoo.com",
+			password: "foobar1234"
+		}
+
+		const expectedActions = [
+			{ type: actionTypes.INDIVIDUAL_SIGNUP_REQUEST },
+			{
+				type: actionTypes.INDIVIDUAL_SIGNUP_SUCCESS,
+				userInformation: sampleUser
+			}
+		]
+
+		const store = mockStore({})
+		fetch.mockResponse(JSON.stringify(sampleUser), { status: 201 })
+		return store.dispatch(userActions.individualSignup(sampleUser)).then(() => {
+			// return of async actions
+			expect(store.getActions()).toContainEqual(
+				expect.objectContaining(...expectedActions)
+			)
+		})
+	})
 	it("should create an action to activate an account", () => {
 		const expectedActions = [
 			{ type: actionTypes.SEND_USER_ACTIVATION_CODE_REQUESTED },
@@ -202,7 +231,7 @@ describe("User action creators", () => {
 					auth: {
 						token: "sometoken"
 					},
-					userInformation:{}
+					userInformation: {}
 				}
 			}
 		})
@@ -350,8 +379,6 @@ describe("User action creators", () => {
 			})
 	})
 
-
-
 	it("Should create an action to request MFS sms Registration code", () => {
 		let sampleResponse = { message: "sms code sent" }
 
@@ -376,6 +403,4 @@ describe("User action creators", () => {
 			expect(store.getActions()).toEqual(expectedActions)
 		})
 	})
-
-	
 })

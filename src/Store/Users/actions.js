@@ -120,6 +120,25 @@ export const signup = user => {
 	}
 }
 
+export const individualSignup = user => {
+	return dispatch => {
+		dispatch({
+			type: actionTypes.INDIVIDUAL_SIGNUP_REQUEST
+		})
+		return UsersService.registerUser(user).then(response => {
+			if (response.status === 201) {
+				return Promise.resolve(response.json()).then(userInformation => {
+					dispatch({
+						type: actionTypes.INDIVIDUAL_SIGNUP_SUCCESS,
+						userInformation: userInformation
+					})
+					return dispatch(push("/activate"))
+				})
+			}
+		})
+	}
+}
+
 export const activateUser = token => {
 	return dispatch => {
 		dispatch({ type: actionTypes.SEND_USER_ACTIVATION_CODE_REQUESTED })
@@ -160,7 +179,7 @@ export const getUserTypes = () => {
 export const getUserInformation = ({ email }) => {
 	return (dispatch, getState) => {
 		let state = getState()
-		if (!state.users.users.userInformation["user_member"]) {
+		if (!state.users.users.userInformation["member"]) {
 			dispatch({ type: actionTypes.GET_USER_INFORMATION_REQUESTED })
 		}
 

@@ -81,7 +81,7 @@ export default class UsersService {
 	}
 
 	static registerUser(user) {
-		const url = UsersService.host.concat("/users/api/new/")
+		const url = UsersService.host.concat("/api/v1/users/new/individual")
 
 		var myHeaders = new Headers()
 		myHeaders.append("content-type", "application/json")
@@ -120,9 +120,7 @@ export default class UsersService {
 			})
 	}
 	static getUserInfomation({ email }, accessToken) {
-		const url = UsersService.host.concat(
-			"/api/v1/users/" + email + "/membership/"
-		)
+		const url = UsersService.host.concat("/api/v1/users/" + email)
 		const request = {
 			method: "GET",
 			headers: {

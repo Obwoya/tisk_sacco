@@ -19,7 +19,8 @@ class SignUp extends Component {
 				first_name: "",
 				last_name: "",
 				phone_number: "",
-				national_id: ""
+				national_id: "",
+				member_type: this.props.selectedAccountType.id
 			},
 			validConfirmPassword: true,
 			formCompleted: false
@@ -33,7 +34,7 @@ class SignUp extends Component {
 		this.props.userActions.getUserTypes()
 	}
 	handleSubmitButton() {
-		this.props.userActions.signup(this.state.user)
+		this.props.userActions.individualSignup(this.state.user)
 	}
 
 	handleChange(event) {
