@@ -20,6 +20,7 @@ class SignUp extends Component {
 				last_name: "",
 				phone_number: "",
 				national_id: "",
+				confirm_password: "",
 				member_type: this.props.selectedAccountType.id
 			},
 			validConfirmPassword: true,
@@ -53,9 +54,12 @@ class SignUp extends Component {
 				validConfirmPassword: false
 			})
 		} else {
+			let property = this.state.user
+			property["confirm_password"] = event.target.value
 			this.setState({
 				...this.state,
-				validConfirmPassword: true
+				validConfirmPassword: true,
+				user: property
 			})
 		}
 	}
@@ -149,7 +153,7 @@ class SignUp extends Component {
 								<input
 									type="password"
 									id="password"
-									name="confirmPassword"
+									name="confirm_password"
 									placeholder="confirm password"
 									onChange={this.handleConfirmPassword}
 									className={!this.state.validConfirmPassword && "inputError"}
