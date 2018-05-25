@@ -20,15 +20,6 @@
   background-image: url(../../assets/images/tiskLogo.png);
   z-index: -1;
 }
-.imageGrid {
-  max-height: 35vh;
-  height: 35vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  z-index: -1;
-}
 .welcomeMessage {
   text-align: center;
 }
