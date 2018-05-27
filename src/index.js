@@ -19,15 +19,20 @@ render(
 require("./serviceWorker")
 if ("serviceWorker" in navigator) {
 	window.addEventListener("load", function() {
-		navigator.serviceWorker
-			.register("./serviceWorker.js", { scope: "/" })
-			.then(registration => {
-				// registration.unregister() 
-				// registration.update()
-				// registration.pushManager.subscribe({ userVisibleOnly: true })
-			})
-			.catch(error => {
-				throw error
-			})
+		navigator.serviceWorker.getRegistrations().then(function (registrations) {
+			for (let registration of registrations) {
+				registration.unregister()
+			}
+		})
+		// navigator.serviceWorker
+		// 	.register("./serviceWorker.js", { scope: "/" })
+		// 	.then(registration => {
+		// 		// registration.unregister() 
+		// 		// registration.update()
+		// 		// registration.pushManager.subscribe({ userVisibleOnly: true })
+		// 	})
+		// 	.catch(error => {
+		// 		throw error
+		// 	})
 	})
 }
