@@ -19,7 +19,7 @@ class Activate extends React.Component {
 	}
 	render() {
 		return(
-			<NumPad size={6} submitAction={this.onSubmitHandler.bind(this)} title="User Activation Code" description={"An activation code has been send to your "}/> 
+			<NumPad size={6} submitAction={this.onSubmitHandler.bind(this)} title="User Activation Code" description={"An activation code has been send to your email"}/> 
 		)
 	}
 }

@@ -22,7 +22,7 @@ const ProfileBanner = ({ user, accountInformation = { balance: 0 } }) => {
 							{accountInformation.balance}
 						</h2>
 					</div>
-					<div>Account balance</div>
+					<div>RAM Account</div>
 				</div>
 			</div>
 		</div>
