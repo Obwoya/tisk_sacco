@@ -14,8 +14,9 @@ const usersInitialState = Immutable({
 		_isUserAuthenticated: false
 	},
 
-	_signupProcess: {},
+	_signupProcess: { status: processTypes.IDLE },
 	userInformation: {},
+	businessInformation: {},
 
 	_getUserInformationProcess: {},
 	_getUserDepositsProcess: {},
@@ -38,7 +39,7 @@ const usersPersistConfig = {
 		"_signupProcess",
 		"_getUserDepositsProcess",
 		"accountTypes",
-		"_setSelectedAccountProcess",
+		"_setSelectedAccountProcess"
 	]
 }
 
@@ -97,6 +98,47 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			...state,
 			_signupProcess: { status: processTypes.SUCCESS }
 				// userInformation: action.userInformation
+		}
+
+	case actionTypes.INDIVIDUAL_SIGNUP_REQUEST:
+		return {
+			...state,
+			_signupProcess: {
+				status: processTypes.PROCESSING,
+				message: action.payload
+			}
+		}
+
+	case actionTypes.INDIVIDUAL_SIGNUP_SUCCESS:
+		return {
+			...state,
+			_signupProcess: { status: processTypes.SUCCESS }
+		}
+	case actionTypes.INDIVIDUAL_SIGNUP_ERROR:
+		return {
+			...state,
+			_signupProcess: { status: processTypes.ERROR, message: action.payload }
+		}
+
+
+	case actionTypes.BUSINESS_SIGNUP_REQUEST:
+		return {
+			...state,
+			_signupProcess: {
+				status: processTypes.PROCESSING,
+				message: action.payload
+			}
+		}
+
+	case actionTypes.BUSINESS_SIGNUP_SUCCESS:
+		return {
+			...state,
+			_signupProcess: { status: processTypes.SUCCESS }
+		}
+	case actionTypes.BUSINESS_SIGNUP_ERROR:
+		return {
+			...state,
+			_signupProcess: { status: processTypes.ERROR, message: action.payload }
 		}
 
 	case actionTypes.GET_USER_TYPES_REQUESTED:

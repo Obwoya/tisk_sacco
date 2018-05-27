@@ -31,6 +31,7 @@
 		"history": "^4.7.2",
 		"react": "^15.6.1",
 		"react-accessible-accordion": "^2.4.0",
+		"react-addons-css-transition-group": "^15.6.2",
 		"react-dom": "^15.6.1",
 		"react-headroom": "^2.2.2",
 		"react-redux": "^5.0.5",

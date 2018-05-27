@@ -1,14 +1,16 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-
 import { withRouter, Redirect, Link } from "react-router-dom"
+import { BarLoader } from "react-spinners"
 
+import * as processTypes from "../../Store/Shared/processTypes"
 import * as userActions from "../../Store/Users/actions"
 import * as userSelectors from "../../Store/Users/selectors"
 
-import "./style.css"
+import ErrorMessage from "../../Components/ErrorMessage"
 import Button from "../../Components/Button"
+import "./style.css"
 class SignUp extends Component {
 	constructor(props) {
 		super(props)
@@ -31,10 +33,21 @@ class SignUp extends Component {
 		this.handleConfirmPassword = this.handleConfirmPassword.bind(this)
 	}
 
-	componentDidMount() {
-		this.props.userActions.getUserTypes()
+	componentDidMount() {		
 	}
 	handleSubmitButton() {
+		this.setState({
+			...this.state,
+			user: {
+				email: "",
+				password: "",
+				first_name: "",
+				last_name: "",
+				phone_number: "",
+				national_id: "",
+				member_type: this.props.selectedAccountType.id
+			}
+		})
 		this.props.userActions.individualSignup(this.state.user)
 	}
 
@@ -74,6 +87,8 @@ class SignUp extends Component {
 
 	render() {
 		//check if all values have been provided
+		let { signUpProcess } = this.props
+		let showProcessing = signUpProcess.status === processTypes.PROCESSING
 		const formIsValid = this.validateUser(this.state.user)
 		let { selectedAccountType } = this.props
 		if (
@@ -92,75 +107,89 @@ class SignUp extends Component {
 							<Link to="/selectaccount"> change</Link>
 						</div>
 					</div>
-					<form className="form">
-						<div className="formGroup">
-							<div className="inputField">
-								<input
-									type="text"
-									id="first_name"
-									name="first_name"
-									placeholder="first name"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="text"
-									id="lasst_name"
-									name="last_name"
-									placeholder="last name"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="email"
-									id="email"
-									name="email"
-									placeholder="email"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="tel"
-									id="phoneNumber"
-									name="phone_number"
-									placeholder="phone number"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="number"
-									min="10000000"
-									id="national_id"
-									name="national_id"
-									placeholder="national id"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="password"
-									id="password"
-									name="password"
-									placeholder="password"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div className="inputField">
-								<input
-									type="password"
-									id="password"
-									name="confirm_password"
-									placeholder="confirm password"
-									onChange={this.handleConfirmPassword}
-									className={!this.state.validConfirmPassword && "inputError"}
-								/>
+
+					{showProcessing ? (
+						<div className="signupRingLoaderGrid">
+							<div className="signupRingLoader">
+								<p>{signUpProcess.message}</p>
+								<BarLoader color={"#b32017"} loading={true} height={4} />
 							</div>
 						</div>
-					</form>
+					) : (
+						<form className="form">
+							{signUpProcess.status === processTypes.ERROR && (
+								<ErrorMessage>{signUpProcess.message}</ErrorMessage>
+							)}
+							<div className="formGroup">
+								<div className="inputField">
+									<input
+										type="text"
+										id="first_name"
+										name="first_name"
+										placeholder="first name"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="text"
+										id="lasst_name"
+										name="last_name"
+										placeholder="last name"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="email"
+										id="email"
+										name="email"
+										placeholder="email"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="tel"
+										id="phoneNumber"
+										name="phone_number"
+										placeholder="phone number"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="number"
+										min="10000000"
+										id="national_id"
+										name="national_id"
+										placeholder="national id"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="password"
+										id="password"
+										name="password"
+										placeholder="password"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="inputField">
+									<input
+										type="password"
+										id="password"
+										name="confirmPassword"
+										placeholder="confirm password"
+										onChange={this.handleConfirmPassword}
+										className={!this.state.validConfirmPassword && "inputError"}
+									/>
+								</div>
+							</div>
+						</form>
+					)}
+
 					<div className="formSubmitGroup">
 						<Button
 							disabled={!formIsValid}
@@ -182,8 +211,8 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
 	return {
-		userInformation: userSelectors.getUserInformation(state.users),
-		userTypes: userSelectors.getUserTypes(state.users),
+		signUpProcess: userSelectors.getSignupProcess(state.users),
+		
 		selectedAccountType: userSelectors.getselectedAccountType(state.users)
 	}
 }

@@ -123,7 +123,8 @@ export const signup = user => {
 export const individualSignup = user => {
 	return dispatch => {
 		dispatch({
-			type: actionTypes.INDIVIDUAL_SIGNUP_REQUEST
+			type: actionTypes.INDIVIDUAL_SIGNUP_REQUEST,
+			payload: "creating account"
 		})
 		return UsersService.registerUser(user).then(response => {
 			if (response.status === 201) {
@@ -133,6 +134,60 @@ export const individualSignup = user => {
 						userInformation: userInformation
 					})
 					return dispatch(push("/activate"))
+				})
+			} else if (response.status === 400) {
+				//check if there is a non_field error
+				return Promise.resolve(response.json()).then(errors => {
+					if ("non_field_errors" in errors) {
+						//check if there is an error invalid credentials
+					} else {
+						//prompt for field with errors
+						let errorMessage = ""
+						Object.keys(errors).map(error => {
+							errorMessage += `\n${error}: ${errors[error]}`
+						})
+						return dispatch({
+							type: actionTypes.INDIVIDUAL_SIGNUP_ERROR,
+							payload: errorMessage
+						})
+					}
+				})
+			}
+		})
+	}
+}
+
+export const businessSignup = business => {
+	return dispatch => {
+		dispatch({
+			type: actionTypes.BUSINESS_SIGNUP_REQUEST,
+			payload: "creating account"
+		})
+		return UsersService.registerBusiness(business).then(response => {
+			if (response.status === 201) {
+				return Promise.resolve(response.json()).then(businessInformation => {
+					dispatch({
+						type: actionTypes.BUSINESS_SIGNUP_SUCCESS,
+						businessInformation: businessInformation
+					})
+					return dispatch(push("/activate"))
+				})
+			} else if (response.status === 400) {
+				//check if there is a non_field error
+				return Promise.resolve(response.json()).then(errors => {
+					if ("non_field_errors" in errors) {
+						//check if there is an error invalid credentials
+					} else {
+						//prompt for field with errors
+						let errorMessage = ""
+						Object.keys(errors).map(error => {
+							errorMessage += `\n${error}: ${errors[error]}`
+						})
+						return dispatch({
+							type: actionTypes.BUSINESS_SIGNUP_ERROR,
+							payload: errorMessage
+						})
+					}
 				})
 			}
 		})

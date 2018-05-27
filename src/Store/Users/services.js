@@ -104,6 +104,30 @@ export default class UsersService {
 			})
 	}
 
+	static registerBusiness(business) {
+		const url = UsersService.host.concat("/api/v1/users/new/business")
+
+		var myHeaders = new Headers()
+		myHeaders.append("content-type", "application/json")
+		myHeaders.append("X-Custom-Header", "ProcessThisImmediately")
+		const request = {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(business)
+		}
+
+		return fetch(url, request)
+			.then(response => {
+				return response
+			})
+			.catch(error => {
+				throw error
+			})
+	}
+
 	static getUserTypes() {
 		const url = UsersService.host.concat("/users/api/membershiptypes/")
 		const request = {
@@ -119,6 +143,7 @@ export default class UsersService {
 				return error
 			})
 	}
+
 	static getUserInfomation({ email }, accessToken) {
 		const url = UsersService.host.concat("/api/v1/users/" + email)
 		const request = {

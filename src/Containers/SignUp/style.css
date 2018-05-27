@@ -33,7 +33,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.inputField > input,select {
+.inputField > input,
+select {
   outline: none;
   width: 100%;
   -webkit-appearance: none;
@@ -80,9 +81,25 @@ input.inputError {
   padding-bottom: 5px;
 }
 
-
-.accountTypeGrid{
+.accountTypeGrid {
   margin: auto;
   max-width: 450px;
   text-align: center;
+}
+
+.signupRingLoaderGrid {
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  margin: auto;
+  max-width: 450px;
+}
+
+.signupRingLoader {
+  margin: auto;
+  width: 150px;
+  transform: translateX(12.5%);
+  padding: 5px 0px;
 }
