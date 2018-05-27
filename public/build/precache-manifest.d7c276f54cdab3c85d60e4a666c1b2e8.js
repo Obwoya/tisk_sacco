@@ -6,18 +6,18 @@ self.__precacheManifest = [
     "url": "/build/icon_96x96.ebb51083bbd506b690973e4d9f6d0596.png"
   },
   {
-    "revision": "88331596c56fb2780baf",
+    "revision": "f555896486b29d4e3d85",
     "url": "/build/serviceWorker.js"
   },
   {
-    "revision": "76161cf6281e64acf542",
+    "revision": "daae0375bf10df5fc646",
     "url": "/build/vendor.js"
   },
   {
     "url": "/build/f2a4eeab3c5e6b50c5d9f1e65b36518a.png"
   },
   {
-    "revision": "aa9e789b612a182b5ae4",
+    "revision": "8af3eaa8cad67fc09a3f",
     "url": "/build/app.js"
   },
   {
@@ -45,7 +45,7 @@ self.__precacheManifest = [
     "url": "/build/ce87ca52799bae686235129b79782748.svg"
   },
   {
-    "revision": "aa9e789b612a182b5ae4",
+    "revision": "8af3eaa8cad67fc09a3f",
     "url": "/build/app.css"
   },
   {
@@ -55,10 +55,10 @@ self.__precacheManifest = [
     "url": "/build/9e62d6656fa85d6b068bd08003a04f8d.svg"
   },
   {
-    "url": "/build/8e616dc8b404bc0ab0a71063ed6b7148.svg"
+    "url": "/build/8ddf6f10c92fe81cf3f614fc73544cca.png"
   },
   {
-    "url": "/build/8ddf6f10c92fe81cf3f614fc73544cca.png"
+    "url": "/build/86957fff2d98c55cc2ca702b2c9417df.png"
   },
   {
     "url": "/build/1a68b2b5f5eced40677e4ead5fb22f9e.woff2"
