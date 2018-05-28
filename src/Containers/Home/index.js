@@ -71,26 +71,29 @@ class HomePage extends Component {
 						<ProfileBanner user={userInformation.member} />
 						{this.props.userInformation.member.is_msf_active ? (
 							<div>
+								<div className="container">
 								<div className="contentGrid">
 									<RecentTransactions />
+
 								</div>
 
-								<div className="quickActions">
-									<div>
-										<button
-											type="submit"
-											className="quickActionDeposit"
-											onClick={() => {
-												this.props.history.push("/deposit/new")
-											}}
-										>
-											<div className="quickActionIcon" />
-											<div>Deposit Cash</div>
-										</button>
-										<button type="submit" className="quickActionLoan">
-											<div className="quickActionIcon" />
-											<div>Take Loan</div>
-										</button>
+									<div className="quickActions">
+										<div>
+											<button
+												type="submit"
+												className="quickActionDeposit"
+												onClick={() => {
+													this.props.history.push("/deposit/new")
+												}}
+											>
+												<div className="quickActionIcon" />
+												<div>Deposit Cash</div>
+											</button>
+											<button type="submit" className="quickActionLoan">
+												<div className="quickActionIcon" />
+												<div>Take Loan</div>
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>

@@ -1,13 +1,12 @@
 import React from "react"
 
-import styles from "./style.css"
+import "./style.css"
 
-const ProfileName = ({name="Profile Name"}) => {
+const ProfileName = ({ name = "Profile Name" }) => {
 	return (
 		<div>
-			<h2 className="nameHeader" >{name}</h2>
+			<h2 className="nameHeader">{name}</h2>
 		</div>
 	)
 }
-
 export default ProfileName
