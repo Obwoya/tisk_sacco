@@ -32,9 +32,12 @@
   border: none;
 }
 
+.accountSlug {
+  font-style: italic;
+}
 .accountDetails {
   padding: 10px 0px;
-  font-style: italic;
+  color: #727272
 }
 
 .btnContainer {

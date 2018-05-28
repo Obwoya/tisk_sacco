@@ -24,7 +24,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 				>
 					<img src={accountType.thumbnail} className="accordion__image" />
 					<h3>{accountType.display_name}</h3>
-					<p>{accountType.slug}</p>
+					<p className="accountSlug">{accountType.slug}</p>
 				</AccordionItemTitle>
 				<AccordionItemBody>					
 					<p>{accountType.description}</p>
@@ -46,7 +46,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 							<span className="label" style={{ color: accountType.color }}>
 								monthly contribution:
 							</span>
-							{accountType.monthly_contribution}
+							{accountType.monthly_fee}
 						</p>
 					</div>
 					{accountType.member_types.map((memberType, i) => (
