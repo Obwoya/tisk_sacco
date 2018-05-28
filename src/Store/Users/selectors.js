@@ -19,7 +19,7 @@ export const getUserDeposits = ({ savings }) => savings.userDeposits
 export const getFetchAccountTypesProcess = ({ users }) =>
 	users._fetchAccountTypesProcess
 export const getAccountTypes = ({ users }) => {
-	return users.users.accountTypes.sort((a, b) => {
+	return users.accountTypes.sort((a, b) => {
 		return a.order_number - b.order_number
 	})
 }
