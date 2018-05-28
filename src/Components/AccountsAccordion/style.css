@@ -37,7 +37,7 @@
 }
 .accountDetails {
   padding: 10px 0px;
-  color: #727272
+  color: #727272;
 }
 
 .btnContainer {
@@ -62,4 +62,8 @@
 .label {
   color: #b32017;
   padding-right: 5px;
+}
+
+.pricing {
+  padding-left: 5px;
 }

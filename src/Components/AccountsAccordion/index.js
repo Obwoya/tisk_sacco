@@ -11,9 +11,6 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css"
 import "./style.css"
 
-
-
-
 const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 	<Accordion className="accordion">
 		{accountTypes.map((accountType, i) => (
@@ -26,28 +23,32 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 					<h3>{accountType.display_name}</h3>
 					<p className="accountSlug">{accountType.slug}</p>
 				</AccordionItemTitle>
-				<AccordionItemBody>					
+				<AccordionItemBody>
 					<p>{accountType.description}</p>
 
 					<div className="accountDetails">
-						<p>
-							<span className="label" style={{ color: accountType.color }}>
-								registration fee
-							</span>
-							{accountType.registration_fee}
-						</p>
-						<p>
-							<span className="label" style={{ color: accountType.color }}>
-								share capital:
-							</span>
-							{accountType.share_capital}
-						</p>
-						<p>
-							<span className="label" style={{ color: accountType.color }}>
-								monthly contribution:
-							</span>
-							{accountType.monthly_fee}
-						</p>
+						<table>
+							<tbody>
+								<tr>
+									<td className="label" style={{ color: accountType.color }}>
+										registration fee:
+									</td>
+									<td className="pricing">{accountType.registration_fee}</td>
+								</tr>
+								<tr>
+									<td className="label" style={{ color: accountType.color }}>
+										share capital:
+									</td>
+									<td className="pricing">{accountType.share_capital}</td>
+								</tr>
+								<tr>
+									<td className="label" style={{ color: accountType.color }}>
+										monthly contribution:
+									</td>
+									<td className="pricing">{accountType.monthly_fee}</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					{accountType.member_types.map((memberType, i) => (
 						<div className="btnContainer" key={i}>
