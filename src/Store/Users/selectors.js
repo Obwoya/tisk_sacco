@@ -20,4 +20,10 @@ export const getFetchAccountTypesProcess = ({ users }) =>
 	users._fetchAccountTypesProcess
 export const getAccountTypes = ({ users }) => users.accountTypes
 
-export const getselectedAccountType = ({ users }) => users.selectedAccountType
+export const getselectedAccountType = ({ users }) => {
+	
+	return users.selectedAccountType.sort((a,b)=>{
+		return a.order_number - b.order_number
+	})
+
+} 

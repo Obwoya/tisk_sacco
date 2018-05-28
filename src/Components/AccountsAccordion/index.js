@@ -26,7 +26,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 					style={{ background: accountType.color }}
 				>
 					<img src={accountType.thumbnail} className="accordion__image" />
-					<h3>{accountType.slug}</h3>
+					<h3>{accountType.display_name}</h3>
 				</AccordionItemTitle>
 				<AccordionItemBody>
 					<p className="label" style={{ color: accountType.color }}>

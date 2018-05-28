@@ -15,7 +15,7 @@ import "./style.css"
 
 import AccordionComponent from "../../Components/AccountsAccordion"
 class SelectAccount extends Component {
-	componentDidMount(){
+	componentDidMount() {
 		this.props.userActions.getAccountTypes()
 	}
 	selectAccountType(accountType) {
@@ -35,10 +35,13 @@ class SelectAccount extends Component {
 						<BarLoader color={"#b32017"} loading={true} height={4} />
 					)}
 					{showAccordion && (
-						<AccordionComponent
-							accountTypes={this.props.accountTypes}
-							registerAction={this.selectAccountType.bind(this)}
-						/>
+						<div>
+							<p className="SAcallToActionText">Please select an account</p>
+							<AccordionComponent
+								accountTypes={this.props.accountTypes}
+								registerAction={this.selectAccountType.bind(this)}
+							/>
+						</div>
 					)}
 				</div>
 			</div>
