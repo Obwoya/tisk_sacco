@@ -29,10 +29,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 					<h3>{accountType.display_name}</h3>
 					<p>{accountType.slug}</p>
 				</AccordionItemTitle>
-				<AccordionItemBody>
-					<p className="label" style={{ color: accountType.color }}>
-						{accountType.slug}
-					</p>
+				<AccordionItemBody>					
 					<p>{accountType.description}</p>
 
 					<div className="accountDetails">
