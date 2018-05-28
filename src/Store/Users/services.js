@@ -2,9 +2,9 @@ export default class UsersService {
 	static get host() {
 		delete UsersService.host
 		// return (UsersService.host = "https://demo-tiskserver.herokuapp.com")
-		// return (UsersService.host = "http://localhost:8000")
+		return (UsersService.host = "http://localhost:8000")
 		// return (UsersService.host = "http://188.166.248.71")
-		return (UsersService.host = "https://tisk.or.ke")
+		// return (UsersService.host = "https://tisk.or.ke")
 	}
 
 	static getToken(user) {
@@ -202,7 +202,7 @@ export default class UsersService {
 			})
 	}
 
-	static getMembershipTypes() {
+	static getAccountTypes() {
 		const url = UsersService.host.concat("/api/v1/membership_categories")
 		const request = {
 			method: "GET",

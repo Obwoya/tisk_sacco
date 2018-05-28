@@ -16,6 +16,8 @@ export const getSignupProcess = ({ users }) => users._signupProcess
 
 export const getUserDeposits = ({ savings }) => savings.userDeposits
 
+export const getFetchAccountTypesProcess = ({ users }) =>
+	users._fetchAccountTypesProcess
 export const getAccountTypes = ({ users }) => users.accountTypes
 
 export const getselectedAccountType = ({ users }) => users.selectedAccountType

@@ -22,7 +22,10 @@ const usersInitialState = Immutable({
 	_getUserDepositsProcess: {},
 	_getUserTypesProcess: {},
 
-	accountTypes: accountTypes,
+	_fetchAccountTypesProcess: {
+		status: processTypes.IDLE
+	},
+	accountTypes: [],
 
 	_setSelectedAccountProcess: {
 		status: processTypes.IDLE
@@ -35,10 +38,11 @@ const usersPersistConfig = {
 	storage,
 	blacklist: [
 		"_loginProcess",
+		"_fetchAccountTypesProcess",
 		// "_getUserInformationProcess",
 		"_signupProcess",
 		"_getUserDepositsProcess",
-		"accountTypes",
+		// "accountTypes",
 		"_setSelectedAccountProcess"
 	]
 }
@@ -120,7 +124,6 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			_signupProcess: { status: processTypes.ERROR, message: action.payload }
 		}
 
-
 	case actionTypes.BUSINESS_SIGNUP_REQUEST:
 		return {
 			...state,
@@ -179,6 +182,21 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 		return {
 			...state,
 			selectedAccountType: action.accountType
+		}
+	case actionTypes.FETCH_ACCOUNT_TYPES_REQUESTED:
+		return {
+			...state,
+			_fetchAccountTypesProcess: {
+				status: processTypes.PROCESSING
+			}
+		}
+	case actionTypes.FETCH_ACCOUNT_TYPES_SUCESS:
+		return {
+			...state,
+			_fetchAccountTypesProcess: {
+				status: processTypes.SUCCESS
+			},
+			accountTypes: action.payload
 		}
 	default:
 		return state

@@ -344,3 +344,23 @@ export const setSelectedAccount = accountType => {
 		}
 	}
 }
+
+export const getAccountTypes = () => {
+	return dispatch => {
+		dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_REQUESTED })
+
+		return UsersService.getAccountTypes()			
+			.then(response => {
+				if (response.status === 200) {
+					return Promise.resolve(response.json()).then(accountTypes => {
+						return dispatch({
+							type: actionTypes.FETCH_ACCOUNT_TYPES_SUCESS,
+							payload: accountTypes
+						})
+					})
+				} else if (response.status === 404) {
+					return dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_FAIL })
+				}
+			})
+	}
+}

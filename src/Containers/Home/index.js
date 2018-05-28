@@ -25,7 +25,7 @@ class HomePage extends Component {
 	}
 
 	componentDidMount() {
-		let getUser = () => {			
+		let getUser = () => {
 			return Promise.resolve(
 				this.props.userActions.getUserInformation({
 					email: this.props.userEmail
@@ -115,6 +115,7 @@ const mapStateToProps = state => {
 		getUserInformationProcess: userSelectors.getUserInformationStatus(
 			state.users
 		),
+
 		userInformation: userSelectors.getUserInformation(state.users),
 		userDepoists: userSelectors.getUserDeposits(state.users),
 		userEmail: userSelectors.getUserEmail(state.users)
