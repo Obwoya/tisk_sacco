@@ -6,6 +6,7 @@ import { Provider } from "react-redux"
 import store, { persistor, history } from "./Store/configureStore"
 
 import "./app.css"
+import "./bootstrap.css"
 import App from "./Containers/App"
 render(
 	<Provider store={store}>
