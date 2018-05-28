@@ -15,7 +15,6 @@
 }
 .accordion__header h3 {
   margin: 0px;
-  
 }
 
 .accordion__body {
@@ -29,13 +28,13 @@
   float: right;
 }
 
-
 .accordion {
   border: none;
 }
 
-.accountDetails{
+.accountDetails {
   padding: 10px 0px;
+  font-style: italic;
 }
 
 .btnContainer {
@@ -57,7 +56,7 @@
   color: #b32017;
 }
 
-.label{
+.label {
   color: #b32017;
-  padding-right: 5px;  
+  padding-right: 5px;
 }
