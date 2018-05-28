@@ -11,11 +11,8 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css"
 import "./style.css"
 
-import investor from "./images/investor.svg"
-// import business from "./images/business.svg"
-// import student from "./images/student.svg"
-// import baby from "./images/baby.svg"
-// import professional from "./images/professional.svg"
+
+
 
 const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 	<Accordion className="accordion">
