@@ -21,12 +21,12 @@ class RegistrationFeesPage extends Component {
 		let { userInformation, getUserInformationProcess } = this.props
 
 		return (
-			<div className="welcomePageGrid">
+			<div className="registerFeesPageGrid">
 				{getUserInformationProcess.status === processTypes.SUCCESS && (
-					<div className="welcomeGrid">
+					<div className="registerFeesGrid">
 						<div className="headerGrid" />
 
-						<div className="welcomeMessage">
+						<div className="registerFeesMessage">
 							<h2>Registration Fees</h2>
 							<p>Complete the registration by paying the registrion fee</p>
 						</div>

@@ -1,8 +1,8 @@
-.welcomePageGrid {
+.registerFeesPageGrid {
   height: 100vh;
   position: relative;
 }
-.welcomeGrid {
+.registerFeesGrid {
   padding: 30px;
   /* background: red; */
   width: 60%;
@@ -20,14 +20,14 @@
   background-image: url(../../assets/images/tiskLogo.png);
   z-index: -1;
 }
-.welcomeMessage {
+.registerFeesMessage {
   text-align: center;
 }
-.welcomeMessage > h2,
+.registerFeesMessage > h2,
 p {
   margin: 0;
 }
-.welcomeMessage > p {
+.registerFeesMessage > p {
   font-size: 11px;
 }
 
