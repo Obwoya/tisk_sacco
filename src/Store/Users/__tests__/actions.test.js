@@ -379,28 +379,5 @@ describe("User action creators", () => {
 			})
 	})
 
-	it("Should create an action to request MFS sms Registration code", () => {
-		let sampleResponse = { message: "sms code sent" }
-
-		const expectedActions = [
-			{ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_REQUESTED },
-			{ type: actionTypes.REQUEST_MFS_REGISTRATION_CODE_SUCCESS }
-		]
-
-		const store = mockStore({
-			users: {
-				users: {
-					auth: {
-						token: "sometoken"
-					}
-				}
-			}
-		})
-
-		fetch.mockResponse({}, { status: 200 })
-
-		store.dispatch(userActions.requestMFSRegistrationCode()).then(() => {
-			expect(store.getActions()).toEqual(expectedActions)
-		})
-	})
+	
 })

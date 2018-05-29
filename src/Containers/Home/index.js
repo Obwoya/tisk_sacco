@@ -71,12 +71,8 @@ class HomePage extends Component {
 						<ProfileBanner user={userInformation.member} />
 						{this.props.userInformation.member.is_msf_active ? (
 							<div>
-								<div className="container">
-								<div className="contentGrid">
+								<div className="container contentGrid">
 									<RecentTransactions />
-
-								</div>
-
 									<div className="quickActions">
 										<div>
 											<button
