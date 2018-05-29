@@ -10,6 +10,8 @@
   padding-right: 5px;
   color: #ffffff;
   margin-top: 15px;
+  box-shadow: 2px 2px 4px rgba(110, 110, 110, 0.4);
+  border-radius: 2px;
   /* display: inline; */
   /* float: left; */
 }
