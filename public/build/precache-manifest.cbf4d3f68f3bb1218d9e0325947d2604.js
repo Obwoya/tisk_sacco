@@ -6,18 +6,18 @@ self.__precacheManifest = [
     "url": "/build/icon_96x96.ebb51083bbd506b690973e4d9f6d0596.png"
   },
   {
-    "revision": "f555896486b29d4e3d85",
+    "revision": "a068d6aa301d675e5429",
     "url": "/build/serviceWorker.js"
   },
   {
-    "revision": "6095f6e7e52f827f6e0a",
+    "revision": "9ce56f6a7a2a72eb60a6",
     "url": "/build/vendor.js"
   },
   {
     "url": "/build/f2a4eeab3c5e6b50c5d9f1e65b36518a.png"
   },
   {
-    "revision": "3de9a840df1d79525ed2",
+    "revision": "f4aba35f464998f15826",
     "url": "/build/app.js"
   },
   {
@@ -42,7 +42,7 @@ self.__precacheManifest = [
     "url": "/build/f4043e726fb5d48655db2f5ecff8d74c.woff2"
   },
   {
-    "revision": "3de9a840df1d79525ed2",
+    "revision": "f4aba35f464998f15826",
     "url": "/build/app.css"
   },
   {
