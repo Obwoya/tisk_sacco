@@ -126,7 +126,7 @@ class SignUp extends Component {
 										type="text"
 										id="first_name"
 										name="first_name"
-										placeholder="first name"
+										placeholder="First name"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -135,7 +135,7 @@ class SignUp extends Component {
 										type="text"
 										id="lasst_name"
 										name="last_name"
-										placeholder="last name"
+										placeholder="Last name"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -144,7 +144,7 @@ class SignUp extends Component {
 										type="email"
 										id="email"
 										name="email"
-										placeholder="email"
+										placeholder="Email"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -153,7 +153,7 @@ class SignUp extends Component {
 										type="tel"
 										id="phoneNumber"
 										name="phone_number"
-										placeholder="phone number"
+										placeholder="Phone number"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -163,7 +163,7 @@ class SignUp extends Component {
 										min="10000000"
 										id="national_id"
 										name="national_id"
-										placeholder="national id"
+										placeholder="National ID"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -172,7 +172,7 @@ class SignUp extends Component {
 										type="password"
 										id="password"
 										name="password"
-										placeholder="password"
+										placeholder="Password"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -181,7 +181,7 @@ class SignUp extends Component {
 										type="password"
 										id="password"
 										name="confirmPassword"
-										placeholder="confirm password"
+										placeholder="Confirm password"
 										onChange={this.handleConfirmPassword}
 										className={!this.state.validConfirmPassword && "inputError"}
 									/>

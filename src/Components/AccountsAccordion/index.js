@@ -31,21 +31,27 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 							<tbody>
 								<tr>
 									<td className="label" style={{ color: accountType.color }}>
-										registration fee:
+										Registration fee:
 									</td>
-									<td className="pricing">{accountType.registration_fee}</td>
+									<td className="pricing">
+										{"KHS " + accountType.registration_fee}
+									</td>
 								</tr>
 								<tr>
 									<td className="label" style={{ color: accountType.color }}>
-										share capital:
+										Share capital:
 									</td>
-									<td className="pricing">{accountType.share_capital}</td>
+									<td className="pricing">
+										{"KHS " + accountType.share_capital}
+									</td>
 								</tr>
 								<tr>
 									<td className="label" style={{ color: accountType.color }}>
-										monthly contribution:
+										Monthly contribution:
 									</td>
-									<td className="pricing">{accountType.monthly_fee}</td>
+									<td className="pricing">
+										{"KHS " + accountType.monthly_fee}
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -62,7 +68,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 									registerAction(memberType)
 								}}
 							>
-								{"register as " + memberType.name}
+								{"register" + ( i ===0 ?(""):( " as "+ memberType.name))}
 							</button>
 						</div>
 					))}
