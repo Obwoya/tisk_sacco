@@ -95,7 +95,7 @@ export class SignIn extends Component {
 						/>
 					</div>
 					<p className="signUpText">
-						dont have an account? <Link to="/signup"> sign up</Link>
+						dont have an account? <Link to="/selectaccount"> sign up</Link>
 					</p>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+import Immutable from "seamless-immutable"
 export const getAuthStatus = ({ users }) => users.auth._isUserAuthenticated
 
 export const getUserTypesProcessStatus = ({ users }) =>
@@ -19,7 +20,8 @@ export const getUserDeposits = ({ savings }) => savings.userDeposits
 export const getFetchAccountTypesProcess = ({ users }) =>
 	users._fetchAccountTypesProcess
 export const getAccountTypes = ({ users }) => {
-	return users.accountTypes.sort((a, b) => {
+	let usersMutable = Immutable.isImmutable(users.accountTypes) ? users.accountTypes.asMutable(users.accountTypes, {deep:true}) : users.accountTypes
+	return usersMutable.sort((a, b) => {
 		return a.order_number - b.order_number
 	})
 }

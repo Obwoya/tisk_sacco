@@ -22,8 +22,12 @@
   z-index: -1;
 }
 
-.SAcallToActionText{
-  text-align: center
+.SAcallToActionText {
+  text-align: center;
+}
+
+.loaderContainer > div {
+  margin: 0 auto;
 }
 
 /* Extra small devices (phones, 600px and down) */

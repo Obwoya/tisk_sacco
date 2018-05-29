@@ -32,7 +32,9 @@ class SelectAccount extends Component {
 				<div className="child">
 					<div className="headerGrid" />
 					{showLoading && (
-						<BarLoader color={"#b32017"} loading={true} height={4} />
+						<div className="loaderContainer">
+							<BarLoader color={"#b32017"} loading={true} height={4} />
+						</div>
 					)}
 					{showAccordion && (
 						<div>
