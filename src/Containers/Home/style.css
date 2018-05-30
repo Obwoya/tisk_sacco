@@ -133,6 +133,13 @@ h2 {
 
 .sharesCard {
 }
+
+.sharesCardHeader{
+  border-bottom: .5px #d3d3d3 solid;
+}
+.sharesCardBody{
+  padding: 10px 0 ;
+}
 .sharesCardText {
   font-size: 30px;
   margin: 0px;

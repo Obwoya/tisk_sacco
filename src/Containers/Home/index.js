@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux"
 import { withRouter } from "react-router-dom"
 import { BarLoader } from "react-spinners"
 
-import styles from "./style.css"
+import "./style.css"
 
 import * as processTypes from "../../Store/Shared/processTypes"
 import * as userActions from "../../Store/Users/actions"
@@ -94,30 +94,32 @@ class HomePage extends Component {
 										<div className="cardsGrid container">
 											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
 												<div className="sharesCard">
-													<div>
+													<div className="sharesCardHeader">
 														<h2 className="sharesCardText">Shares</h2>
 													</div>
 													<div className="row">
-														<div className="col-xs-8">
-															<h2>No. of shares</h2>
-															<p>0</p>
-														</div>
-														<div className="col-xs-4">
-															<h2>Value</h2>
-															<p>0</p>
+														<div className="sharesCardBody">
+															<div className="col-xs-8">
+																<h2>No. of shares</h2>
+																<p>0</p>
+															</div>
+															<div className="col-xs-4">
+																<h2>Value</h2>
+																<p>0</p>
+															</div>
 														</div>
 													</div>
 													<div className="row">
 														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
-														<div className="cardButton">
-															<Button
-																children="Buy shares"
-																backgroundColor={"#b32017"}
-																foregroundColor={"#ffffff"}
-																raised={true}
-																clickAction={this.handleMFSRegistration}
+															<div className="cardButton">
+																<Button
+																	children="Buy shares"
+																	backgroundColor={"#b32017"}
+																	foregroundColor={"#ffffff"}
+																	raised={true}
+																	clickAction={this.handleMFSRegistration}
 																/>
-																</div>
+															</div>
 														</div>
 													</div>
 												</div>
