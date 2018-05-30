@@ -14,7 +14,7 @@ class WelcomePage extends Component {
 					<div className="imageGrid" />
 					<div className="welcomeMessage">
 						<h2>Welcome</h2>
-						<p>The community for techies and by techies</p>
+						<h2>T.I. 4 I.C.T</h2>
 					</div>
 					<div className="signUpGroup">
 						<Button
