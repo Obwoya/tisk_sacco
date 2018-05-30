@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import styles from "./style.css"
+import "./style.css"
 import { Link, withRouter } from "react-router-dom"
 import Button from "../../Components/Button"
 class WelcomePage extends Component {
@@ -14,7 +14,7 @@ class WelcomePage extends Component {
 					<div className="imageGrid" />
 					<div className="welcomeMessage">
 						<h2>Welcome</h2>
-						<p>The community for techies and by techies</p>
+						<h2>T.I. 4 I.C.T</h2>
 					</div>
 					<div className="signUpGroup">
 						<Button

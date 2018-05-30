@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux"
 import { withRouter } from "react-router-dom"
 import { BarLoader } from "react-spinners"
 
-import styles from "./style.css"
+import "./style.css"
 
 import * as processTypes from "../../Store/Shared/processTypes"
 import * as userActions from "../../Store/Users/actions"
@@ -56,6 +56,24 @@ class HomePage extends Component {
 			</div>
 		)
 	}
+	registratinPaymentRequest({ first_name }) {
+		return (
+			<div className="mfsRegistrationCallToAction">
+				<h3>
+					{" "}
+					Welcome {first_name}. Complete your account registration by paying the
+					registration fees below
+				</h3>
+				<Button
+					children="PAY FEES"
+					backgroundColor={"#b32017"}
+					foregroundColor={"#ffffff"}
+					raised={true}
+					clickAction={this.handleMFSRegistration}
+				/>
+			</div>
+		)
+	}
 
 	render() {
 		// let userInformation = this.props.userInformation
@@ -69,10 +87,77 @@ class HomePage extends Component {
 				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
 						<ProfileBanner user={userInformation.member} />
-						{this.props.userInformation.member.is_msf_active ? (
+						{!this.props.userInformation.member.is_registartion_fee_paid ? (
 							<div>
 								<div className="container contentGrid">
-									<RecentTransactions />
+									<div className="row ">
+										<div className="container">
+											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
+												<div className="sharesCard">
+													<div className="sharesCardHeader">
+														<h2 className="sharesCardText">Shares</h2>
+													</div>
+													<div className="row">
+														<div className="sharesCardBody">
+															<div className="col-xs-8">
+																<h2>No. of shares</h2>
+																<p>0 Shares</p>
+															</div>
+															<div className="col-xs-4">
+																<h2>Value</h2>
+																<p>0 KSH</p>
+															</div>
+														</div>
+													</div>
+													<div className="row">
+														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
+															<div className="cardButton">
+																<Button
+																	children="Buy shares"
+																	backgroundColor={"#b32017"}
+																	foregroundColor={"#ffffff"}
+																	raised={true}
+																	clickAction={this.handleMFSRegistration}
+																/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
+												<div className="sharesCard">
+													<div className="sharesCardHeader">
+														<h2 className="sharesCardText">Monthly Contribution</h2>
+													</div>
+													<div className="row">
+														<div className="sharesCardBody">
+															<div className="col-xs-12">
+																<h2>Total contribution</h2>
+																<p>0 KSH</p>
+															</div>
+															
+														</div>
+													</div>
+													<div className="row">
+														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
+															<div className="cardButton">
+																<Button
+																	children="Buy shares"
+																	backgroundColor={"#b32017"}
+																	foregroundColor={"#ffffff"}
+																	raised={true}
+																	clickAction={this.handleMFSRegistration}
+																/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div className="recentTransactionContainer">
+										<RecentTransactions />
+									</div>
 									<div className="quickActions">
 										<div>
 											<button
@@ -94,7 +179,9 @@ class HomePage extends Component {
 								</div>
 							</div>
 						) : (
-							<div>{this.mfsActicationRequest(userInformation.member)}</div>
+							<div className="container">
+								{this.registratinPaymentRequest(userInformation.member)}
+							</div>
 						)}
 					</div>
 				) : (

@@ -1,3 +1,6 @@
+h2 {
+  margin: 0px;
+}
 .contentGrid {
   padding: 15px;
 }
@@ -61,8 +64,6 @@
   max-width: 35vw;
 }
 
-
-
 .quickActions button:after {
   content: "";
   position: absolute;
@@ -75,7 +76,6 @@
   border-radius: 100%;
   transform: scale(1, 1) translate(-50%);
   transform-origin: 50% 50%;
-  
 }
 
 @keyframes ripple {
@@ -97,8 +97,7 @@
   animation: ripple 1s ease-out;
 }
 
-
-.mfsRegistrationCallToAction{
+.mfsRegistrationCallToAction {
   padding: 20px;
   text-align: justify;
 }
@@ -109,9 +108,88 @@
 }
 
 .loadingGrid {
-  
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.cardsGrid {
+  padding: 5px 0px;
+}
+.sharesCardContainer {
+  padding: 5px;
+}
+
+.sharesCard {
+  padding: 10px;
+  max-width: 100%;
+  border: none;
+  border-radius: 0.28571429rem;
+  -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease,
+    -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  z-index: "";
+}
+
+.sharesCardHeader{
+  border-bottom: .5px #d3d3d3 solid;
+}
+.sharesCardBody{
+  padding: 10px 0 ;
+}
+.sharesCardText {
+  font-size: 30px;
+  margin: 0px;
+}
+
+.cardButton {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+
+
+.recentTransactionContainer{
+  padding: 10px 0px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .sharesCardText {
+    font-size: 24px;
+  }
+  
+  .child {
+    max-width: 500px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .sharesCardText {
+    font-size: 32px;
+  }
+  .child {
+    max-width: 500px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .mfsRegistrationCallToAction {
+    text-align: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
