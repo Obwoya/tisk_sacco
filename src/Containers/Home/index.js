@@ -56,6 +56,24 @@ class HomePage extends Component {
 			</div>
 		)
 	}
+	registratinPaymentRequest({ first_name }) {
+		return (
+			<div className="mfsRegistrationCallToAction">
+				<h3>
+					{" "}
+					Welcome {first_name}. Complete your account registration by paying the
+					registration fees below
+				</h3>
+				<Button
+					children="PAY FEES"
+					backgroundColor={"#b32017"}
+					foregroundColor={"#ffffff"}
+					raised={true}
+					clickAction={this.handleMFSRegistration}
+				/>
+			</div>
+		)
+	}
 
 	render() {
 		// let userInformation = this.props.userInformation
@@ -69,7 +87,7 @@ class HomePage extends Component {
 				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
 						<ProfileBanner user={userInformation.member} />
-						{this.props.userInformation.member.is_msf_active ? (
+						{this.props.userInformation.member.is_registartion_fee_paid ? (
 							<div>
 								<div className="container contentGrid">
 									<RecentTransactions />
@@ -94,7 +112,9 @@ class HomePage extends Component {
 								</div>
 							</div>
 						) : (
-							<div>{this.mfsActicationRequest(userInformation.member)}</div>
+							<div className="container">
+								{this.registratinPaymentRequest(userInformation.member)}
+							</div>
 						)}
 					</div>
 				) : (

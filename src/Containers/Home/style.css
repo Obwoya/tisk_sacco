@@ -61,8 +61,6 @@
   max-width: 35vw;
 }
 
-
-
 .quickActions button:after {
   content: "";
   position: absolute;
@@ -75,7 +73,6 @@
   border-radius: 100%;
   transform: scale(1, 1) translate(-50%);
   transform-origin: 50% 50%;
-  
 }
 
 @keyframes ripple {
@@ -97,8 +94,7 @@
   animation: ripple 1s ease-out;
 }
 
-
-.mfsRegistrationCallToAction{
+.mfsRegistrationCallToAction {
   padding: 20px;
   text-align: justify;
 }
@@ -109,9 +105,14 @@
 }
 
 .loadingGrid {
-  
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 992px) {
+  .mfsRegistrationCallToAction {    
+    text-align: center;
+  }
 }
