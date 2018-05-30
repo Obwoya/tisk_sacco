@@ -33,8 +33,7 @@ class SignUp extends Component {
 		this.handleConfirmPassword = this.handleConfirmPassword.bind(this)
 	}
 
-	componentDidMount() {		
-	}
+	componentDidMount() {}
 	handleSubmitButton() {
 		this.setState({
 			...this.state,
@@ -193,7 +192,7 @@ class SignUp extends Component {
 					<div className="formSubmitGroup">
 						<Button
 							disabled={!formIsValid}
-							children={formIsValid ? "SIGNUP" : "Please fill this form"}
+							children={"SIGN UP"}
 							backgroundColor={formIsValid ? "#b32017" : "#dfdfdf"}
 							foregroundColor={formIsValid ? "#ffffff" : "#black"}
 							raised={true}
@@ -212,7 +211,7 @@ class SignUp extends Component {
 const mapStateToProps = state => {
 	return {
 		signUpProcess: userSelectors.getSignupProcess(state.users),
-		
+
 		selectedAccountType: userSelectors.getselectedAccountType(state.users)
 	}
 }

@@ -142,7 +142,7 @@ class HomePage extends Component {
 														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
 															<div className="cardButton">
 																<Button
-																	children="Pay Fees"
+																	children="Pay Dues"
 																	backgroundColor={"#b32017"}
 																	foregroundColor={"#ffffff"}
 																	raised={true}
