@@ -13,8 +13,7 @@ class WelcomePage extends Component {
 					<div className="headerGrid" />
 					<div className="imageGrid" />
 					<div className="welcomeMessage">
-						<h2>Welcome</h2>
-						<h2>Ti4IT</h2>
+						<h2>Welcome</h2>						
 					</div>
 					<div className="signUpGroup">
 						<Button
