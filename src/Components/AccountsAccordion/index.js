@@ -34,7 +34,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 										Registration fee:
 									</td>
 									<td className="pricing">
-										{"KHS " + accountType.registration_fee}
+										{"KSH " + Number.parseFloat(accountType.registration_fee).toFixed(0) }
 									</td>
 								</tr>
 								<tr>
@@ -42,7 +42,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 										Share capital:
 									</td>
 									<td className="pricing">
-										{"KHS " + accountType.share_capital}
+										{"KSH " + Number.parseFloat(accountType.share_capital).toFixed(0) }
 									</td>
 								</tr>
 								<tr>
@@ -50,7 +50,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 										Monthly contribution:
 									</td>
 									<td className="pricing">
-										{"KHS " + accountType.monthly_fee}
+										{"KSH " + Number.parseFloat(accountType.monthly_fee).toFixed(0)}
 									</td>
 								</tr>
 							</tbody>

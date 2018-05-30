@@ -69,7 +69,7 @@ class HomePage extends Component {
 					backgroundColor={"#b32017"}
 					foregroundColor={"#ffffff"}
 					raised={true}
-					clickAction={this.handleMFSRegistration}
+					// clickAction={this.handleMFSRegistration}
 				/>
 			</div>
 		)
@@ -117,7 +117,7 @@ class HomePage extends Component {
 																	backgroundColor={"#b32017"}
 																	foregroundColor={"#ffffff"}
 																	raised={true}
-																	clickAction={this.handleMFSRegistration}
+																	// clickAction={this.handleMFSRegistration}
 																/>
 															</div>
 														</div>
@@ -146,7 +146,7 @@ class HomePage extends Component {
 																	backgroundColor={"#b32017"}
 																	foregroundColor={"#ffffff"}
 																	raised={true}
-																	clickAction={this.handleMFSRegistration}
+																	// clickAction={this.handleMFSRegistration}
 																/>
 															</div>
 														</div>
