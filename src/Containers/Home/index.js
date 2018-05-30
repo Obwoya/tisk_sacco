@@ -87,9 +87,43 @@ class HomePage extends Component {
 				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
 						<ProfileBanner user={userInformation.member} />
-						{this.props.userInformation.member.is_registartion_fee_paid ? (
+						{!this.props.userInformation.member.is_registartion_fee_paid ? (
 							<div>
 								<div className="container contentGrid">
+									<div className="container row ">
+										<div className="cardsGrid container">
+											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
+												<div className="sharesCard">
+													<div>
+														<h2 className="sharesCardText">Shares</h2>
+													</div>
+													<div className="row">
+														<div className="col-xs-8">
+															<h2>No. of shares</h2>
+															<p>0</p>
+														</div>
+														<div className="col-xs-4">
+															<h2>Value</h2>
+															<p>0</p>
+														</div>
+													</div>
+													<div className="row">
+														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
+														<div className="cardButton">
+															<Button
+																children="Buy shares"
+																backgroundColor={"#b32017"}
+																foregroundColor={"#ffffff"}
+																raised={true}
+																clickAction={this.handleMFSRegistration}
+																/>
+																</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<RecentTransactions />
 									<div className="quickActions">
 										<div>

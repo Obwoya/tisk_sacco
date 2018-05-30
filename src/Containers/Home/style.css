@@ -1,3 +1,6 @@
+h2 {
+  margin: 0px;
+}
 .contentGrid {
   padding: 15px;
 }
@@ -111,8 +114,64 @@
   transform: translate(-50%, -50%);
 }
 
+.cardsGrid {
+  padding: 10px 0px;
+}
+.sharesCardContainer {
+  max-width: 100%;
+  border: none;
+  border-radius: 0.28571429rem;
+  -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease,
+    -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  z-index: "";
+}
+
+.sharesCard {
+}
+.sharesCardText {
+  font-size: 30px;
+  margin: 0px;
+}
+
+.cardButton {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+  .child {
+    max-width: 500px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .sharesCardText {
+    font-size: 3vw;
+  }
+  .child {
+    max-width: 500px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .mfsRegistrationCallToAction {    
+  .mfsRegistrationCallToAction {
     text-align: center;
   }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
