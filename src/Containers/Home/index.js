@@ -90,8 +90,8 @@ class HomePage extends Component {
 						{!this.props.userInformation.member.is_registartion_fee_paid ? (
 							<div>
 								<div className="container contentGrid">
-									<div className="container row ">
-										<div className="cardsGrid container">
+									<div className="row ">
+										<div className="container">
 											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
 												<div className="sharesCard">
 													<div className="sharesCardHeader">
@@ -101,12 +101,41 @@ class HomePage extends Component {
 														<div className="sharesCardBody">
 															<div className="col-xs-8">
 																<h2>No. of shares</h2>
-																<p>0</p>
+																<p>0 Shares</p>
 															</div>
 															<div className="col-xs-4">
 																<h2>Value</h2>
-																<p>0</p>
+																<p>0 KSH</p>
 															</div>
+														</div>
+													</div>
+													<div className="row">
+														<div className="col-xs-12  col-md-8 col-md-offset-4 ">
+															<div className="cardButton">
+																<Button
+																	children="Buy shares"
+																	backgroundColor={"#b32017"}
+																	foregroundColor={"#ffffff"}
+																	raised={true}
+																	clickAction={this.handleMFSRegistration}
+																/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
+												<div className="sharesCard">
+													<div className="sharesCardHeader">
+														<h2 className="sharesCardText">Monthly Contribution</h2>
+													</div>
+													<div className="row">
+														<div className="sharesCardBody">
+															<div className="col-xs-12">
+																<h2>Total contribution</h2>
+																<p>0 KSH</p>
+															</div>
+															
 														</div>
 													</div>
 													<div className="row">
@@ -126,7 +155,9 @@ class HomePage extends Component {
 											</div>
 										</div>
 									</div>
-									<RecentTransactions />
+									<div className="recentTransactionContainer">
+										<RecentTransactions />
+									</div>
 									<div className="quickActions">
 										<div>
 											<button

@@ -115,9 +115,14 @@ h2 {
 }
 
 .cardsGrid {
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 .sharesCardContainer {
+  padding: 5px;
+}
+
+.sharesCard {
+  padding: 10px;
   max-width: 100%;
   border: none;
   border-radius: 0.28571429rem;
@@ -129,9 +134,6 @@ h2 {
   transition: box-shadow 0.1s ease, transform 0.1s ease,
     -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   z-index: "";
-}
-
-.sharesCard {
 }
 
 .sharesCardHeader{
@@ -150,12 +152,21 @@ h2 {
   padding-bottom: 5px;
 }
 
+
+
+.recentTransactionContainer{
+  padding: 10px 0px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .sharesCardText {
+    font-size: 24px;
+  }
   
   .child {
     max-width: 500px;
@@ -165,7 +176,7 @@ h2 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .sharesCardText {
-    font-size: 3vw;
+    font-size: 32px;
   }
   .child {
     max-width: 500px;
