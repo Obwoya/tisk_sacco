@@ -147,7 +147,10 @@ class SignUp extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className="inputField">
+								<div className="inputField input-group prefix">
+									<span className="input-group-addon">+254</span>
+									
+
 									<input
 										type="tel"
 										id="phoneNumber"
