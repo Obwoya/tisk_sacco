@@ -13,11 +13,12 @@ class WelcomePage extends Component {
 					<div className="headerGrid" />
 					<div className="imageGrid" />
 					<div className="welcomeMessage">
-						<h2>Welcome</h2>						
+						<h2>Welcome</h2>
+						<p>Ti4IT</p>
 					</div>
 					<div className="signUpGroup">
 						<Button
-							children="SIGN UP"
+							children="Sign Up"
 							backgroundColor={"#b32017"}
 							foregroundColor={"#ffffff"}
 							raised={true}
@@ -25,7 +26,7 @@ class WelcomePage extends Component {
 						/>
 					</div>
 					<p className="signInText">
-						already have an account? <Link to="/signin"> sign in</Link>
+						Already have an account? <Link to="/signin"> Sign in</Link>
 					</p>
 					<a
 						href="http://www.tisk.co.ke"

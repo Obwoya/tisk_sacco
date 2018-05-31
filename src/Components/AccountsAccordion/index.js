@@ -24,7 +24,7 @@ const AccountAccordion = ({ accountTypes = {}, registerAction }) => (
 					<p className="accountSlug">{accountType.slug}</p>
 				</AccordionItemTitle>
 				<AccordionItemBody>
-					<p>{accountType.description}</p>
+					<span style={{ whiteSpace: "pre-line", textAlign: "left" }}>{accountType.description}</span>
 
 					<div className="accountDetails">
 						<table>

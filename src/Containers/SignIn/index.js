@@ -87,7 +87,7 @@ export class SignIn extends Component {
 					)}
 					<div className="formSubmitGroup">
 						<Button
-							children="SIGN In"
+							children="Sign In"
 							backgroundColor={"#b32017"}
 							foregroundColor={"#ffffff"}
 							raised={true}
@@ -95,7 +95,7 @@ export class SignIn extends Component {
 						/>
 					</div>
 					<p className="signUpText">
-						dont have an account? <Link to="/selectaccount"> sign up</Link>
+						Don't have an account? <Link to="/selectaccount">Sign Up</Link>
 					</p>
 				</div>
 			</div>

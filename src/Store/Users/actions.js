@@ -69,7 +69,7 @@ export const login = user => {
 					if ("non_field_errors" in error) {
 						//check if there is an error invalid credentials
 						let credentialErrors = error["non_field_errors"].find(item => {
-							return item === "Unable to log in with provided credentials."
+							return item === "Unable to log in"
 						})
 						if (credentialErrors !== undefined) {
 							return dispatch({
