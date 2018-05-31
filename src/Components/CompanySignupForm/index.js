@@ -28,7 +28,7 @@ class CompanySignupForm extends Component {
 							type="text"
 							id="business_name"
 							name="business_name"
-							placeholder="business name"
+							placeholder="Business Name"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -37,7 +37,7 @@ class CompanySignupForm extends Component {
 							type="text"
 							id="registration_number"
 							name="registration_number"
-							placeholder="registration number"
+							placeholder="Registration Number"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -46,7 +46,7 @@ class CompanySignupForm extends Component {
 							type="email"
 							id="business_email"
 							name="business_email"
-							placeholder="email"
+							placeholder="Email"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -55,7 +55,7 @@ class CompanySignupForm extends Component {
 							type="tel"
 							id="business_phone_number"
 							name="business_phone_number"
-							placeholder="phone number"
+							placeholder="Phone Number"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -64,7 +64,7 @@ class CompanySignupForm extends Component {
 							type="password"
 							id="password"
 							name="password"
-							placeholder="password"
+							placeholder="Password"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -73,7 +73,7 @@ class CompanySignupForm extends Component {
 							type="password"
 							id="password"
 							name="confirmPassword"
-							placeholder="confirm password"
+							placeholder="Confirm Password"
 							onChange={this.handleConfirmPassword}
 							className={!this.props.validConfirmPassword && "inputError"}
 						/>

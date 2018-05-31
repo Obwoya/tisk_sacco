@@ -23,7 +23,7 @@ class BusinessContactSignup extends Component {
 							type="text"
 							id="contact_name"
 							name="contact_name"
-							placeholder="business contact name"
+							placeholder="Business Contact Name"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -32,7 +32,7 @@ class BusinessContactSignup extends Component {
 							type="text"
 							id="contact_position"
 							name="contact_position"
-							placeholder="position"
+							placeholder="Position"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -41,7 +41,7 @@ class BusinessContactSignup extends Component {
 							type="email"
 							id="contact_email"
 							name="contact_email"
-							placeholder="email"
+							placeholder="Email"
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -50,7 +50,7 @@ class BusinessContactSignup extends Component {
 							type="tel"
 							id="contact_phone_number"
 							name="contact_phone_number"
-							placeholder="phone number"
+							placeholder="Phone Number"
 							onChange={this.handleChange}
 						/>
 					</div>
