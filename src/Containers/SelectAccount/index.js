@@ -44,7 +44,7 @@ class SelectAccount extends Component {
 								registerAction={this.selectAccountType.bind(this)}
 							/>
 							<p className="signInText">
-								already have an account? <Link to="/signin"> sign in</Link>
+								Already have an account? <Link to="/Signin"> sign in</Link>
 							</p>
 						</div>
 
