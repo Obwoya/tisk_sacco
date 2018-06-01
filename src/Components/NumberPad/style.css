@@ -22,9 +22,9 @@
 
 }
 
-.activateCodeWrapper > input{
-    width: 10%;
-    color: white;
+.activatePageCodeWrapper > in0put{
+    width: 90%;
+    /* color: white; */
     background-color: transparent;
     border: transparent;
     font-weight: bold;
@@ -32,6 +32,10 @@
     border-bottom: solid white 2px;
     margin: 1%;
     text-align: center;
+}
+
+.numberpadTextInput{
+    color: black;
 }
 .next{
     background-color: rgba(0, 0, 0, 0.1);
