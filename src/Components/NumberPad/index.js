@@ -1,11 +1,11 @@
 import React from "react"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 
 import styles from "./style.css"
 
 import * as userActions from "../../Store/Users/actions"
-
 
 class NumberPad extends React.Component {
 	constructor(props) {
@@ -86,17 +86,19 @@ class NumberPad extends React.Component {
 		return (
 			<div className="activatePage">
 				<div className="topBar">
-					<span className="arrowBack">&#8592;</span>
+					<Link to="/welcome">
+						<span className="arrowBack">&#8592;</span>
+					</Link>
 					<div className="descrptionContainer">
-					<p className="title">{this.props.title}</p>
-					<p >{this.props.description}</p>
+						<p className="title">{this.props.title}</p>
+						<p>{this.props.description}</p>
 					</div>
 				</div>
-				
+
 				<form onSubmit={this.onSubmitHandler}>
 					<div className="activatepageContent">
 						<div className="activateCodeWrapper">{inputs}</div>
-					</div>	
+					</div>
 					<input type="submit" className="next" value="Next" />
 				</form>
 			</div>
