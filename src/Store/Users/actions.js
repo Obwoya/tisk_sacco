@@ -69,7 +69,7 @@ export const login = user => {
 					if ("non_field_errors" in error) {
 						//check if there is an error invalid credentials
 						let credentialErrors = error["non_field_errors"].find(item => {
-							return item === "Unable to log in"
+							return item === "Unable to log in with provided credentials."
 						})
 						if (credentialErrors !== undefined) {
 							return dispatch({
@@ -349,18 +349,17 @@ export const getAccountTypes = () => {
 	return dispatch => {
 		dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_REQUESTED })
 
-		return UsersService.getAccountTypes()			
-			.then(response => {
-				if (response.status === 200) {
-					return Promise.resolve(response.json()).then(accountTypes => {
-						return dispatch({
-							type: actionTypes.FETCH_ACCOUNT_TYPES_SUCESS,
-							payload: accountTypes
-						})
+		return UsersService.getAccountTypes().then(response => {
+			if (response.status === 200) {
+				return Promise.resolve(response.json()).then(accountTypes => {
+					return dispatch({
+						type: actionTypes.FETCH_ACCOUNT_TYPES_SUCESS,
+						payload: accountTypes
 					})
-				} else if (response.status === 404) {
-					return dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_FAIL })
-				}
-			})
+				})
+			} else if (response.status === 404) {
+				return dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_FAIL })
+			}
+		})
 	}
 }
