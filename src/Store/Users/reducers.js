@@ -205,7 +205,8 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 
 const savingsInitialState = Immutable({
 	_getUserDepositsProcess: { status: processTypes.IDLE },
-	accountBalance:0
+	userDeposits: [],
+	accountBalance: 0
 })
 
 const savingsPersistConfig = {
