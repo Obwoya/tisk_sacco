@@ -225,7 +225,7 @@ export const savingsReducer = (state = savingsInitialState, action = {}) => {
 		return {
 			...state,
 			_getUserDepositsProcess: { status: processTypes.SUCCESS },
-			userDeposits: action.userDeposits.transactions,
+			userDeposits: action.userDeposits,
 			accountBalance: action.accountBalance
 		}
 
