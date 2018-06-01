@@ -34,7 +34,9 @@ class SignUp extends Component {
 	}
 
 	componentDidMount() {}
+
 	handleSubmitButton() {
+		let finalUser = this.state.user
 		this.setState({
 			...this.state,
 			user: {
@@ -47,7 +49,15 @@ class SignUp extends Component {
 				member_type: this.props.selectedAccountType.id
 			}
 		})
-		this.props.userActions.individualSignup(this.state.user)
+
+		if(finalUser.phone_number[0] === "0"){
+			let newPhone = finalUser.phone_number.slice(1)
+			finalUser.phone_number = "254"+ newPhone
+		}
+		else{			
+			finalUser.phone_number = "254"+ finalUser.phone_number
+		}
+		this.props.userActions.individualSignup(finalUser)
 	}
 
 	handleChange(event) {
@@ -149,7 +159,6 @@ class SignUp extends Component {
 								</div>
 								<div className="inputField input-group prefix">
 									<span className="input-group-addon">+254</span>
-									
 
 									<input
 										type="tel"
