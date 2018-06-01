@@ -16,7 +16,7 @@ const RecentTransactions = ({activities}) => {
 				</div>
 				<div>
 					<ActivityList
-						activities={activities}
+						activities={activities.slice(0,6)}
 					/>
 				</div>
 			</div>

@@ -12,6 +12,7 @@ import HeadRoom from "react-headroom"
 
 class Activities extends Component {
 	render() {
+		let { userDeposits } = this.props
 		return (
 			<div>
 				<HeadRoom>
@@ -20,107 +21,11 @@ class Activities extends Component {
 						backButtonPressed={() => {
 							this.props.history.goBack()
 						}}
-					/>					
+					/>
 				</HeadRoom>
 				<div>
 					<ActivityList
-						activities={[
-							{
-								date: new Date("July 14, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							}
-						]}
+						activities={userDeposits}
 					/>
 				</div>
 			</div>
@@ -130,7 +35,7 @@ class Activities extends Component {
 
 const mapStateToProps = state => {
 	return {
-		userDepoists: userSelectors.getUserDeposits(state.users)
+		userDeposits: userSelectors.getUserDeposits(state.users)
 	}
 }
 
