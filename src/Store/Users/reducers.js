@@ -52,7 +52,8 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 	case actionTypes.LOGIN_REQUEST:
 		return {
 			...state,
-			_loginProcess: { status: processTypes.PROCESSING }
+			_loginProcess: { status: processTypes.PROCESSING },
+			auth: { _isUserAuthenticated: false }
 		}
 	case actionTypes.LOGIN_SUCCESS:
 		return {
@@ -200,8 +201,9 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 		}
 
 	case actionTypes.LOG_OUT_REQUESTED:
-		purgeStoredState({ storage })
-		return Immutable.asMutable(usersInitialState)
+			// purgeStoredState({ storage })
+		return Immutable.asMutable(usersInitialState, { deep: true })
+
 	default:
 		return state
 	}
@@ -233,7 +235,9 @@ export const savingsReducer = (state = savingsInitialState, action = {}) => {
 			userDeposits: action.userDeposits,
 			accountBalance: action.accountBalance
 		}
-
+	case actionTypes.LOG_OUT_REQUESTED:
+			// purgeStoredState({ storage })
+		return Immutable.asMutable(savingsInitialState, { deep: true })
 	default:
 		return state
 	}
