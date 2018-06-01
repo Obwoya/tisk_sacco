@@ -76,7 +76,7 @@ class NumberPad extends React.Component {
 					id={`code_input_${i}`}
 					onKeyUp={this.onKeyUpHandler}
 					onFocus={this.onFocusHandler}
-					required
+					// required
 					onPaste={this.onPasteHandler}
 					maxLength="1"
 					onChange={() => this.focusNext(i)}
