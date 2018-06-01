@@ -21,7 +21,13 @@ const ProfileBanner = ({ user, accountInformation = { balance: 0 } }) => {
 					<div>
 						<h2 className="accountBalanceText">
 							{"KSH " +
-								Number.parseFloat(accountInformation.balance).toFixed(0)}
+								Number.parseFloat(accountInformation.balance)
+									.toFixed(0)
+									.replace(/./g, function(c, i, a) {
+										return i && c !== "." && (a.length - i) % 3 === 0
+											? "," + c
+											: c
+									})}
 						</h2>
 					</div>
 					<div>RAM Account</div>

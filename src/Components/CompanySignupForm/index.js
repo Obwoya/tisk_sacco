@@ -44,8 +44,8 @@ class CompanySignupForm extends Component {
 					<div className="inputField">
 						<input
 							type="email"
-							id="business_email"
-							name="business_email"
+							id="email"
+							name="email"
 							placeholder="Email"
 							onChange={this.handleChange}
 						/>

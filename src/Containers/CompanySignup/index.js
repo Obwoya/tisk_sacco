@@ -25,7 +25,7 @@ class CompanySignup extends Component {
 			business: {
 				business_name: "",
 				registration_number: "",
-				business_email: "",
+				email: "",
 				business_phone_number: "",
 				password: "",
 				member_type: this.props.selectedAccountType.id
