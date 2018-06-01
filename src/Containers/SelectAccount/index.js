@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
+import { withRouter, Link } from "react-router-dom"
 import { BarLoader } from "react-spinners"
 import { bindActionCreators } from "redux"
 
@@ -43,7 +43,11 @@ class SelectAccount extends Component {
 								accountTypes={this.props.accountTypes}
 								registerAction={this.selectAccountType.bind(this)}
 							/>
+							<p className="signInText">
+								already have an account? <Link to="/signin"> sign in</Link>
+							</p>
 						</div>
+
 					)}
 				</div>
 			</div>
