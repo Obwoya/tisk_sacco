@@ -12,8 +12,16 @@ class NumberPad extends React.Component {
 		super(props)
 
 		this.state = {
-			noOfCharsInCode: this.props.size ? this.props.size : 4
+			noOfCharsInCode: this.props.size ? this.props.size : 4,
+			number: ""
 		}
+	}
+
+	handleOnChange(event) {
+		this.setState({
+			...this.state,
+			number: event.target.value
+		})
 	}
 
 	onPasteHandler = e => {
@@ -56,15 +64,15 @@ class NumberPad extends React.Component {
 	}
 
 	onSubmitHandler = e => {
-		e.preventDefault()
-		let code = ""
+		// e.preventDefault()
+		// let code = ""
 
-		for (let i = 0; i < this.state.noOfCharsInCode; i++) {
-			let inp = document.getElementById(`code_input_${i}`)
-			code = code + inp.value
-		}
+		// for (let i = 0; i < this.state.noOfCharsInCode; i++) {
+		// 	let inp = document.getElementById(`code_input_${i}`)
+		// 	code = code + inp.value
+		// }
 
-		this.props.submitAction({ number: code })
+		this.props.submitAction({ number: this.state.number })
 	}
 	render() {
 		let inputs = []
@@ -97,10 +105,23 @@ class NumberPad extends React.Component {
 
 				<form onSubmit={this.onSubmitHandler}>
 					<div className="activatepageContent">
-						<div className="activateCodeWrapper">{inputs}</div>
+						<div className="activatePageCodeWrapper">
+							<input
+								className="numberpadTextInput"
+								type="text"
+								id={`code_input`}
+								required
+								onChange={this.handleOnChange.bind(this)}
+							/>
+						</div>
 					</div>
-					<input type="submit" className="next" value="Next" />
 				</form>
+				<input
+					type="submit"
+					className="next"
+					value="Next"
+					onClick={this.onSubmitHandler.bind(this)}
+				/>
 			</div>
 		)
 	}
