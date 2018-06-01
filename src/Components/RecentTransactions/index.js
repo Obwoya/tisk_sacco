@@ -4,7 +4,7 @@ import styles from "./style.css"
 
 import ActivityList from "../ActivityList"
 
-const RecentTransactions = () => {
+const RecentTransactions = ({activities}) => {
 	return (
 		<div className="cardWrapper">
 			<div className="card">
@@ -16,28 +16,7 @@ const RecentTransactions = () => {
 				</div>
 				<div>
 					<ActivityList
-						activities={[
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							},
-							{
-								date: new Date("July 20, 69 00:20:18"),
-								type: "Deposit",
-								amount: 3000
-							}
-						]}
+						activities={activities}
 					/>
 				</div>
 			</div>

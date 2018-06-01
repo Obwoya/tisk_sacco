@@ -81,7 +81,8 @@ class HomePage extends Component {
 		let {
 			userInformation,
 			getUserInformationProcess,
-			accountBalance
+			accountBalance,
+			userDepoists
 		} = this.props
 		// let is_mfs_active = userInformation["user_member"]
 		// 	? userInformation.user_membe.is_msf_active
@@ -165,7 +166,7 @@ class HomePage extends Component {
 										</div>
 									</div>
 									<div className="recentTransactionContainer">
-										<RecentTransactions />
+										<RecentTransactions activities ={userDepoists}/>
 									</div>
 									<div className="quickActions">
 										<div>

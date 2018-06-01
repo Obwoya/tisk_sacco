@@ -7,11 +7,7 @@ const ActivityList = ({ activities }) => {
 			{activities &&
 				activities.map((activity, index) => (
 					<li key={index}>
-						<div className="activityDate">
-							<div>{activity.date.getDate()}</div>
-							<div>{activity.date.getMonth()}</div>
-						</div>
-						<div className="activityType">{activity.type}</div>
+						<div className="activityType">{activity.transactiontype}</div>
 						<div className="activityAmount">{activity.amount}</div>
 					</li>
 				))}
