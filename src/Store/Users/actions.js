@@ -274,7 +274,8 @@ export const getUserDeposits = ({ email }) => {
 				return Promise.resolve(response.json()).then(userDeposits => {
 					return dispatch({
 						type: actionTypes.GET_USER_DEPOSITS_SUCCESS,
-						userDeposits: userDeposits.user_deposit
+						userDeposits: userDeposits.transactions,
+						accountBalance: userDeposits.deposits[0].totaldeposit
 					})
 				})
 			} else if (response.status === 404) {

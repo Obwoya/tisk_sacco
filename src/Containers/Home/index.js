@@ -78,7 +78,11 @@ class HomePage extends Component {
 	render() {
 		// let userInformation = this.props.userInformation
 		// let { is_mfs_active } = userInformation.user_member
-		let { userInformation, getUserInformationProcess } = this.props
+		let {
+			userInformation,
+			getUserInformationProcess,
+			accountBalance
+		} = this.props
 		// let is_mfs_active = userInformation["user_member"]
 		// 	? userInformation.user_membe.is_msf_active
 		// 	: false
@@ -86,7 +90,11 @@ class HomePage extends Component {
 			<div>
 				{getUserInformationProcess.status === processTypes.SUCCESS ? (
 					<div>
-						<ProfileBanner user={userInformation.member} />
+						<ProfileBanner
+							user={userInformation.member}
+							balance={accountBalance}
+							accountInformation={{ balance: accountBalance }}
+						/>
 						{!this.props.userInformation.member.is_registartion_fee_paid ? (
 							<div>
 								<div className="container contentGrid">
@@ -127,7 +135,9 @@ class HomePage extends Component {
 											<div className="col-xs-12 col-sm-6 col-md-4 sharesCardContainer">
 												<div className="sharesCard">
 													<div className="sharesCardHeader">
-														<h2 className="sharesCardText">Monthly Contribution</h2>
+														<h2 className="sharesCardText">
+															Monthly Contribution
+														</h2>
 													</div>
 													<div className="row">
 														<div className="sharesCardBody">
@@ -135,7 +145,6 @@ class HomePage extends Component {
 																<h2>Total contribution</h2>
 																<p>0 KSH</p>
 															</div>
-															
 														</div>
 													</div>
 													<div className="row">
@@ -203,8 +212,10 @@ const mapStateToProps = state => {
 		),
 
 		userInformation: userSelectors.getUserInformation(state.users),
+		userDepoistsProcess: userSelectors.getUserDepositsProcess(state.users),
 		userDepoists: userSelectors.getUserDeposits(state.users),
-		userEmail: userSelectors.getUserEmail(state.users)
+		userEmail: userSelectors.getUserEmail(state.users),
+		accountBalance: userSelectors.getUserAccountBalance(state.users)
 	}
 }
 

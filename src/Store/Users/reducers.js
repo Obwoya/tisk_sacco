@@ -204,7 +204,8 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 }
 
 const savingsInitialState = Immutable({
-	_getUserDepositsProcess: { status: processTypes.IDLE }
+	_getUserDepositsProcess: { status: processTypes.IDLE },
+	accountBalance:0
 })
 
 const savingsPersistConfig = {
@@ -224,7 +225,8 @@ export const savingsReducer = (state = savingsInitialState, action = {}) => {
 		return {
 			...state,
 			_getUserDepositsProcess: { status: processTypes.SUCCESS },
-			userDeposits: action.userDeposits
+			userDeposits: action.userDeposits.transactions,
+			accountBalance: action.accountBalance
 		}
 
 	default:

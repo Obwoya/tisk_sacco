@@ -184,7 +184,7 @@ export default class UsersService {
 
 	static getUserDeposits({ email }, token) {
 		const url = UsersService.host.concat(
-			"/users/api/" + email + "/savings/deposits"
+			"/users/api/" + email + "/savings/deposits/status"
 		)
 		const request = {
 			method: "GET",
