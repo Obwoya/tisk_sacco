@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import * as processTypes from "../Shared/processTypes"
-
+import { purgeStoredState } from "redux-persist"
 import Immutable from "seamless-immutable"
 import { combineReducers } from "redux"
 
@@ -198,6 +198,10 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			},
 			accountTypes: action.payload
 		}
+
+	case actionTypes.LOG_OUT_REQUESTED:
+		// purgeStoredState({storage})
+		return  Immutable.asMutable(usersInitialState)
 	default:
 		return state
 	}

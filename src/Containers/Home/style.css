@@ -47,6 +47,7 @@ h2 {
 }
 
 .quickActions .quickActionDeposit {
+  position: relative;
   left: 0px;
   top: 0px;
   bottom: 20px;
@@ -56,6 +57,7 @@ h2 {
 }
 
 .quickActions .quickActionLoan {
+  /* position: relative; */
   right: 0px;
   top: 0px;
   bottom: 20px;

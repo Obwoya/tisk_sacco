@@ -94,6 +94,18 @@ export const login = user => {
 		})
 	}
 }
+export const logout = () => {
+	return dispatch => {
+		dispatch({
+			type: actionTypes.LOG_OUT_REQUESTED
+		})
+		// dispatch({
+		// 	type: "PURGE"
+		// })
+
+		dispatch(push("/welcome"))
+	}
+}
 
 export const backgroundLogin = () => {
 	return dispatch => {

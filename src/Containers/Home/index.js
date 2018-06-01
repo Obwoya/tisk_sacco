@@ -168,7 +168,7 @@ class HomePage extends Component {
 									<div className="recentTransactionContainer">
 										<RecentTransactions activities ={userDepoists}/>
 									</div>
-									<div className="quickActions">
+									<div className="quickActions ">
 										<div>
 											<button
 												type="submit"
@@ -185,6 +185,15 @@ class HomePage extends Component {
 												<div>Take Loan</div>
 											</button>
 										</div>
+									</div>
+									<div>
+										<Button
+											children="Log Out"
+											backgroundColor={"#b32017"}
+											foregroundColor={"#ffffff"}
+											raised={true}
+										clickAction={()=>{this.props.userActions.logout()}}
+										/>
 									</div>
 								</div>
 							</div>
