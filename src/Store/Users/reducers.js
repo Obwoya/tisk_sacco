@@ -200,8 +200,8 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 		}
 
 	case actionTypes.LOG_OUT_REQUESTED:
-		purgeStoredState({storage})
-		return  Immutable.asMutable(usersInitialState)
+		purgeStoredState({ storage })
+		return Immutable.asMutable(usersInitialState)
 	default:
 		return state
 	}
