@@ -1,82 +1,60 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
 import styles from "./style.css"
+import { Link } from "react-router-dom"
 
+class Deposit extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			depositAmount: "0"
+		}
+	}
 
-class Deposit extends React.Component{
+	putNumber = number => {
+		if (isNaN(number)) {
+			return
+		}
 
-    constructor(props){
-        super(props);
-        this.state = {
-            depositAmount: "0"
-        }
-    }
+		let value = this.state.depositAmount
+		if (value == 0 || value == "0") value = number
+		else value = value + "" + number
+		this.setState({ depositAmount: value })
+	}
 
-    putNumber = (number) => {
-        if(isNaN(number)){
-            return;
-        }
+	deleteFromBack = () => {
+		let value = this.state.depositAmount
+		if (value.length < 2) value = "0"
+		else {
+			value = value.slice(0, -1)
+		}
+		this.setState({ depositAmount: value })
+	}
 
-        let value = this.state.depositAmount
-        if (value == 0 || value == "0") value = number;
-        else value = value + "" + number;
-        this.setState({depositAmount: value})
-    }
-
-    deleteFromBack = () => {
-        let value = this.state.depositAmount
-        if(value.length < 2) value = "0"
-        else
-        {
-            value = value.slice(0, -1);
-        } 
-        this.setState({depositAmount: value})
-    }
-
-    render(){
-        return(
-            <div className="depositPage">
-                <div className="topBar">
-                    <span className="arrowBack">&#8592;</span>
-                    Deposit savings
-                </div>
-                <div className="pageContent">
-                    <div className="depositAmountWrapper">
-                        <span type="number" placeholder="0.00" step="0.01" className="depositAmount">
-                        {/* <sup>$</sup> */}
-                        {this.state.depositAmount}
-                        </span>
-                    </div>
-                    {/* <div className="depositCurrency}>USD ></div> */}
-                    <table className="depositNumpad">
-                        <tbody>
-                            <tr>
-                                <td><a className="ripple" onClick={() => this.putNumber("1")}>1</a></td>
-                                <td><a className="ripple" onClick={() => this.putNumber("2")}>2</a></td>
-                                <td><a className="ripple" onClick={() => this.putNumber("3")}>3</a></td>
-                            </tr>
-                            <tr>
-                                <td><a className="ripple" onClick={() => this.putNumber(4)}>4</a></td>
-                                <td><a className="ripple" onClick={() => this.putNumber(5)}>5</a></td>
-                                <td><a className="ripple" onClick={() => this.putNumber(6)}>6</a></td>
-                            </tr>
-                            <tr>
-                                <td><a className="ripple" onClick={() => this.putNumber(7)}>7</a></td>
-                                <td><a className="ripple" onClick={() =>this.putNumber(8)}>8</a></td>
-                                <td><a className="ripple" onClick={() =>this.putNumber(9)}>9</a></td>
-                            </tr>
-                            <tr>
-                                <td><a className="ripple" onClick={() => this.putNumber("00")}>00</a></td>
-                                <td><a className="ripple" onClick={() => this.putNumber(0)}>0</a></td>
-                                <td><a className="ripple" onClick={() => this.deleteFromBack()}>#</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="javascript:void(0);" className="depositNext">Next</a>
-                </div>
-            </div>
-        )
-    }
+	render() {
+		return (
+			<div className="depositPage">
+				<div className="topBar">
+					<Link to="/home">
+						<span className="arrowBack">&#8592;</span>
+					</Link>
+					Deposit savings
+				</div>
+				<div className="pageContent">
+					<h2>LIPA NA MPESA INSTRUCTIONS</h2>
+					<p>1. Launch Sim Toolkit</p>
+					<p>2. Select Lipa ma M-PESA option</p>
+					<p>3. SELECT Pay Bill option</p>
+					<p>4. SELECT Enter business no.</p>
+					<p>5. Enter 606172</p>
+					<p>6. SELECT Enter Account no.</p>
+					<p>7. Enter your phone number</p>
+					<p>8. Enter Deposit amount</p>
+					<p>9. Enter your M-PESA pin and await confirmation message</p>
+				</div>
+			</div>
+		)
+	}
 }
 
 export default withRouter(Deposit)

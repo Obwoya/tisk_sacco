@@ -1,132 +1,126 @@
-
-
-.depositPage{
-    background-color: #b32017;
-    height: 100%;
-    overflow: hidden;
-    text-align: center;
-    color: white;
+.depositPage {
+  background-color: #b32017;
+  height: 100%;
+  overflow: hidden;
+  /* text-align: center; */
+  color: white;
 }
 
-.topBar{
-    text-align: left;
-    padding: 25px;
-    margin-bottom: 20px;
+.topBar {
+  text-align: left;
+  padding: 25px;
+  margin-bottom: 20px;
 }
 
-.arrowBack{
-    margin-right: 20px;
+.arrowBack {
+  margin-right: 20px;
 }
 
-.pageContent{
-
+.pageContent {
+  margin: 0 auto;
+  width: 50%;
 }
 
-.depositAmountWrapper{
-    margin: 20px;
-    border-bottom: solid;
+.depositAmountWrapper {
+  margin: 20px;
+  border-bottom: solid;
 }
 
-.depositAmount{
-    background-color: transparent;
-    color:white;
-    border: none;
-    padding: 15px;
-    margin: 20px 0px;
-    font-size: 60px;
-    width: auto;
-    text-align: center;
+.depositAmount {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin: 20px 0px;
+  font-size: 60px;
+  width: auto;
+  text-align: center;
 }
 
-@media only screen and (min-height:545px) {
-    
-    .depositAmount{
-        font-size: 70px
-    }
-  
+@media only screen and (min-height: 545px) {
+  .depositAmount {
+    font-size: 70px;
+  }
 }
 
-.depositAmount::placeholder{
-    color:white;
-    opacity: 1;
+.depositAmount::placeholder {
+  color: white;
+  opacity: 1;
 }
-.depositAmount:-moz-placeholder{
-    color:white;
-    opacity: 1;
+.depositAmount:-moz-placeholder {
+  color: white;
+  opacity: 1;
 }
-.depositAmount:-ms-input-placeholder{
-    color:white;
-    opacity: 1;
+.depositAmount:-ms-input-placeholder {
+  color: white;
+  opacity: 1;
 }
 
 .depositAmount::-webkit-outer-spin-button,
 .depositAmount::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-} 
-
-.depositAmount > sup{
-    font-size: x-large;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.depositCurrency{
-    color: rgba(255, 255, 255, 0.5)
+.depositAmount > sup {
+  font-size: x-large;
 }
 
-.depositNext{
-    background-color: rgba(0, 0, 0, 0.1);
-    color: white;
-    text-decoration: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 25px;
-    width: inherit;
+.depositCurrency {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.depositNext:visited{
-    color: white;
+.depositNext {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
+  width: inherit;
+}
+
+.depositNext:visited {
+  color: white;
 }
 
 .depositNext:hover,
-.depositNext:active{
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color 0.5s ease-out;
+.depositNext:active {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.5s ease-out;
 }
 
-.depositNumpad{
-    margin: 0 auto;
+.depositNumpad {
+  margin: 0 auto;
 }
 
-.depositNumpad > tbody > tr{
+.depositNumpad > tbody > tr {
 }
 
-.depositNumpad > tbody > tr > td{
-    vertical-align: middle;
-    padding: 20px 0px;
+.depositNumpad > tbody > tr > td {
+  vertical-align: middle;
+  padding: 20px 0px;
 }
 
-.depositNumpad > tbody > tr > td > a{
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    text-decoration: none;
-    padding: 15px 30px;
-    cursor: pointer;
+.depositNumpad > tbody > tr > td > a {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 15px 30px;
+  cursor: pointer;
 }
 
-@media only screen and (min-width:415px) {
-    
-    .depositNumpad > tbody > tr > td > a{
-        padding: 15px 50px;
-        
-    }
-  
+@media only screen and (min-width: 415px) {
+  .depositNumpad > tbody > tr > td > a {
+    padding: 15px 50px;
+  }
 }
 
-.depositNumpad > tbody > tr > td > a:visited{
-    color: white;
+.depositNumpad > tbody > tr > td > a:visited {
+  color: white;
 }
 
 /* Ripple effect */
@@ -135,16 +129,17 @@
   transition: background 0.8s;
 }
 .ripple:hover {
-  background: #00695C radial-gradient(circle, transparent 1%, #00695C 1%) center/15000%;
+  background: #00695c radial-gradient(circle, transparent 1%, #00695c 1%)
+    center/15000%;
 }
 .ripple:active {
-  background-color: rgba(255, 255, 255, 0.4);;
+  background-color: rgba(255, 255, 255, 0.4);
   background-size: 100%;
   transition: background 0s;
 }
 
 /* Button style */
-button.ripple  {
+button.ripple {
   border: none;
   border-radius: 2px;
   padding: 12px 18px;
