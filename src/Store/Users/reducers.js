@@ -204,6 +204,11 @@ export const usersReducer = (state = usersInitialState, action = {}) => {
 			// purgeStoredState({ storage })
 		return Immutable.asMutable(usersInitialState, { deep: true })
 
+	case actionTypes.GET_USER_EMAIL_REQUESTED:
+		return {
+			...state,
+			auth: { _isUserAuthenticated: false }
+		}
 	default:
 		return state
 	}

@@ -25,6 +25,9 @@ class HomePage extends Component {
 	}
 
 	componentDidMount() {
+		if(this.isEmpty(this.props.userEmail)){
+			this.props.userActions.getUserEmail()
+		}
 		let getUser = () => {
 			return Promise.resolve(
 				this.props.userActions.getUserInformation({
@@ -73,6 +76,12 @@ class HomePage extends Component {
 				/>
 			</div>
 		)
+	}
+	isEmpty(obj) {
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) return false
+		}
+		return true
 	}
 
 	render() {
@@ -166,7 +175,7 @@ class HomePage extends Component {
 										</div>
 									</div>
 									<div className="recentTransactionContainer">
-										<RecentTransactions activities ={userDepoists}/>
+										<RecentTransactions activities={userDepoists} />
 									</div>
 									<div className="quickActions ">
 										<div>
@@ -192,7 +201,9 @@ class HomePage extends Component {
 											backgroundColor={"#b32017"}
 											foregroundColor={"#ffffff"}
 											raised={true}
-										clickAction={()=>{this.props.userActions.logout()}}
+											clickAction={() => {
+												this.props.userActions.logout()
+											}}
 										/>
 									</div>
 								</div>

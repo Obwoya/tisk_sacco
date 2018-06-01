@@ -73,3 +73,5 @@ export const FETCH_ACCOUNT_TYPES_FAIL = "users.FETCH_ACCOUNT_TYPESFAIL"
 export const LOG_OUT_REQUESTED = "users.LOG_OUT_REQUESTED"
 export const LOG_OUT_SUCESS = "users.LOG_OUT_SUCESS"
 export const LOG_OUT_FAIL = "users.LOG_OUTFAIL"
+
+export const GET_USER_EMAIL_REQUESTED = "users.GET_USER_EMAIL_REQUESTED"

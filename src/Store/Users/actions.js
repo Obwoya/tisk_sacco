@@ -17,7 +17,7 @@ const getSessionToken = () => {
 }
 export const manageToken = () => {
 	return (dispatch, getState) => {
-		setTimeout(() => {
+		const timer = setTimeout(() => {
 			// Refresh the token
 			if (getSessionToken()) {
 				UsersService.refreshToken(getState().users.users.auth["token"])
@@ -28,18 +28,20 @@ export const manageToken = () => {
 									type: actionTypes.SET_TOKEN_SUCESS,
 									payload: token.token
 								})
+								dispatch(manageToken())
 							})
 						} else {
 							dispatch({
 								type: actionTypes.SET_TOKEN_FAIL
 							})
+							clearTimeout(timer)
 						}
 					})
 					.catch(error => {
 						throw error
 					})
-				dispatch(manageToken())
 			} else {
+				clearTimeout(timer)
 				dispatch({
 					type: actionTypes.SET_TOKEN_FAIL
 				})
@@ -373,6 +375,14 @@ export const getAccountTypes = () => {
 			} else if (response.status === 404) {
 				return dispatch({ type: actionTypes.FETCH_ACCOUNT_TYPES_FAIL })
 			}
+		})
+	}
+}
+
+export const getUserEmail = () => {
+	return dispatch => {
+		dispatch({
+			type: actionTypes.GET_USER_EMAIL_REQUESTED
 		})
 	}
 }
