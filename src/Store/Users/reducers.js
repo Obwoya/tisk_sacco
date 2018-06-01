@@ -39,7 +39,7 @@ const usersPersistConfig = {
 	blacklist: [
 		"_loginProcess",
 		"_fetchAccountTypesProcess",
-		// "_getUserInformationProcess",
+		"_getUserInformationProcess",
 		"_signupProcess",
 		"_getUserDepositsProcess",
 		// "accountTypes",
