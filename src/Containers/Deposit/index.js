@@ -41,16 +41,19 @@ class Deposit extends React.Component {
 					Deposit savings
 				</div>
 				<div className="pageContent">
-					<h2>LIPA NA MPESA INSTRUCTIONS</h2>
-					<p>1. Launch Sim Toolkit</p>
-					<p>2. Select Lipa ma M-PESA option</p>
-					<p>3. SELECT Pay Bill option</p>
-					<p>4. SELECT Enter business no.</p>
-					<p>5. Enter 606172</p>
-					<p>6. SELECT Enter Account no.</p>
-					<p>7. Enter your phone number</p>
-					<p>8. Enter Deposit amount</p>
-					<p>9. Enter your M-PESA pin and await confirmation message</p>
+					<p>1. Launch Safaricom Sim Toolkit</p>
+					<p>2. Select "Lipa Na M-PESA" option</p>
+					<p>3. Select "Pay Bill"</p>
+					<p>4. Select "Enter Business No."</p>
+					<p>5. Enter 606172 and Press "OK"</p>
+					<p>6. Select "Enter Account No."</p>
+					<p>7. Enter your Phone Number and Press "OK"</p>
+					<p>8. Enter Deposit Amount and Press "OK"</p>
+					<p>9. Enter your M-PESA PIN and press “OK”</p>
+					<p>
+						10. Confirm all the details are correct then press “OK” and wait for
+						a confirmation SMS from M-PESA.
+					</p>
 				</div>
 			</div>
 		)

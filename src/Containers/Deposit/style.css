@@ -18,7 +18,7 @@
 
 .pageContent {
   margin: 0 auto;
-  width: 50%;
+  width: 75%;
 }
 
 .depositAmountWrapper {
@@ -113,12 +113,6 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 415px) {
-  .depositNumpad > tbody > tr > td > a {
-    padding: 15px 50px;
-  }
-}
-
 .depositNumpad > tbody > tr > td > a:visited {
   color: white;
 }
@@ -150,4 +144,39 @@ button.ripple {
   background-color: #2196f3;
   box-shadow: 0 0 4px #999;
   outline: none;
+}
+
+@media only screen and (max-width: 415px) {
+  /* .depositNumpad > tbody > tr > td > a {
+    padding: 15px 50px;
+  } */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 400px) {
+  .pageContent > p {
+    font-size: 20px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .pageContent > p {
+    font-size: 24px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .pageContent{
+    width: 95%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
