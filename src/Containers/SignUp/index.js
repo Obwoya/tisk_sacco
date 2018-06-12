@@ -20,6 +20,7 @@ class SignUp extends Component {
 				password: "",
 				first_name: "",
 				last_name: "",
+				gender: "",
 				phone_number: "",
 				national_id: "",
 				confirm_password: "",
@@ -50,12 +51,11 @@ class SignUp extends Component {
 			}
 		})
 
-		if(finalUser.phone_number[0] === "0"){
+		if (finalUser.phone_number[0] === "0") {
 			let newPhone = finalUser.phone_number.slice(1)
-			finalUser.phone_number = "254"+ newPhone
-		}
-		else{			
-			finalUser.phone_number = "254"+ finalUser.phone_number
+			finalUser.phone_number = "254" + newPhone
+		} else {
+			finalUser.phone_number = "254" + finalUser.phone_number
 		}
 		this.props.userActions.individualSignup(finalUser)
 	}
@@ -142,11 +142,20 @@ class SignUp extends Component {
 								<div className="inputField">
 									<input
 										type="text"
-										id="lasst_name"
+										id="last_name"
 										name="last_name"
 										placeholder="Last name"
 										onChange={this.handleChange}
 									/>
+								</div>
+								<div className="">
+									<select name="gender" onChange={this.handleChange}>
+										<option selected disabled hidden>
+											Gender
+										</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+									</select>
 								</div>
 								<div className="inputField">
 									<input
@@ -233,4 +242,9 @@ const mapDispatchToProps = dispatch => {
 		userActions: bindActionCreators(userActions, dispatch)
 	}
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
+export default withRouter(
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(SignUp)
+)
