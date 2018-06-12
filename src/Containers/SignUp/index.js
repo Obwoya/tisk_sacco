@@ -148,7 +148,7 @@ class SignUp extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className="">
+									<div className="inputField">
 									<select name="gender" onChange={this.handleChange}>
 										<option selected disabled hidden>
 											Gender
