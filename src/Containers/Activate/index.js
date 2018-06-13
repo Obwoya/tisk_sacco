@@ -11,15 +11,26 @@ import NumPad from "../../Components/NumberPad"
 
 class Activate extends React.Component {
 	constructor(props) {
-		super(props)		
+		super(props)
 	}
 
-	onSubmitHandler = token=> {
+	onSubmitHandler = token => {
 		this.props.userActions.activateUser({ token: token.number })
 	}
 	render() {
-		return(
-			<NumPad size={6} submitAction={this.onSubmitHandler.bind(this)} title="User Activation Code" description={"Please enter the verification code sent to your email."}/> 
+		return (
+			<div className="activationPage">
+				<div className="container">
+					<NumPad
+						size={6}
+						submitAction={this.onSubmitHandler.bind(this)}
+						title="User Activation Code"
+						description={
+							"Please enter the verification code sent to your email."
+						}
+					/>
+				</div>
+			</div>
 		)
 	}
 }
@@ -34,4 +45,7 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Activate)
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Activate)

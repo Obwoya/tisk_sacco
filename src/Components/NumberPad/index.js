@@ -71,7 +71,7 @@ class NumberPad extends React.Component {
 		// 	let inp = document.getElementById(`code_input_${i}`)
 		// 	code = code + inp.value
 		// }
-
+		e.preventDefault()
 		this.props.submitAction({ number: this.state.number })
 	}
 	render() {

@@ -1,37 +1,4 @@
-
-
-.activatePage{
-    background-color: #b32017;
-    height: 100%;
-    overflow: hidden;
-    text-align: center;
-    color: white;
+.activationPage {
+  background-color: #b32017;
+  height: 100%;
 }
-
-.topBar{
-    text-align: left;
-    padding: 25px;
-    margin-bottom: 20px;
-}
-
-.arrowBack{
-    margin-right: 20px;
-}
-
-.pageContent{
-
-}
-
-.activateCodeWrapper > input{
-    width: 10%;
-    color: white;
-    background-color: transparent;
-    border: transparent;
-    font-weight: bold;
-    font-size: 32px;
-    border-bottom: solid white 2px;
-    margin: 1%;
-    text-align: center;
-}
-
-
