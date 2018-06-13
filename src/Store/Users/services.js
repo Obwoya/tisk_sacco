@@ -145,7 +145,7 @@ export default class UsersService {
 	}
 
 	static getUserInfomation({ email }, accessToken) {
-		const url = UsersService.host.concat("/api/v1/users/" + email)
+		const url = UsersService.host.concat("/api/v1/users/" + email +"/")
 		const request = {
 			method: "GET",
 			headers: {

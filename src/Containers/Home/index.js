@@ -28,7 +28,7 @@ class HomePage extends Component {
 		if(this.isEmpty(this.props.userEmail)){
 			this.props.userActions.getUserEmail()
 		}
-		let getUser = () => {
+		let getUser = () => {		
 			return Promise.resolve(
 				this.props.userActions.getUserInformation({
 					email: this.props.userEmail
@@ -36,7 +36,7 @@ class HomePage extends Component {
 			)
 		}
 		getUser().then(() => {
-			this.props.userActions.getUserDeposits(this.props.userInformation)
+			this.props.userActions.getUserDeposits({email: this.props.userEmail})
 		})
 		// this.props.userActions.backgroundLogin()
 	}
