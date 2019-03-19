@@ -19,6 +19,7 @@ import ActivateMFS from "../ActivateMFS"
 import RegistrationFees from "../RegistrationFees"
 import SelectAccount from "../SelectAccount"
 import CompanySignup from "../CompanySignup"
+import PasswordReset from "../PasswordReset"
 
 class App extends Component {
 	componentDidMount() {
@@ -36,6 +37,7 @@ class App extends Component {
 						<Route path="/selectAccount" component={SelectAccount} />
 						<Route path="/companysignup" component={CompanySignup} />
 						<Route path="/signup" component={SignUp} />
+						<Route path="/passwordreset" component={PasswordReset} />
 
 						<Route path="/signin" component={SignIn} />
 						<PrivateRoute

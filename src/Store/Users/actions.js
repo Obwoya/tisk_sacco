@@ -386,3 +386,13 @@ export const getUserEmail = () => {
 		})
 	}
 }
+
+export const sendPasswordResetCode = email => {
+	return dispatch => {
+		dispatch({
+			type: actionTypes.SEND_RESET_PASSWORD_CODE_REQUESTED
+		})
+
+		
+	}
+}
